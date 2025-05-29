@@ -20,9 +20,9 @@ export default function Hero(props) {
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     // Return the html.
     return (
-        <>
+        <div>
         Webpage content
-        </>
+        </div>
     )
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
