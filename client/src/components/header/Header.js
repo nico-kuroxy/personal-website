@@ -29,7 +29,7 @@ export default function Header(props) {
     // Return the html.
     return (
         // The container of the whole header component, applying the gradient style to it.
-        <div className="flex flex-h justify-between w-full bg-gradient-to-b from-blue-900 to-blue-600 text-white text-2xl px-3 py-7 rounded-b-2xl"> 
+        <div className="flex flex-row justify-between w-full bg-gradient-to-b from-blue-900 to-blue-600 text-white text-2xl px-3 py-7 rounded-b-2xl"> 
             {/* The container of the elements on the left side of the header, in particular the mail address. */}
             <div className="flex mr-4 items-center space-x-2">
                 {/* Open the default mail application of the user. Have a small shadow to highlight it in the browser. */}
