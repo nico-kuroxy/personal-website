@@ -1,3 +1,5 @@
+"use client";
+
 /**********************************************************************************************************************/
 //   author: Nicolas Erbetti
 //   brief: This file defines the Header react component.

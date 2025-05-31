@@ -9,14 +9,9 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries.
-import { React, Suspense } from "react";
-import dynamic from "next/dynamic";
+import { React } from "react";
 // Components.
-import Header from "../../components/header/Header.js";
-import Hero from "../../components/hero/Hero.js";
-import Footer from "../../components/footer/Footer.js";
 // Contexts.
-import { PageStyleProvider } from '../../context/PageStyleProvider.js'
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,11 +20,6 @@ import { PageStyleProvider } from '../../context/PageStyleProvider.js'
 const Page = () => {
   return (
     <div className="min-h-screen bg-center bg-no-repeat bg-black glow-bg">
-      <PageStyleProvider>
-      <Header/>
-      <Suspense fallback={<div>Loading...</div>}/>
-      <Footer/>
-      </PageStyleProvider>
     </div>
   );
 };

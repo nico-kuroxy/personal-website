@@ -1,13 +1,20 @@
 /**********************************************************************************************************************/
 //   author: Nicolas Erbetti
-//   brief: This file defines the layout of the web application.
-//          Especially, it defines the metadata of the webpage.
+//   brief: This file defines the layout of the web application, shared across multiple pages.
+//          Also, it defines the metadata of the webpage.
 /**********************************************************************************************************************/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries.
+import { React, Suspense } from "react";
+// Styles.
 import "../styles/globals.css";
+// Components.
+import Header from "../components/header/Header.js";
+import Footer from "../components/footer/Footer.js";
+// Context.
+import ContextProvider from "../context/ContextProvider";
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -30,7 +37,17 @@ export default function RootLayout({ children }) {
       </head>
       { /*Default style of the webpage's content.*/ }
       <body className={`text-white font-serifCustom antialiased`}>
-        {children}
+        { /* Provide the whole context variables to the applications.*/ }
+        <ContextProvider>
+          { /* Header of the webpage.*/ }
+          <header><Header/></header>
+          <main>
+            <Suspense fallback={<div>Loading...</div>}/>
+            {children}
+          </main>
+          { /* Footer of the webpage.*/ }
+          <footer><Footer/></footer>
+        </ContextProvider>
       </body>
     </html>
   );
