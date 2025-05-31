@@ -9,8 +9,8 @@
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider"
 // Components.
-import Introduction from "./Introduction"
 import Cube from "./Cube"
+import Introduction from "./Introduction"
 import Summary from "./Summary"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -26,13 +26,15 @@ export default function Hero(props) {
     return (
         // The container of the whole Hero component.
         <div className="flex flex-col flex-grow items-center">
-            {/* Some informations about me. */}
             <div className="flex-row flex justify-center">
-                <div className="basis-3/5 flex justify-center items-center">
-                    <Introduction />
+                {/* Personal infos take 2/3 and center in its container. */}
+                <div className="flex-col basis-3/5 flex justify-center items-center">
+                    {/* Some informations about me. */}
+                    <Introduction/>
                 </div>
-                {/* Cube takes 50% and centers its canvas */}
+                {/* Cube takes 1/3 and centers its canvas */}
                 <div className="basis-2/5 flex justify-center items-center">
+                    {/* Interactible cube with my picture and a little easter egg */}
                     <Cube imageFrontUrl="lightning-in-a-bottle.jpg" imageBackUrl="jinx.jpg" />
                 </div>
             </div>

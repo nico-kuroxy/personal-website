@@ -55,7 +55,7 @@ export default function Typewriter(props) {
       // Display the animation.
       <span className="text-6xl font-monoCustom">
         {/* Display the indexed word of the list up to the subindexed letter. */}
-        {words[index].substring(0, subIndex)}
+        <span className='mr-3'>{'>'}</span>{words[index].substring(0, subIndex)}
         {/* Display a vertical bar pulsating to represent the typing. */}
         <span className="animate-pulse -ml-4">|</span>
       </span>

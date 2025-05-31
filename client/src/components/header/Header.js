@@ -29,7 +29,7 @@ export default function Header(props) {
     // Return the html.
     return (
         // The container of the whole header component, applying the gradient style to it.
-        <div className="flex flex-row justify-between w-full bg-gradient-to-b from-[#1314EC] to-[#00b9ff] text-white text-2xl px-3 py-7 rounded-b-2xl"> 
+        <div className="flex flex-row justify-between w-full bg-gradient-to-b from-[#1314EC] to-[#00b9ff] text-white text-2xl px-3 py-5 rounded-b-2xl"> 
             {/* The container of the elements on the left side of the header, in particular the mail address. */}
             <div className="flex mr-4 items-center space-x-2">
                 {/* Open the default mail application of the user. Have a small shadow to highlight it in the browser. */}
@@ -86,13 +86,13 @@ export default function Header(props) {
                 </a>
                 {/* Toggle and display the dark mode has been selected. It has a fixed width to prevent element displacements. */}
                 <span className="w-px h-6 bg-yellow-500"></span>
-                <button onClick={toggleTheme} className="w-5 flex flex-col items-center relative group hover:text-yellow-300 text-yellow-500 text-2xl">
+                <button title="WIP" onClick={toggleTheme} className="w-5 flex flex-col items-center relative group hover:text-yellow-300 text-yellow-500 text-2xl">
                     {/* Current theme icon */}
                     {theme === 'dark' ? (<i className="fa-regular fa-moon [text-shadow:0_0_5px_#ff073a]"></i>) : (<i className="fa-regular fa-sun [text-shadow:0_0_5px_#ff073a]"></i>)}
                 </button>
                 {/* Select and display the selected language. */}
                 <span className="w-px h-6 bg-yellow-500"></span>
-                <div className="flex relative inline-block text-center group">
+                <div title="WIP" className="flex relative inline-block text-center group">
                     <i className="fa-solid fa-language text-4xl cursor-pointer 
                                 active:[text-shadow:0_0_5px_#ffffff] 
                                 active:text-yellow-300 group-hover:text-yellow-300"></i>
