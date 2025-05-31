@@ -1,29 +1,36 @@
-"use client";
+import dynamic from 'next/dynamic';
+
+const CameraViewer = dynamic(() => import('../ros/CameraViewer'), {
+  ssr: false,
+});
 
 /**********************************************************************************************************************/
 //   author: Nicolas Erbetti
-//   brief: This file defines the client render of the web application.
-//          It is used to organize the content of the laboratory webpage.
+//   brief: This file defines the Laboratory react component.
+//          It is used to organize the laboratory content of the webpage.
 /**********************************************************************************************************************/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
-// Libraries.
-import { React } from "react";
-// Components.
-import Laboratory from "../../components/laboratory/Laboratory.js";
 // Contexts.
+import { usePageStyle } from "../../context/PageStyleProvider";
+// Components.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//> WEBPAGE
-// Webpage's laboratory client html render.
-const Page = () => {
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-center bg-no-repeat bg-black glow-bg">
-        <Laboratory/>
-    </div>
-  );
-};
-export default Page;
+//> COMPONENT
+// Function declaration.
+export default function Laboratory(props) {
+    // Destructure the variables passed as argument.
+    const {} = props
+    // Destructure the context.
+    const {theme, toggleTheme, language, setLanguage} = usePageStyle()
+    // Return the html.
+    return (
+        // The container of the whole Laboratory component.
+        <div>
+            <CameraViewer/>
+        </div>
+    )
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
