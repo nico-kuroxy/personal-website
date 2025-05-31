@@ -10,10 +10,10 @@ function WobblingCube({ imageUrl }) {
 
   // Create six materials (one for each face)
   const materials = [
-    new THREE.MeshBasicMaterial({ color: '#FFF' }),  // right
+    new THREE.MeshBasicMaterial({ color: '#22F' }),  // right
     new THREE.MeshBasicMaterial({ color: '#2F2' }),  // left
     new THREE.MeshBasicMaterial({ color: '#F22' }),  // top
-    new THREE.MeshBasicMaterial({ color: '#22F' }),  // bottom
+    new THREE.MeshBasicMaterial({ color: '#FFF' }),  // bottom
     new THREE.MeshBasicMaterial({ map: texture }),   // front (facing camera)
     new THREE.MeshBasicMaterial({ color: '#222' }),  // back
   ];
@@ -32,7 +32,7 @@ function WobblingCube({ imageUrl }) {
   );
 }
 
-export default function Pyramid(props) {
+export default function Cube(props) {
   const {imageUrl} = props
   return (
     <Canvas style={{ width: '100%', height: '75vh', background: 'transparent' }}>

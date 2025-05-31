@@ -10,7 +10,7 @@
 import { usePageStyle } from "../../context/PageStyleProvider"
 // Components.
 import Introduction from "./Introduction"
-import Pyramid from "./Pyramid"
+import Cube from "./Cube"
 import Summary from "./Summary"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -31,9 +31,9 @@ export default function Hero(props) {
                 <div className="basis-3/5 flex justify-center items-center">
                     <Introduction />
                 </div>
-                {/* Pyramid takes 50% and centers its canvas */}
+                {/* Cube takes 50% and centers its canvas */}
                 <div className="basis-2/5 flex justify-center items-center">
-                    <Pyramid imageUrl="lightning-in-a-bottle.jpg" />
+                    <Cube imageUrl="lightning-in-a-bottle.jpg" />
                 </div>
             </div>
             {/* The summary with some metrics about my experiences. */}

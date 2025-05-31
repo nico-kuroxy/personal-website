@@ -35,7 +35,7 @@ export default function Typewriter(props) {
       }
       // If we deleted every letter, we start the typing mode and increment the word index.
       if (subIndex === 0 && deleting) {
-        setTimeout(() => setDeleting(false), pause)
+        setTimeout(() => setDeleting(false), pause/2)
         setIndex((prev) => (prev + 1) % words.length)
         return
       }
