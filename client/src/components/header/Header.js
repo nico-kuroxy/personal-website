@@ -61,7 +61,7 @@ export default function Header(props) {
                 {/* Teaser for some features coming soon (the lab...). */}
                 <span className="w-px h-6 bg-yellow-500"></span>
                 <button title="Coming soon" className="active:[text-shadow:0_0_5px_#ffffff] active:text-yellow-300 hover:text-yellow-300 hover:underline" 
-                  onClick={() => router.push('/laboratory')}>
+                  onClick={() => router.push('laboratory')}>
                     lab
                 </button>
                 {/* Redirect toward a list of all the publications I co-wrote, on arXiv. */}

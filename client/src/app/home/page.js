@@ -9,16 +9,30 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries.
-import { redirect } from 'next/navigation';
+import { React, Suspense } from "react";
+import dynamic from "next/dynamic";
 // Components.
+import Header from "../../components/header/Header.js";
+import Hero from "../../components/hero/Hero.js";
+import Footer from "../../components/footer/Footer.js";
 // Contexts.
+import { PageStyleProvider } from '../../context/PageStyleProvider.js'
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> WEBPAGE
-// Webpage's root client html render. Redirect automatically to the home directory.
-const RootPage = () => {
-  redirect('/home')
-}
-export default RootPage;
+// Webpage's client html render.
+const HomePage = () => {
+  return (
+    <div className="min-h-screen bg-center bg-no-repeat bg-black glow-bg">
+      <PageStyleProvider>
+      <Header/>
+      <Hero/>
+      <Suspense fallback={<div>Loading...</div>}/>
+      <Footer/>
+      </PageStyleProvider>
+    </div>
+  );
+};
+export default HomePage;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
