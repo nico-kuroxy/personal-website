@@ -24,7 +24,7 @@ import { PageStyleProvider } from '../context/PageStyleProvider.js'
 // Webpage's client html render.
 const Page = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-center bg-no-repeat bg-black glow-bg">
       <PageStyleProvider>
       <Header/>
       <Hero/>
