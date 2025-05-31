@@ -10,7 +10,7 @@ function WobblingCube({ imageUrl }) {
 
   // Create six materials (one for each face)
   const materials = [
-    new THREE.MeshBasicMaterial({ color: '#22F' }),  // right
+    new THREE.MeshBasicMaterial({ color: '#1314EC' }),  // right
     new THREE.MeshBasicMaterial({ color: '#2F2' }),  // left
     new THREE.MeshBasicMaterial({ color: '#F22' }),  // top
     new THREE.MeshBasicMaterial({ color: '#FFF' }),  // bottom
