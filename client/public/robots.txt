@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://kuroxy-website.netlify.app/
+
+# Sitemaps
+Sitemap: https://kuroxy-website.netlify.app/sitemap.xml

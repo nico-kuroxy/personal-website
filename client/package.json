@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@react-three/drei": "^9.74.3",
@@ -14,6 +15,7 @@
     "@zachfejes/js-horizons": "^1.0.2",
     "axios": "^1.7.9",
     "next": "^14.2.16",
+    "next-sitemap": "^4.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "swr": "^2.3.0",
