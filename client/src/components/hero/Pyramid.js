@@ -37,7 +37,7 @@ export default function Pyramid(props) {
   return (
     <Canvas style={{ width: '100%', height: '75vh', background: 'transparent' }}>
       {/* Position the camera to look directly at the origin */}
-      <PerspectiveCamera makeDefault position={[0, 0, 7]} />
+      <PerspectiveCamera makeDefault position={[0, 0, 8]} />
       <ambientLight intensity={0.5} />
       <WobblingCube imageUrl={imageUrl} />
       {/* Allow mouse rotation but disable zoom and pan. */}

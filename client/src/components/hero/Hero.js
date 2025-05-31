@@ -27,12 +27,12 @@ export default function Hero(props) {
         // The container of the whole Hero component.
         <div className="flex flex-col flex-grow items-center">
             {/* Some informations about me. */}
-            <div className="flex-1 flex-row flex justify-center">
-                <div className="flex-1 flex justify-center items-center">
+            <div className="flex-row flex justify-center">
+                <div className="basis-3/5 flex justify-center items-center">
                     <Introduction />
                 </div>
                 {/* Pyramid takes 50% and centers its canvas */}
-                <div className="flex-1 flex justify-center items-center">
+                <div className="basis-2/5 flex justify-center items-center">
                     <Pyramid imageUrl="lightning-in-a-bottle.jpg" />
                 </div>
             </div>

@@ -9,6 +9,7 @@
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider"
 // Components.
+import Typewriter from "./Typewriter"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -22,18 +23,18 @@ export default function Introduction(props) {
     // Return the html.
     return (
         // The container of the whole Introduction component.
-        <div className="flex justify-center flex-grow items-center">
+        <div className="flex justify-center flex-grow items-center pl-20">
             <div className="flex flex-col items-start text-left max-w-3xl space-y-4">
                 {/* My name. */}
                 <span className="flex text-4xl">My name is Nicolas Erbetti</span>
                 {/* My profession. */}
                 <div className="text-6xl font-monoCustom">
                     <p>Robotics Engineer /</p>
-                    <p>Subspecialities</p>
+                    <Typewriter words={["AI [=◉︿◉=]", "Machine Learning", "Autonomous Stack", "Mobile Robots", "Robotic Arms", "Space Systems", "Computer Vision", "Underwater Drones", "Web Development"]} speed={100} pause={1250} />
                 </div>
                 {/* What I do. */}
-                <div className="w-full text-2xl">
-                    <p>I delve deep into the system interfaces between software and hardware components to provide robust solutions to complex robotic problems.</p>
+                <div className="max-w-2xl text-2xl">
+                    <p>I use cutting-edge technologies and algorithms to provide robust solutions to complex robotic problems.</p>
                     <p>My goal ? Contributing to building a better future for all.</p>
                 </div>
             </div>
