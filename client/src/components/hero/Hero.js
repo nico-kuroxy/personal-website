@@ -25,7 +25,7 @@ export default function Hero(props) {
     // Return the html.
     return (
         // The container of the whole Hero component.
-        <div className="flex flex-col flex-grow items-center">
+        <div className="flex flex-col mb-20 flex-grow items-center justify-center">
             <div className="flex-row flex justify-center">
                 {/* Personal infos take 2/3 and center in its container. */}
                 <div className="flex-col basis-3/5 flex justify-center items-center">

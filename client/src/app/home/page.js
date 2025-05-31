@@ -20,7 +20,7 @@ import Hero from "../../components/hero/Hero.js";
 // Webpage's client html render.
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-center bg-no-repeat bg-black glow-bg">
+    <div className="flex items-center justify-center min-h-screen bg-center bg-no-repeat bg-black glow-bg">
         <Hero/>
     </div>
   );
