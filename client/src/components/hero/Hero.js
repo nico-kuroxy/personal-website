@@ -33,7 +33,7 @@ export default function Hero(props) {
                 </div>
                 {/* Cube takes 50% and centers its canvas */}
                 <div className="basis-2/5 flex justify-center items-center">
-                    <Cube imageUrl="lightning-in-a-bottle.jpg" />
+                    <Cube imageFrontUrl="lightning-in-a-bottle.jpg" imageBackUrl="jinx.jpg" />
                 </div>
             </div>
             {/* The summary with some metrics about my experiences. */}

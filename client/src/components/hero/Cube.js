@@ -4,9 +4,10 @@ import { useRef } from 'react';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 
 
-function WobblingCube({ imageUrl }) {
+function WobblingCube({ imageBackUrl, imageFrontUrl }) {
   const cubeRef = useRef();
-  const texture = useLoader(THREE.TextureLoader, imageUrl);
+  const texture_front = useLoader(THREE.TextureLoader, imageFrontUrl);
+  const texture_back = useLoader(THREE.TextureLoader, imageBackUrl);
 
   // Create six materials (one for each face)
   const materials = [
@@ -14,8 +15,8 @@ function WobblingCube({ imageUrl }) {
     new THREE.MeshBasicMaterial({ color: '#2F2' }),  // left
     new THREE.MeshBasicMaterial({ color: '#F22' }),  // top
     new THREE.MeshBasicMaterial({ color: '#FFF' }),  // bottom
-    new THREE.MeshBasicMaterial({ map: texture }),   // front (facing camera)
-    new THREE.MeshBasicMaterial({ color: '#222' }),  // back
+    new THREE.MeshBasicMaterial({ map: texture_front }),   // front (facing camera)
+    new THREE.MeshBasicMaterial({ map: texture_back }),  // back
   ];
 
   useFrame(({ clock }) => {
@@ -33,13 +34,13 @@ function WobblingCube({ imageUrl }) {
 }
 
 export default function Cube(props) {
-  const {imageUrl} = props
+  const {imageFrontUrl, imageBackUrl} = props
   return (
     <Canvas style={{ width: '100%', height: '75vh', background: 'transparent' }}>
       {/* Position the camera to look directly at the origin */}
       <PerspectiveCamera makeDefault position={[0, 0, 8]} />
       <ambientLight intensity={0.5} />
-      <WobblingCube imageUrl={imageUrl} />
+      <WobblingCube imageFrontUrl={imageFrontUrl} imageBackUrl={imageBackUrl} />
       {/* Allow mouse rotation but disable zoom and pan. */}
       <OrbitControls enableZoom={false} enablePan={false}/>
     </Canvas>
