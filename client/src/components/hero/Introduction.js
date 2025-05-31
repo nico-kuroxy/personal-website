@@ -1,7 +1,7 @@
 /**********************************************************************************************************************/
 //   author: Nicolas Erbetti
-//   brief: This file defines the Hero react component.
-//          It is used to organize the main content of the webpage.
+//   brief: This file defines the Introduction react component.
+//          It is used to organize the text introducing me..
 /**********************************************************************************************************************/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -9,36 +9,36 @@
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider"
 // Components.
-import Introduction from "./Introduction"
-import Pyramid from "./Pyramid"
-import Summary from "./Summary"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> COMPONENT
 // Function declaration.
-export default function Hero(props) {
+export default function Introduction(props) {
     // Destructure the variables passed as argument.
     const {} = props
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     // Return the html.
     return (
-        // The container of the whole Hero component.
-        <div className="flex flex-col flex-grow items-center">
-            {/* Some informations about me. */}
-            <div className="flex-1 flex-row flex justify-center">
-                <div className="flex-1 flex justify-center items-center">
-                    <Introduction />
+        // The container of the whole Introduction component.
+        <div className="flex justify-center flex-grow items-center">
+            <div className="flex flex-col items-start text-left max-w-3xl space-y-4">
+                {/* My name. */}
+                <span className="flex text-4xl">My name is Nicolas Erbetti</span>
+                {/* My profession. */}
+                <div className="text-6xl font-monoCustom">
+                    <p>Robotics Engineer /</p>
+                    <p>Subspecialities</p>
                 </div>
-                {/* Pyramid takes 50% and centers its canvas */}
-                <div className="flex-1 flex justify-center items-center">
-                    <Pyramid imageUrl="lightning-in-a-bottle.jpg" />
+                {/* What I do. */}
+                <div className="w-full text-2xl">
+                    <p>I delve deep into the system interfaces between software and hardware components to provide robust solutions to complex robotic problems.</p>
+                    <p>My goal ? Contributing to building a better future for all.</p>
                 </div>
             </div>
-            {/* The summary with some metrics about my experiences. */}
-            <Summary/>
         </div>
+
     )
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

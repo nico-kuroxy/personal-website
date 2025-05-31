@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^9.74.3",
     "@react-three/fiber": "^8.17.12",
     "@zachfejes/js-horizons": "^1.0.2",
     "axios": "^1.7.9",
@@ -16,7 +17,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "swr": "^2.3.0",
-    "three": "^0.172.0"
+    "three": "^0.150.1"
   },
   "devDependencies": {
     "postcss": "^8",
