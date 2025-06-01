@@ -22,7 +22,7 @@ export default function ControlPanel(props) {
     // Return the html.
     return (
         // The container of the whole ControlPanel component.
-        <footer className="w-full  justify-between fixed bottom-0 left-0 z-50 flex flex-row bg-gradient-to-b to-[#1314EC] from-[#00b9ff] text-white text-2xl px-3 py-5 rounded-t-2xl">
+        <footer className="w-3/4 fixed bottom-0 left-1/2 -translate-x-1/2 z-50 flex flex-row justify-between bg-gradient-to-b from-[#00b9ff] to-[#1314EC] text-white text-2xl px-4 py-5 rounded-t-2xl">
             {/* Buttons on the left side. */}
             <div className="flex items-center space-x-3">
                 {/* Whether or not the app is connected to ROS. */}

@@ -29,7 +29,7 @@ export default function Laboratory(props) {
     // Return the html.
     return (
         // The container of the whole Laboratory component.
-        <div>
+        <div className=''>
             {/* The viewer for the ros camera feedback. */}
             <CameraViewer/>
             {/* The footer containing all the buttons / lights to set up the laboratory. */}
