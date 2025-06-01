@@ -13,7 +13,7 @@
 //> DEPENDENCIES
 // Libraries.
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -28,6 +28,8 @@ export default function Header(props) {
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     // Define the router to navigate between pages.
     const router = useRouter()
+    // Retrieve the current's page name (updated dynamically).
+    const pathname = usePathname()
     // Return the html.
     return (
         // The container of the whole header component, applying the gradient style to it.
@@ -56,13 +58,13 @@ export default function Header(props) {
             {/* The container of the elements on the right side of the header, in particular the home button, the publication, the resume... */}
             <div className="flex ml-4 items-center space-x-2">
                 {/* Redirect toward the front page of the webapp. */}
-                <button className="active:[text-shadow:0_0_5px_#ffffff] active:text-yellow-300 hover:text-yellow-300 hover:underline" 
+                <button className={`hover:text-yellow-300 hover:underline active:[text-shadow:0_0_5px_#ffffff] active:text-yellow-300 ${pathname === "/home" ? 'text-yellow-500 [text-shadow:0_0_5px_#ff073a,0_0_10px_#ff073a]' : ''}`}
                   onClick={() => router.push('/')}>
                     home
                 </button>
                 {/* Teaser for some features coming soon (the lab...). */}
                 <span className="w-px h-6 bg-yellow-500"></span>
-                <button title="Coming soon" className="active:[text-shadow:0_0_5px_#ffffff] active:text-yellow-300 hover:text-yellow-300 hover:underline" 
+                <button className={`hover:text-yellow-300 hover:underline active:[text-shadow:0_0_5px_#ffffff] active:text-yellow-300 ${pathname === "/laboratory" ? 'text-yellow-500 [text-shadow:0_0_5px_#ff073a,0_0_10px_#ff073a]' : ''}`}
                   onClick={() => router.push('laboratory')}>
                     lab
                 </button>
@@ -90,7 +92,7 @@ export default function Header(props) {
                 <span className="w-px h-6 bg-yellow-500"></span>
                 <button title="WIP" onClick={toggleTheme} className="w-5 flex flex-col items-center relative group hover:text-yellow-300 text-yellow-500 text-2xl">
                     {/* Current theme icon */}
-                    {theme === 'dark' ? (<i className="fa-regular fa-moon [text-shadow:0_0_5px_#ff073a]"></i>) : (<i className="fa-regular fa-sun [text-shadow:0_0_5px_#ff073a]"></i>)}
+                    {theme === 'dark' ? (<i className="fa-regular fa-moon [text-shadow:0_0_5px_#ff073a,0_0_10px_#ff073a]"></i>) : (<i className="fa-regular fa-sun [text-shadow:0_0_5px_#ff073a,0_0_10px_#ff073a]"></i>)}
                 </button>
                 {/* Select and display the selected language. */}
                 <span className="w-px h-6 bg-yellow-500"></span>
