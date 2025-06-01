@@ -21,7 +21,8 @@ import Hero from "../../components/hero/Hero.js";
 const HomePage = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-center bg-no-repeat bg-black glow-bg">
-        <Hero/>
+      { /* Main content of the webpage.*/ }
+      <Hero/>
     </div>
   );
 };

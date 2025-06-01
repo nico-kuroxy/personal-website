@@ -45,8 +45,6 @@ export default function RootLayout({ children }) {
             <Suspense fallback={<div>Loading...</div>}/>
             {children}
           </main>
-          { /* Footer of the webpage.*/ }
-          <footer><Footer/></footer>
         </ContextProvider>
       </body>
     </html>

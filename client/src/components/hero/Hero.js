@@ -10,6 +10,7 @@
 import { usePageStyle } from "../../context/PageStyleProvider"
 // Components.
 import Cube from "./Cube"
+import Footer from "@/src/components/footer/Footer.js";
 import Introduction from "./Introduction"
 import Summary from "./Summary"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -40,6 +41,8 @@ export default function Hero(props) {
             </div>
             {/* The summary with some metrics about my experiences. */}
             <Summary/>
+            { /* Footer of the webpage.*/ }
+            <Footer/>
         </div>
     )
 }

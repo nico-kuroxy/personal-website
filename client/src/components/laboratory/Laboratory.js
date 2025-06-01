@@ -15,6 +15,7 @@ const CameraViewer = dynamic(() => import('../ros/CameraViewer'), {
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider";
 // Components.
+import ControlPanel from './ControlPanel';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -29,7 +30,10 @@ export default function Laboratory(props) {
     return (
         // The container of the whole Laboratory component.
         <div>
+            {/* The viewer for the ros camera feedback. */}
             <CameraViewer/>
+            {/* The footer containing all the buttons / lights to set up the laboratory. */}
+            <ControlPanel/>
         </div>
     )
 }
