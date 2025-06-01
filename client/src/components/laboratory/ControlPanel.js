@@ -24,22 +24,22 @@ export default function ControlPanel(props) {
         // The container of the whole ControlPanel component.
         <footer className="w-full  justify-between fixed bottom-0 left-0 z-50 flex flex-row bg-gradient-to-b to-[#1314EC] from-[#00b9ff] text-white text-2xl px-3 py-5 rounded-t-2xl">
             {/* Buttons on the left side. */}
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-3">
                 {/* Whether or not the app is connected to ROS. */}
                 <i class="fa-regular fa-lightbulb icon-glow text-red-500"></i>
-                <span>Connect to ROS</span>
+                <span>Connect ROS</span>
                 <span className="w-px h-6 bg-yellow-500"></span>
                 {/* Whether or not a world has been loaded */}
                 <i class="fa-regular fa-lightbulb icon-glow text-red-500"></i>
-                <span>Load a world</span>
+                <span>Load world</span>
                 <span className="w-px h-6 bg-yellow-500"></span>
                 {/* Whether or not a robot has been loaded. */}
                 <i class="fa-regular fa-lightbulb icon-glow text-red-500"></i>
-                <span>Load a robot</span>
+                <span>Load robot</span>
                 <span className="w-px h-6 bg-yellow-500"></span>
                 {/* Whether or not a controller is connected. */}
                 <i class="fa-regular fa-lightbulb icon-glow text-red-500"></i>
-                <span>Connect a controller</span>
+                <span>Connect controller</span>
                 <span className="w-px h-6 bg-yellow-500"></span>
                 {/* Apply the chosen parameters. */}
                 <i class="fa-solid fa-triangle-exclamation text-orange-400 flicker-icon-glow "></i>
