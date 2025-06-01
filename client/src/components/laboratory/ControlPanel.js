@@ -11,6 +11,8 @@ import { motion } from 'framer-motion';
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider";
 // Components.
+// Utils.
+import { slideUp } from '@/src/utils/animation';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -21,12 +23,6 @@ export default function ControlPanel(props) {
     const {} = props
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
-    // Animation declaration.
-    const slideUp = {
-        hidden: { y: '100%' },             // Start below the screen
-        visible: { y: '0%', transition: { duration: 0.5, ease: 'easeOut' } },
-        exit: { y: '100%', transition: { duration: 0.4, ease: 'easeIn' } }
-      };
     // Return the html.
     return (
         // The container of the whole ControlPanel component, with the slide-in animation.
