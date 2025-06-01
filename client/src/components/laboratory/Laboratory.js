@@ -12,6 +12,7 @@ const CameraViewer = dynamic(() => import('../ros/CameraViewer'), {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
+// Libraries
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider";
 // Components.
@@ -32,7 +33,7 @@ export default function Laboratory(props) {
         <div className=''>
             {/* The viewer for the ros camera feedback. */}
             <CameraViewer/>
-            {/* The footer containing all the buttons / lights to set up the laboratory. */}
+            {/* The footer containing all the buttons / lights to set up the laboratory, animated into view. */}
             <ControlPanel/>
         </div>
     )
