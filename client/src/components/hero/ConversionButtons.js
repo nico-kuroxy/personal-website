@@ -25,7 +25,7 @@ export default function ConversionButtons(props) {
      // Return the html.
      return (
         // The container of the whole ConversionButtons component.
-        <div className="flex pt-2 font-bold text-center font-monoCustom text-l justify-center items-center">
+        <div className="flex pt-2 font-bold text-center font-monoCustom text-xl justify-center items-center">
             {/* Open the mail application. */}
             <a href="mailto:nicolas.erbetti.k@gmail.com">
                 <span className="flex active:[text-shadow:0_0_5px_#ff073a] bg-yellow-500 hover:bg-yellow-300 active:bg-yellow-300 p-2 ml-2 m-2">Contact me</span>
