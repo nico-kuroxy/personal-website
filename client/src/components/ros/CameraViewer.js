@@ -14,7 +14,9 @@ const CameraViewer = () => {
 
   useEffect(() => {
     const ros = new ROSLIB.Ros({
-      url: 'ws://192.168.1.16:9090',
+      // Use wss (web socket secure) instead of simple ws (websocket) to guarantee safety and be compatible with most browsers.
+      // This requires the connection with the server to be configured accordingly.
+      url: 'wss://192.168.1.16:9090',
     });
     ros.on('connection', () => {
       console.log('Connected to ROSBridge!');
