@@ -12,6 +12,7 @@
 // Components
 // Context
 import { PageStyleProvider } from './PageStyleProvider.js'
+import { LaboratoryProvider } from './LaboratoryProvider.js';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -20,7 +21,9 @@ import { PageStyleProvider } from './PageStyleProvider.js'
 export default function ContextProvider({children}) {
     return(
         <PageStyleProvider>
-            {children}
+            <LaboratoryProvider>
+                {children}
+            </LaboratoryProvider>
         </PageStyleProvider>
     )
 }

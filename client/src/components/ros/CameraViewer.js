@@ -2,12 +2,15 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import ROSLIB from 'roslib';
+import { useLaboratory } from '@/src/context/LaboratoryProvider';
 
 const CameraViewer = () => {
   const [imageSrc, setImageSrc] = useState('');
   const joystickRef = useRef(null);
   const rosRef = useRef(null);
   const cmdVelPubRef = useRef(null);
+  // Destructure the context.
+  const {controller, controllerAxes, controllerButtons} = useLaboratory()
 
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -96,6 +99,12 @@ const CameraViewer = () => {
     };
   }, [isDragging]);
 
+  useEffect(() => {
+    if (controller && controllerAxes) {
+      setPosition({x: controllerAxes[0], y: -controllerAxes[1]})
+    }
+  }, [controller, JSON.stringify(controllerAxes)])
+
   // Touch handlers
   const handleTouchStart = (event) => {
     event.preventDefault();
@@ -141,35 +150,57 @@ const CameraViewer = () => {
   }, [position]);
 
   return (
-    <div className="flex-shrink-0 w-80 h-60 bg-black p-2">
-      <div
-        ref={joystickRef}
-        className="relative w-32 h-32 rounded-full bg-gray-200 select-none touch-none mx-auto"
-        onMouseDown={handleMouseDown}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        style={{ touchAction: 'none' }}
-      >
-        <div
-          className="absolute w-6 h-6 rounded-full bg-blue-500"
-          style={{
-            left: `${50 + position.x * 50}%`,
-            top: `${50 - position.y * 50}%`,
-            transform: 'translate(-50%, -50%)',
-            transition: isDragging ? 'none' : 'left 0.2s, top 0.2s',
-          }}
-        />
+    <div>
+      <div className="p-4 font-mono text-sm">
+        {/* Conditionnal rendering of the buttons, if the gamepad is connected. */}
+        { (controller) && (
+          <>
+            <div className="mb-2">
+              <strong>Buttons:</strong>{' '}
+              {controllerButtons.map((pressed, idx) => (
+                <span
+                  key={idx}
+                  className={`inline-block w-6 text-center mx-0.5 rounded ${
+                    pressed ? 'bg-green-500 text-white' : 'bg-gray-200'
+                  }`}
+                >
+                  {idx}
+                </span>
+              ))}
+            </div>
+          </>
+        )}
       </div>
-      {imageSrc && (
-        <img
-          src={imageSrc}
-          alt="Video Stream"
-          className="object-cover w-full h-full mt-2 rounded-md"
-        />
-      )}
+      <div className="flex-shrink-0 w-80 h-60 bg-black p-2">
+        <div
+          ref={joystickRef}
+          className="relative w-32 h-32 rounded-full bg-gray-200 select-none touch-none mx-auto"
+          onMouseDown={handleMouseDown}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          style={{ touchAction: 'none' }}
+        >
+          <div
+            className="absolute w-6 h-6 rounded-full bg-blue-500"
+            style={{
+              left: `${50 + position.x * 50}%`,
+              top: `${50 - position.y * 50}%`,
+              transform: 'translate(-50%, -50%)',
+              transition: isDragging ? 'none' : 'left 0.2s, top 0.2s',
+            }}
+          />
+        </div>
+        {imageSrc && (
+          <img
+            src={imageSrc}
+            alt="Video Stream"
+            className="object-cover w-full h-full mt-2 rounded-md"
+          />
+        )}
+      </div>
     </div>
-  );
+    );
 };
 
 export default CameraViewer;

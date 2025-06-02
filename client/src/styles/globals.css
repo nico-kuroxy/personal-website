@@ -43,6 +43,30 @@ body {
   }
 }
 
+.icon-glow-red {
+  opacity: 1;
+  text-shadow:
+    0 0 5px #ff073a,
+    0 0 10px #ff073a,
+    0 0 20px #ff073a,
+    0 0 40px #ff073a,
+    0 0 60px #ff073a;
+}
+
+.icon-glow-green {
+  opacity: 1;
+  text-shadow:
+    0 0 5px #07ff13,
+    0 0 10px #07ff13,
+    0 0 20px #07ff13,
+    0 0 40px #07ff13,
+    0 0 60px #07ff13;
+}
+
+.flicker-icon-glow-red {
+  animation: flicker 15s infinite;
+}
+
 @keyframes flicker {
   0%, 19%, 20.5%, 22%, 54%, 55.5%, 100% {
     opacity: 1;
@@ -57,18 +81,4 @@ body {
     opacity: 0.4;
     text-shadow: none;
   }
-}
-
-.icon-glow {
-  opacity: 1;
-  text-shadow:
-    0 0 5px #ff073a,
-    0 0 10px #ff073a,
-    0 0 20px #ff073a,
-    0 0 40px #ff073a,
-    0 0 60px #ff073a;
-}
-
-.flicker-icon-glow {
-  animation: flicker 15s infinite;
 }
