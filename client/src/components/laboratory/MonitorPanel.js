@@ -1,49 +1,45 @@
-import dynamic from 'next/dynamic';
-
-const CameraViewer = dynamic(() => import('../ros/CameraViewer'), {
-  ssr: false,
-});
-
-const RosBridge = dynamic(() => import('./RosBridge'), {
-    ssr: false,
-  });
-
 /**********************************************************************************************************************/
 //   author: Nicolas Erbetti
-//   brief: This file defines the Laboratory react component.
-//          It is used to organize the laboratory content of the webpage.
+//   brief: This file defines the MonitorPanel react component.
+//          It is used to organize the monitor views of the laboratory page.
 /**********************************************************************************************************************/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries
 // Contexts.
+import { useLaboratory } from "../../context/LaboratoryProvider";
 import { usePageStyle } from "../../context/PageStyleProvider";
 // Components.
-import ControlPanel from './ControlPanel';
-import MonitorPanel from './MonitorPanel';
+import GameController from './GameController';
+import MonitorRobot from './MonitorRobot';
+// Utils.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> COMPONENT
 // Function declaration.
-export default function Laboratory(props) {
+export default function MonitorPanel(props) {
     // Destructure the variables passed as argument.
     const {} = props
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     // Return the html.
     return (
-        // The container of the whole Laboratory component.
-        <div className='flex h-screen justify-center items-center'>
-            {/* The RosBridge component to establish communication with the server. */}
-            <RosBridge/>
-            {/* The canvas for the ros data feedback. */}
-            <MonitorPanel/>
-            {/* The viewer for the ros camera feedback. */}
-            {/* <CameraViewer/> */}
-            {/* The footer containing all the buttons / lights to set up the laboratory, animated into view. */}
-            <ControlPanel/>
+        // The container of the whole MonitorPanel component, with the slide-in animation.
+        <div className="flex h-4/5 w-screen">
+            {/* Left panel*/}
+            <div className="relative bg-gray-500 w-3/5 m-3 ml-6">
+                {/* The handler for the game controller. */}
+                <GameController/>
+                {/* The handler for the video stream. */}
+                <MonitorRobot/>
+            </div>
+            {/* Right panel*/}
+            <div className="flex flex-col w-2/5">
+                <div className="bg-gray-300 flex-1 m-3 mr-6"></div>
+                <div className="bg-gray-400 flex-1 m-3 mr-6"></div>
+            </div>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import ROSLIB from 'roslib';
+import 'roslib/build/roslib'; // Required syntax to work in production.
 import { useLaboratory } from '@/src/context/LaboratoryProvider';
 
 const CameraViewer = () => {
@@ -151,26 +151,6 @@ const CameraViewer = () => {
 
   return (
     <div>
-      <div className="p-4 font-mono text-sm">
-        {/* Conditionnal rendering of the buttons, if the gamepad is connected. */}
-        { (controller) && (
-          <>
-            <div className="mb-2">
-              <strong>Buttons:</strong>{' '}
-              {controllerButtons.map((pressed, idx) => (
-                <span
-                  key={idx}
-                  className={`inline-block w-6 text-center mx-0.5 rounded ${
-                    pressed ? 'bg-green-500 text-white' : 'bg-gray-200'
-                  }`}
-                >
-                  {idx}
-                </span>
-              ))}
-            </div>
-          </>
-        )}
-      </div>
       <div className="flex-shrink-0 w-80 h-60 bg-black p-2">
         <div
           ref={joystickRef}

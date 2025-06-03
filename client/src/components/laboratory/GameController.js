@@ -79,8 +79,18 @@ export default function GameController(props) {
     }, []) 
     // Return the html.
     return (
-      // The container of the GameController component.
-      <div></div>
+      // The container of the GameController buttons component.
+      <div className="absolute inset-0 p-4 font-monoCustom">
+        {controller && (
+          <div className="flex flex-col w-6">
+            {controllerButtons.map((pressed, idx) => (
+              <span key={idx} className={`w-6 text-center rounded ${pressed ? 'bg-green-400 text-white' : 'bg-gray-400'}`}>
+                {idx}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
     )
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -24,7 +24,7 @@ export default function ControlPanel(props) {
     const {} = props
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
-    const {controller} = useLaboratory()
+    const {controller, ros} = useLaboratory()
     // Return the html.
     return (
         // The container of the whole ControlPanel component, with the slide-in animation.
@@ -34,7 +34,7 @@ export default function ControlPanel(props) {
                 {/* Buttons on the left side. */}
                 <div className="flex items-center space-x-3">
                     {/* Whether or not the app is connected to ROS. */}
-                    <i className="fa-regular fa-lightbulb icon-glow-red text-red-500"></i>
+                    <i className={"fa-regular fa-lightbulb " + (ros?  " icon-glow-green text-green-200 " : " icon-glow-red text-red-500 ")}></i>
                     <span>Connect ROS</span>
                     <span className="w-px h-6 bg-yellow-500"></span>
                     {/* Whether or not a world has been loaded */}
