@@ -80,11 +80,11 @@ export default function GameController(props) {
     // Return the html.
     return (
       // The container of the GameController buttons component.
-      <div className="absolute inset-0 p-4 font-monoCustom">
+      <div className="flex absolute inset-0 p-4 items-center font-monoCustom">
         {controller && (
           <div className="flex flex-col w-6">
             {controllerButtons.map((pressed, idx) => (
-              <span key={idx} className={`w-6 text-center rounded ${pressed ? 'bg-green-400 text-white' : 'bg-gray-400'}`}>
+              <span key={idx} className={`w-6 text-center rounded ${pressed ? 'bg-green-400 text-white' : 'bg-[#00b9ff]  bg-opacity-50'}`}>
                 {idx}
               </span>
             ))}

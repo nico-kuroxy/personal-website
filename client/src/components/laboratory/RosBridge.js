@@ -7,7 +7,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react';
 import 'roslib/build/roslib'; // Required syntax to work in production.
 // Contexts.
 import { useLaboratory } from "../../context/LaboratoryProvider";
