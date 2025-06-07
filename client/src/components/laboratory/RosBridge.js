@@ -22,7 +22,7 @@ export default function RosBridge(props) {
     // Destructure the variables passed as argument.
     const {} = props
     // Destructure the context.
-    const { ros, setRos, monitorRobotSrc, setMonitorRobotSrc, controller, controllerAxes } = useLaboratory()
+    const { ros, setRos, monitorRobotSrc, setMonitorRobotSrc, controller, controllerAxes, jointStates } = useLaboratory()
     // Declare variables.
     const [position, setPosition] = useState({ x: 0, y: 0 })
     // Declre references.
@@ -58,19 +58,23 @@ export default function RosBridge(props) {
         ros.on('close', () => { console.warn('Connection to ROSBridge closed.'); setRos(false)})
         // We create the image subscriber.
         const imageSub = new ROSLIB.Topic({
-            ros,
-            name: 'camera/image_raw/compressed',
-            messageType: 'sensor_msgs/CompressedImage',
+            ros, name: 'camera/image_raw/compressed', messageType: 'sensor_msgs/CompressedImage'
         })
         // And we subscribe to it.
         imageSub.subscribe((message) => {
-        setMonitorRobotSrc(`data:image/jpeg;base64,${message.data}`)
+            setMonitorRobotSrc(`data:image/jpeg;base64,${message.data}`)
+        })
+        // We create the joint subscriber.
+        const jointSub = new ROSLIB.Topic({
+            ros, name: 'joint_states', messageType: 'sensor_msgs/JointState'
+        })
+        // And we subscribe to it.
+        jointSub.subscribe((message) => {
+            message.name.forEach((name, i) => { jointStates.current[name] = message.position[i] })
         })
         // We create the twist publisher.
         const cmdVelPub = new ROSLIB.Topic({
-            ros,
-            name: 'cmd_vel',
-            messageType: 'geometry_msgs/Twist',
+            ros, name: 'cmd_vel', messageType: 'geometry_msgs/Twist'
         })
         // And we assign it to a ref.
         cmdVelPubRef.current = cmdVelPub

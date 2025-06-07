@@ -1,7 +1,7 @@
 /**********************************************************************************************************************/
 //   author: Nicolas Erbetti
 //   brief: This file defines the MonitorRobot react component.
-//          It is used to display a 3d model of the selected robot.
+//          It is used to display a the video feedback of the selected robot.
 /**********************************************************************************************************************/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -9,7 +9,6 @@
 // Libraries
 // Contexts.
 import { useLaboratory } from "../../context/LaboratoryProvider";
-import { usePageStyle } from "../../context/PageStyleProvider";
 // Components.
 // Utils.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -22,7 +21,6 @@ export default function MonitorRobot(props) {
     const {} = props
     // Destructure the context.
     const {monitorRobotSrc} = useLaboratory()
-    const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     // Return the html.
     return (
         // The container of the whole MonitorRobot component, with the slide-in animation.

@@ -10,9 +10,11 @@
 // Contexts.
 import { useLaboratory } from "../../context/LaboratoryProvider";
 import { usePageStyle } from "../../context/PageStyleProvider";
+import { Canvas } from '@react-three/fiber';
 // Components.
 import GameController from './GameController';
 import MonitorRobot from './MonitorRobot';
+import MonitorTwin from "./MonitorTwin";
 import PanelLabel from "./PanelLabel";
 // Utils.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -42,11 +44,15 @@ export default function MonitorPanel(props) {
             <div className="flex flex-col w-2/5">
                 {/* Secondary video stream. */}
                 <div className="relative bg-gray-300 flex-1 m-3 mr-6">
+                    {/* The name of the monitor. */}
                     <PanelLabel label="Monitor World"/>
                 </div>
                 {/* Virtual twin of the robot. */}
                 <div className="relative bg-gray-400 flex-1 m-3 mr-6">
+                    {/* The name of the monitor. */}
                     <PanelLabel label="Virtual Twin"/>
+                    {/* The canvas for the virtual twin, required to have the useFrame() component being usable. */}
+                    <Canvas><MonitorTwin/></Canvas>
                 </div>
             </div>
         </div>
