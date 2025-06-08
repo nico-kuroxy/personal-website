@@ -40,8 +40,6 @@ export default function Laboratory(props) {
             <RosBridge/>
             {/* The canvas for the ros data feedback. */}
             <MonitorPanel/>
-            {/* The viewer for the ros camera feedback. */}
-            {/* <CameraViewer/> */}
             {/* The footer containing all the buttons / lights to set up the laboratory, animated into view. */}
             <ControlPanel/>
         </div>

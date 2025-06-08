@@ -15,6 +15,7 @@ import { Canvas } from '@react-three/fiber';
 import GameController from './GameController';
 import MonitorRobot from './MonitorRobot';
 import MonitorTwin from "./MonitorTwin";
+import MonitorAerial from "./MonitorAerial";
 import PanelLabel from "./PanelLabel";
 // Utils.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -34,7 +35,7 @@ export default function MonitorPanel(props) {
             {/* Left panel*/}
             <div className="relative bg-gray-500 w-3/5 m-3 ml-6">
                 {/* The name of the monitor. */}
-                <PanelLabel label="Monitor Robot"/>
+                <PanelLabel label="Robot View"/>
                 {/* The handler for the game controller. */}
                 <GameController/>
                 {/* The handler for the video stream. */}
@@ -43,9 +44,11 @@ export default function MonitorPanel(props) {
             {/* Right panel*/}
             <div className="flex flex-col w-2/5">
                 {/* Secondary video stream. */}
-                <div className="relative bg-gray-300 flex-1 m-3 mr-6">
+                <div className="relative bg-gray-300 h-1/2 m-3 mr-6">
                     {/* The name of the monitor. */}
-                    <PanelLabel label="Monitor World"/>
+                    <PanelLabel label="Aerial View"/>
+                    {/* The handler for the video stream. */}
+                    <MonitorAerial/>
                 </div>
                 {/* Virtual twin of the robot. */}
                 <div className="relative bg-gray-400 flex-1 m-3 mr-6">

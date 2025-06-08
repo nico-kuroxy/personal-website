@@ -23,7 +23,7 @@ export default function RosBridge(props) {
     // Destructure the variables passed as argument.
     const {} = props
     // Destructure the context.
-    const { ros, setRos, monitorRobotSrc, setMonitorRobotSrc, controller, controllerAxes, jointStatesRef, robotOrientationRef } = useLaboratory()
+    const { ros, setRos, monitorRobotSrc, setMonitorRobotSrc, monitorRobotAerialSrc, setMonitorRobotAerialSrc, controller, controllerAxes, jointStatesRef, robotOrientationRef } = useLaboratory()
     // Declare variables.
     const [position, setPosition] = useState({ x: 0, y: 0 })
     // Declre references.
@@ -57,13 +57,21 @@ export default function RosBridge(props) {
         ros.on('error', (error) => { console.error('Error connecting to ROSBridge:', error)})
         // Define the callback triggered when closing the ros connection.
         ros.on('close', () => { console.warn('Connection to ROSBridge closed.'); setRos(false)})
-        // We create the image subscriber.
-        const imageSub = new ROSLIB.Topic({
+        // We create the camera image subscriber.
+        const cameraSub = new ROSLIB.Topic({
             ros, name: 'camera/image_raw/compressed', messageType: 'sensor_msgs/CompressedImage'
         })
         // And we subscribe to it.
-        imageSub.subscribe((message) => {
+        cameraSub.subscribe((message) => {
             setMonitorRobotSrc(`data:image/jpeg;base64,${message.data}`)
+        })
+        // We create the aerial camera image subscriber.
+        const cameraAerialSub = new ROSLIB.Topic({
+            ros, name: 'camera_aerial/image_raw/compressed', messageType: 'sensor_msgs/CompressedImage'
+        })
+        // And we subscribe to it.
+        cameraAerialSub.subscribe((message) => {
+            setMonitorRobotAerialSrc(`data:image/jpeg;base64,${message.data}`)
         })
         // We create the joint subscriber.
         const jointSub = new ROSLIB.Topic({
@@ -106,9 +114,12 @@ export default function RosBridge(props) {
         return () => {
             if (ros?.isConnected) {
                 // Unsubscribing every topic.
-                imageSub.unsubscribe()
+                cameraSub.unsubscribe()
+                cameraAerialSub.unsubscribe()
                 jointSub.unsubscribe()
                 odomSub.unsubscribe()
+                // Unadvertising every topic.
+                cmdVelPub.unadvertise()
                 // Closing the ros connection.
                 ros.close()
             }
