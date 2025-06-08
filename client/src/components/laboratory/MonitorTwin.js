@@ -27,11 +27,11 @@ export default function MonitorTwin(props) {
     // Destructure the variables passed as argument.
     const {} = props
     // Destructure the context.
-    const { urdfPath, robotModel, setRobotModel, jointStates } = useLaboratory()
+    const { urdfPath, robotModel, setRobotModel, jointStatesRef, robotOrientationRef } = useLaboratory()
     // Define the callback function for the loader.
     const onLoad = (robot) => {
         // Make the robot upright.
-        robot.rotation.x = - Math.PI / 2
+        robot.rotation.x = -Math.PI/2
         // Save to context.
         setRobotModel(robot)
         // Log it.
@@ -56,8 +56,14 @@ export default function MonitorTwin(props) {
             // Iterating over every child of the urdf of the robot.
             robotModel.traverse((child) => {
                 // To find each joint and apply them the latest angle retrieved over the network.
-                if (child.isURDFJoint) { child.setJointValue(jointStates.current[child.name] || 0) }
+                if (child.isURDFJoint) { child.setJointValue(jointStatesRef.current[child.name] || 0) }
             })
+            // Check if the robot has an orientation...
+            if (robotOrientationRef.current) {
+                // And update its pose in the 3d canvas based on its odometry...
+                const { x, y, z } = robotOrientationRef.current
+                robotModel.rotation.set(x - Math.PI/2, y, z)
+            }
         }
     })
     // Load URDF upon loading the component, and whenever the urdf path changes.
@@ -75,13 +81,15 @@ export default function MonitorTwin(props) {
         // The container of the whole MonitorRobot component, with the slide-in animation.
         <>
             {/*Set up a camera to view the model. */}
-            <PerspectiveCamera makeDefault position={[0.2165, 0.125, 0.2165]} />
+            <PerspectiveCamera makeDefault position={[0.23, 0.125, 0.23]} />
             {/*Set up an homogeneous light. */}
             <ambientLight intensity={0.1} />
             {/* Set up a directionnal light. */}
             <directionalLight position={[5, 5, -5]} intensity={1} />
             {/* Enable orbit control while disabling panning and originally looking at the center of the robot. */}
             <OrbitControls enablePan={false} target={[0, 0.1, 0]}/>
+            {/* Display a 4x4 1m-squared XZ grid to showcase the robot's relative position to the ground. Y is a little below 0 to avoid "y-fighting" or blickering. */}
+            <gridHelper args={[1, 4, '#88ffff', '#cccccc']} position={[0, -0.001, 0]} />
             {/* Conditionnal rendering to display the actual robot model if it exists. */}
             {robotModel && <primitive object={robotModel} />}
         </>

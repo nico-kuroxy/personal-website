@@ -8,6 +8,7 @@
 //> DEPENDENCIES
 // Libraries
 import { useEffect, useState, useRef } from 'react';
+import * as THREE from 'three';
 import 'roslib/build/roslib'; // Required syntax to work in production.
 // Contexts.
 import { useLaboratory } from "../../context/LaboratoryProvider";
@@ -22,7 +23,7 @@ export default function RosBridge(props) {
     // Destructure the variables passed as argument.
     const {} = props
     // Destructure the context.
-    const { ros, setRos, monitorRobotSrc, setMonitorRobotSrc, controller, controllerAxes, jointStates } = useLaboratory()
+    const { ros, setRos, monitorRobotSrc, setMonitorRobotSrc, controller, controllerAxes, jointStatesRef, robotOrientationRef } = useLaboratory()
     // Declare variables.
     const [position, setPosition] = useState({ x: 0, y: 0 })
     // Declre references.
@@ -70,7 +71,30 @@ export default function RosBridge(props) {
         })
         // And we subscribe to it.
         jointSub.subscribe((message) => {
-            message.name.forEach((name, i) => { jointStates.current[name] = message.position[i] })
+            message.name.forEach((name, i) => { jointStatesRef.current[name] = message.position[i] })
+        })
+        // We create the imu subscriber.
+        const odomSub = new ROSLIB.Topic({
+            ros, name: 'odom', messageType: 'nav_msgs/msg/Odometry'
+        })
+        // And we subscribe to it.
+        odomSub.subscribe((message) => {
+            // Retrieve quaternion
+            const quaternion = new THREE.Quaternion(
+                message.pose.pose.orientation.x,
+                message.pose.pose.orientation.y,
+                message.pose.pose.orientation.z,
+                message.pose.pose.orientation.w
+            )
+            // Convert them to euler.
+            const euler = new THREE.Euler()
+            euler.setFromQuaternion(quaternion, 'ZYX')
+            // Save orientation.
+            robotOrientationRef.current = {
+              x: euler.x,
+              y: euler.y,
+              z: euler.z
+            }
         })
         // We create the twist publisher.
         const cmdVelPub = new ROSLIB.Topic({
@@ -83,6 +107,8 @@ export default function RosBridge(props) {
             if (ros?.isConnected) {
                 // Unsubscribing every topic.
                 imageSub.unsubscribe()
+                jointSub.unsubscribe()
+                odomSub.unsubscribe()
                 // Closing the ros connection.
                 ros.close()
             }

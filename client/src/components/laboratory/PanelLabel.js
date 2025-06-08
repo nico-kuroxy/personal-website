@@ -26,7 +26,7 @@ export default function PanelLabel(props) {
     return (
         // The container of the whole PanelLabel component, with the slide-in animation.
         <div className="">
-            <span className="border border-black absolute bg-[#ffffff] text-black m-4 p-2 font-monoCustom">{label}</span>
+            <span className="border border-black absolute bg-[#ffffff] text-black m-4 p-2 font-monoCustom z-50">{label}</span>
         </div>
     )
 }
