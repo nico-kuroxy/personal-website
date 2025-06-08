@@ -42,16 +42,16 @@ export default function MonitorPanel(props) {
                 <MonitorRobot/>
             </div>
             {/* Right panel*/}
-            <div className="flex flex-col w-2/5">
+            <div className="flex flex-col h-full w-2/5 p-3  mr-6">
                 {/* Secondary video stream. */}
-                <div className="relative bg-gray-300 h-1/2 m-3 mr-6">
+                <div className="relative h-1/2 pb-6">
                     {/* The name of the monitor. */}
                     <PanelLabel label="Aerial View"/>
                     {/* The handler for the video stream. */}
                     <MonitorAerial/>
                 </div>
                 {/* Virtual twin of the robot. */}
-                <div className="relative bg-gray-400 flex-1 m-3 mr-6">
+                <div className="relative h-1/2 bg-gray-400">
                     {/* The name of the monitor. */}
                     <PanelLabel label="Virtual Twin"/>
                     {/* The canvas for the virtual twin, required to have the useFrame() component being usable. */}

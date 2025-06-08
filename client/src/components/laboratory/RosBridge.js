@@ -23,11 +23,12 @@ export default function RosBridge(props) {
     // Destructure the variables passed as argument.
     const {} = props
     // Destructure the context.
-    const { ros, setRos, monitorRobotSrc, setMonitorRobotSrc, monitorRobotAerialSrc, setMonitorRobotAerialSrc, controller, controllerAxes, jointStatesRef, robotOrientationRef } = useLaboratory()
+    const { ros, setRos, monitorRobotSrc, setMonitorRobotSrc, monitorRobotAerialSrc, setMonitorRobotAerialSrc, controller, controllerAxes, controllerButtons, jointStatesRef, robotOrientationRef } = useLaboratory()
     // Declare variables.
     const [position, setPosition] = useState({ x: 0, y: 0 })
     // Declre references.
     const cmdVelPubRef = useRef(null)
+    const resetWorldServiceClientRef = useRef(null)
     // Use an Effect hook to update the cmdVel message when the joystick are handled through a gamepas.
     useEffect(() => {
         if (controller && controllerAxes) {
@@ -45,6 +46,19 @@ export default function RosBridge(props) {
         // And then we publish it.
         cmdVelPubRef.current.publish(twistMsg);
     }, [position])
+    // Use an Effect hook to reset the world when the home button of the controller is pressed.
+    useEffect(() => {
+        // If the controller, its buttons, and the service client exists.
+        if (controller && controllerButtons && resetWorldServiceClientRef.current) {
+            // We check the status of the home button.
+            if (controllerButtons[16]) {
+                // If pressed, we create the empty request.
+                var request = new ROSLIB.ServiceRequest({})
+                // And we call the service to reset the world.
+                resetWorldServiceClientRef.current.callService(request, function(result) {console.log('World reseted.')})
+            }
+        }
+    }, [controller, JSON.stringify(controllerButtons)])
     // useEffect() hook are usually defined last in the component declaration. This one is loaded once upon the component's initialization.
     useEffect(() => {
         // Connect to ROS.
@@ -108,8 +122,14 @@ export default function RosBridge(props) {
         const cmdVelPub = new ROSLIB.Topic({
             ros, name: 'cmd_vel', messageType: 'geometry_msgs/Twist'
         })
-        // And we assign it to a ref.
+        // And we assign it to a ref, to access it from other components.
         cmdVelPubRef.current = cmdVelPub
+        // We create the reset world service.
+        const resetWorldServiceClient = new ROSLIB.Service({
+            ros : ros, name : '/reset_world', serviceType : 'std_msgs/srv/Empty'
+        })
+        // And we assign it to a ref, to access it from other components.
+        resetWorldServiceClientRef.current = resetWorldServiceClient
         // Properly clean the component when it is unmounted.
         return () => {
             if (ros?.isConnected) {
@@ -120,6 +140,8 @@ export default function RosBridge(props) {
                 odomSub.unsubscribe()
                 // Unadvertising every topic.
                 cmdVelPub.unadvertise()
+                // Unadvertise every service client.
+                resetWorldServiceClient.unadvertise()
                 // Closing the ros connection.
                 ros.close()
             }

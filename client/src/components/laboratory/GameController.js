@@ -84,9 +84,14 @@ export default function GameController(props) {
         {controller && (
           <div className="flex flex-col w-6">
             {controllerButtons.map((pressed, idx) => (
-              <span key={idx} className={`w-6 text-center rounded ${pressed ? 'bg-green-400 text-white' : 'bg-[#00b9ff]  bg-opacity-50'}`}>
-                {idx}
-              </span>
+              <div key={idx} className='flex flex-row space-x-2'>
+                <span className={`w-6 text-center rounded ${pressed ? 'bg-green-400 text-white' : 'bg-[#00b9ff]  bg-opacity-50'}`}>
+                  {idx}
+                </span>
+                <span className={`text-center rounded ${pressed ? 'bg-green-400 text-white' : ''}`}>
+                  {idx===16? 'Reset' : ''}
+                </span>
+              </div>
             ))}
           </div>
         )}
