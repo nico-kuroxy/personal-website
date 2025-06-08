@@ -89,7 +89,7 @@ export default function MonitorTwin(props) {
             {/* Enable orbit control while disabling panning and originally looking at the center of the robot. */}
             <OrbitControls enablePan={false} target={[0, 0.1, 0]}/>
             {/* Display a 4x4 1m-squared XZ grid to showcase the robot's relative position to the ground. Y is a little below 0 to avoid "y-fighting" or blickering. */}
-            <gridHelper args={[1, 4, '#88ffff', '#cccccc']} position={[0, -0.001, 0]} />
+            <gridHelper args={[1, 4, '#88ffff', '#cccccc']} position={[0, 0.0001, 0]} />
             {/* Conditionnal rendering to display the actual robot model if it exists. */}
             {robotModel && <primitive object={robotModel} />}
         </>
