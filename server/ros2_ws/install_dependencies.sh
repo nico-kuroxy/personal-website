@@ -36,3 +36,7 @@ source ~/.bashrc
 
 # To start the simulation : ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 # To start the webserver : ros2 launch rosbridge_server rosbridge_websocket_launch.xml 
+# To start a (dev) secure webserver : ros2 launch rosbridge_server rosbridge_websocket_launch.xml port:=9090 ssl:=true certfile:=/mnt/c/Users/nerbe/Development/kuroxy-personal-website/certificates/cert.pem keyfile:=/mnt/c/Users/nerbe/Development/kuroxy-personal-website/certificates/key.pem authenticate:=false
+
+# To generate a temporary certificate : openssl req -x509 -nodes -days 365 -newkey rsa:2048   -keyout key.pem -out cert.pem   -subj "/CN=192.168.1.16"   -addext "subjectAltName=IP:192.168.1.16"
+#

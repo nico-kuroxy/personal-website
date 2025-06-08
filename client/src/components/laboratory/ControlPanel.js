@@ -35,22 +35,19 @@ export default function ControlPanel(props) {
                 <div className="flex items-center space-x-3">
                     {/* Whether or not the app is connected to ROS. */}
                     <i className={"fa-regular fa-lightbulb " + (ros?  " icon-glow-green text-green-200 " : " icon-glow-red text-red-500 ")}></i>
-                    <span>Connect ROS</span>
+                    <span>ROS connection</span>
                     <span className="w-px h-6 bg-yellow-500"></span>
-                    {/* Whether or not a world has been loaded */}
+                    {/* Whether or not a world has been loaded 
                     <i className="fa-regular fa-lightbulb icon-glow-red text-red-500"></i>
                     <span>Load world</span>
                     <span className="w-px h-6 bg-yellow-500"></span>
-                    {/* Whether or not a robot has been loaded. */}
+                    {/* Whether or not a robot has been loaded.
                     <i className="fa-regular fa-lightbulb icon-glow-red text-red-500"></i>
                     <span>Load robot</span>
-                    <span className="w-px h-6 bg-yellow-500"></span>
+                    <span className="w-px h-6 bg-yellow-500"></span> */}
                     {/* Whether or not a controller is connected, with an invisible placeholder to fix the size of the text. */}
                     <i className={"fa-regular fa-lightbulb " + (controller ?  " icon-glow-green text-green-200 " : " icon-glow-red text-red-500 ")}></i>
-                    <span className='inline-block relative text-center'>
-                        <span className='absolute inset-0'>{(controller) ? 'Controller connected' : 'Connect controller'}</span>
-                        <span className="invisible">Controller connected</span>
-                    </span>
+                    <span>Controller connection</span>
                     <span className="w-px h-6 bg-yellow-500"></span>
                     {/* Apply the chosen parameters. */}
                     <i className="fa-solid fa-triangle-exclamation text-orange-400 flicker-icon-glow-red "></i>
