@@ -20,12 +20,12 @@ export default function MonitorRobot(props) {
     // Destructure the variables passed as argument.
     const {} = props
     // Destructure the context.
-    const {monitorRobotSrc} = useLaboratory()
+    const {monitorImgSrc} = useLaboratory()
     // Return the html.
     return (
         // The container of the whole MonitorRobot component, with the slide-in animation.
         <div className="w-full h-full">
-            {monitorRobotSrc && (<img src={monitorRobotSrc} alt="Video Stream" className="object-cover w-full h-full"/>)}
+            {monitorImgSrc && (<img src={monitorImgSrc} alt="Video Stream" className="object-cover w-full h-full"/>)}
         </div>
     )
 }
