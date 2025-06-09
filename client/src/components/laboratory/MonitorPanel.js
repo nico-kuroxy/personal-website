@@ -46,7 +46,7 @@ export default function MonitorPanel(props) {
                 {/* Dynamic reconfigure. */}
                 <div className="relative h-1/2 pb-6">
                     {/* The name of the monitor. */}
-                    <PanelLabel labels={["Dynamic Reconfigure"]}/>
+                    <PanelLabel labels={["Plot Data"]}/>
                 </div>
                 {/* Virtual twin of the robot. */}
                 <div className="relative h-1/2 bg-gray-400">

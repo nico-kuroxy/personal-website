@@ -23,7 +23,7 @@ export default function RosBridge(props) {
     // Destructure the variables passed as argument.
     const {} = props
     // Destructure the context.
-    const { ros, setRos, monitorImgSrc, setMonitorImgSrc, controller, controllerAxes, controllerButtons, jointStatesRef, robotOrientationRef, whichView } = useLaboratory()
+    const { ros, setRos, monitorImgSrc, setMonitorImgSrc, controller, controllerAxes, controllerButtons, jointStatesRef, robotOrientationRef, whichView, setWhichView } = useLaboratory()
     // Declare variables.
     const [position, setPosition] = useState({ x: 0, y: 0 })
     // Declare references.
@@ -99,6 +99,16 @@ export default function RosBridge(props) {
                 var request = new ROSLIB.ServiceRequest({})
                 // And we call the service to reset the world.
                 resetWorldServiceClientRef.current.callService(request, function(result) {console.log('World reseted.')})
+            }
+            // We check the status of the left trigger.
+            if (controllerButtons[6]) {
+                // If pressed, we update the view.
+                setWhichView("Robot View")
+            }
+            // We check the status of the right trigger.
+            if (controllerButtons[7]) {
+                // If pressed, we update the view.
+                setWhichView("Aerial View")
             }
         }
     }, [controller, JSON.stringify(controllerButtons)])

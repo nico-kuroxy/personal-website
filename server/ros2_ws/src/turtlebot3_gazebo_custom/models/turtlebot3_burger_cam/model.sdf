@@ -376,7 +376,7 @@
         </camera>
         <plugin name="camera_driver" filename="libgazebo_ros_camera.so">
           <alwaysOn>true</alwaysOn>
-          <updateRate>30.0</updateRate>
+          <updateRate>20.0</updateRate>
           <cameraName>camera</cameraName>
           <frameName>camera_link</frameName>
           <imageTopicName>image_raw</imageTopicName>
@@ -411,7 +411,7 @@
       <sensor name="camera_aerial" type="wideanglecamera">
         <always_on>true</always_on>
         <visualize>true</visualize>
-        <update_rate>30</update_rate>
+        <update_rate>20</update_rate>
         <camera name="picam">
           <horizontal_fov>3.183</horizontal_fov>
           <image>
