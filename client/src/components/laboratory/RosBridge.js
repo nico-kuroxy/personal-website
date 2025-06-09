@@ -64,7 +64,7 @@ export default function RosBridge(props) {
         // Connect to ROS.
         // Use wss (web socket secure) instead of simple ws (websocket) to guarantee safety and be compatible with most browsers.
         // This requires the connection with the server to be configured accordingly, and the ip address to be set in the .env file.
-        const ros = new ROSLIB.Ros({url: 'wss://' + process.env.NEXT_PUBLIC_ROS_IP + ':9090'})
+        const ros = new ROSLIB.Ros({url: 'wss://' + process.env.NEXT_PUBLIC_ROS_IP})
         // Define the callback triggered when connected to ROS. This triggers twice in dev mode due to some cycles being triggered twice.
         ros.on('connection', () => { console.log('Connected to ROSBridge!'); setRos(true)})
         // Define the callback triggered if an error occured when connecting to ROS.
