@@ -33,6 +33,7 @@ export default function RobotCarousel(props) {
         content: (<img src={robot.path} alt={`Robot ${index}`} onClick={() => { console.log("Clicked slide", index); setGoToSlide(index); setRobot(robot)}}
                     className="w-[25vw] h-[25vh] object-contain hover:shadow-xl transition-transform hover:scale-105"/>),
     }));
+    // Define the robot variable based on the first of the list.
     const [robot, setRobot] = useState(robots[0])
     // Return the html.
     return (
