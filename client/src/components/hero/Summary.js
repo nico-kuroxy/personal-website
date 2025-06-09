@@ -29,7 +29,7 @@ export default function Summary(props) {
             <span className="pr-2 font-bold">3</span> countries worked in
             {/* Number of robot I worked on. */}
             <span className="w-px bg-yellow-500"></span>
-            <span className="pr-2 font-bold">7</span>robots developped
+            <span className="pr-2 font-bold">6</span>robots developped
         </div>
     )
 }

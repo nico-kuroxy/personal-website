@@ -12,7 +12,8 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries.
-import Image from 'next/image';
+import { useEffect } from 'react';
+import { isMobile, isTablet } from 'react-device-detect';
 import { useRouter, usePathname } from 'next/navigation';
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider"
@@ -30,6 +31,15 @@ export default function Header(props) {
     const router = useRouter()
     // Retrieve the current's page name (updated dynamically).
     const pathname = usePathname()
+    // Use a react effect hook to check the device of the user when the app is loaded for the first time.
+    // We use it here instead of the layout since this component is already marked as client, and layout cannot (since it exports metadata).
+    useEffect(() => {
+        // Check the device of the user.
+        if (isMobile || isTablet) {
+            // Alert them in their browser. This text is displayed twice in dev mode.
+            alert("You are visiting from a mobile or tablet device! They are currently not supported. Please try to enable the computer version of your browser and rotate your phone horizontally.");
+        }
+    }, []);
     // Return the html.
     return (
         // The container of the whole header component, applying the gradient style to it.
