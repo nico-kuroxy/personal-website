@@ -15,7 +15,7 @@ import { usePageStyle } from "../../context/PageStyleProvider"
 // Function declaration.
 export default function Summary(props) {
     // Destructure the variables passed as argument.
-    const {} = props
+    const {targetSecondScreenRef, hasScrolled} = props
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
      // Return the html.
@@ -29,7 +29,9 @@ export default function Summary(props) {
             <span className="pr-2 font-bold">3</span> countries worked in
             {/* Number of robot I worked on. */}
             <span className="w-px bg-yellow-500"></span>
-            <span className="pr-2 font-bold">6</span>robots developped
+            <button onClick={() => {hasScrolled.current = true; targetSecondScreenRef.current?.scrollIntoView({ behavior: "smooth" }); setTimeout(() => { hasScrolled.current = false }, 100);}}>
+                <span className="pr-2 font-bold">6</span>robots developped
+            </button>
         </div>
     )
 }

@@ -20,7 +20,7 @@ import Summary from "./Summary"
 // Function declaration.
 export default function Hero(props) {
     // Destructure the variables passed as argument.
-    const {} = props
+    const {targetSecondScreenRef, hasScrolled} = props
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     // Return the html.
@@ -41,7 +41,7 @@ export default function Hero(props) {
                 </div>
             </div>
             {/* The summary with some metrics about my experiences. */}
-            <Summary/>
+            <Summary targetSecondScreenRef={targetSecondScreenRef} hasScrolled={hasScrolled}/>
         </div>
     )
 }

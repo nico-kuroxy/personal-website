@@ -27,26 +27,33 @@ export default function RobotCarousel(props) {
     // Define the react variables.
     const [goToSlide, setGoToSlide] = useState(0)
     // Define the slides of the carousel.
-    const robots = [{name: "Pearl Guard", path: `/robots/images/p-guard.png`}, {name: "Seasam Drone", path: `/robots/images/seasam-drone.png`}, {name: "Seasam Buoy", path: `/robots/images/seasam-buoy.png`}, {name: "Universal Robot 5e", path: `/robots/images/ur5e.png`}, {name: "B1A", path: `/robots/images/sc-b1a.png`}, {name: "F1A", path: `/robots/images/sc-f1a.png`}]
+    const robots = [{name: "P-Guard", path: `/robots/images/p-guard.png`}, {name: "S-Drone", path: `/robots/images/seasam-drone.png`}, {name: "S-Buoy", path: `/robots/images/seasam-buoy.png`}, {name: "UR5e", path: `/robots/images/ur5e.png`}, {name: "B1A", path: `/robots/images/sc-b1a.png`}, {name: "F1A", path: `/robots/images/sc-f1a.png`}]
     const slides = robots.map((robot, index) => ({
         key: index,
-        content: (<img src={robot.path} alt={`Robot ${index}`} onClick={() => { console.log("Clicked slide", index); setGoToSlide(index); setRobot(robot)}}
-                    className="w-[25vw] h-[25vh] object-contain hover:shadow-xl transition-transform hover:scale-105"/>),
+        content: (<img src={robot.path} alt={`Robot ${index}`} onClick={() => { console.log("Clicked slide", index); setGoToSlide(index)}}
+                    className="w-[45vw] h-[45vh] object-contain hover:shadow-2xl transition-transform hover:scale-105"/>),
     }));
-    // Define the robot variable based on the first of the list.
-    const [robot, setRobot] = useState(robots[0])
     // Return the html.
     return (
         // The container of the whole RobotCarousel component.
-        <div className="flex flex-col w-5/6 h-full text-center">
+        <div className="flex flex-col w-3/4 h-full items-center justify-center text-center">
             {/* Title of the section */}
-            <span className='w-full mt-40 text-5xl'>The robots I worked on</span>
+            <span className='mb-8 mt-32 w-[30vw] text-6xl'>A collection of the robots I worked with</span>
+            {/* The division of the section. */}
+            <span className="w-1/4 h-px bg-yellow-500"></span>
             {/* The section itself. */}
-            <div className='w-full h-1/2 flex flex-row justify-center items-center'>
+            <div className='w-1/2 h-[45vh] m-10 flex flex-col justify-center items-center'>
                 {/* The actual carousel. offsetRadius sets the number of pictures showned side by side to the current one. It cannot be equal or more than half of the number of slides. */}
                 <Carousel slides={slides} goToSlide={goToSlide} offsetRadius={2} showNavigation={false} animationConfig={{ tension: 120, friction: 14 }}/>
-                {/* Name of the robot */}
-                <span className='w-full text-left text-5xl'>{robot.name}</span>
+                {/* Navigation bar of the carousel. */}
+                <div className='flex flex-row items-center justify-center text-5xl m-5 space-x-5'>
+                    {/* Left arrow of the carousel. */}
+                    <button onClick={() => setGoToSlide((goToSlide - 1 + robots.length)%robots.length)}><i className="text-yellow-500 hover:text-yellow-300 fa-regular fa-square-caret-left"/></button>
+                    {/* Name of the robot */}
+                    <span className='w-full text-center font-monoCustom'>{robots[goToSlide].name}</span>
+                    {/* Right arrow of the carousel. */}
+                    <button onClick={() => setGoToSlide((goToSlide+1)%robots.length)}><i className="text-yellow-500 hover:text-yellow-300 fa-regular fa-square-caret-right"/></button>
+                </div>
             </div>
         </div>
     )

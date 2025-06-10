@@ -59,10 +59,10 @@ const HomePage = () => {
       { /* First screen.*/ }
       <div ref={targetFirstScreenRef} className="flex flex-col justify-center items-center h-screen w-full -mt-10">
         { /* Main content of the webpage.*/ }
-        <Hero/>
+        <Hero targetSecondScreenRef={targetSecondScreenRef} hasScrolled={hasScrolled}/>
       </div>
       {/* Second screen */}
-      <div ref={targetSecondScreenRef} className="flex flex-col h-screen w-full my-44 items-center justify-center">
+      <div ref={targetSecondScreenRef} className="flex flex-col min-h-screen w-full items-center justify-center">
         {/* The carousel with some information about the robots I worked on. */}
         <RobotCarousel/>
       </div>
