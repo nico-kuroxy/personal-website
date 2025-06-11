@@ -85,7 +85,7 @@ export default function RosBridge(props) {
         // Otherwise, we create a twist message.
         const twistMsg = new ROSLIB.Message({
             linear: { x: position.y, y: 0, z: 0} ,
-            angular: { x: 0, y: 0, z: ((position.y <= -0.5) && controller) || ((position.y <= 0) && !controller) ? position.x : -position.x }})
+            angular: { x: 0, y: 0, z: ((position.y <= -0.5) && controller) || ((position.y <= -0.05) && !controller) ? position.x : -position.x }})
         // And then we publish it.
         cmdVelPubRef.current.publish(twistMsg);
     }, [position])
