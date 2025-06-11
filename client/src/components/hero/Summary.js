@@ -27,7 +27,7 @@ export default function Summary(props) {
             {/* Number of countries I worked in. */}
             <span className="w-px bg-yellow-500"></span>
             <span className="pr-2 font-bold">3</span> countries worked in
-            {/* Number of robot I worked on. */}
+            {/* Number of robot I worked on, goes to the robot carousel section when clicked on. */}
             <span className="w-px bg-yellow-500"></span>
             <button onClick={() => {hasScrolled.current = true; targetSecondScreenRef.current?.scrollIntoView({ behavior: "smooth" }); setTimeout(() => { hasScrolled.current = false }, 100);}}>
                 <span className="pr-2 font-bold">6</span>robots developped

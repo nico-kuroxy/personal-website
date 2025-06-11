@@ -74,7 +74,7 @@ export default function RosBridge(props) {
     }, [whichView])
     // Use an Effect hook to update the cmdVel message when the joystick are handled through a gamepas.
     useEffect(() => {
-        if (controller && controllerAxes) {
+        if (controllerAxes) {
             setPosition({x: controllerAxes[0], y: -controllerAxes[1]})
         }
     }, [controller, controllerAxes?.[0], controllerAxes?.[1]])
@@ -84,8 +84,8 @@ export default function RosBridge(props) {
         if (!cmdVelPubRef.current) return
         // Otherwise, we create a twist message.
         const twistMsg = new ROSLIB.Message({
-            linear: { x: position.y * 1.0, y: 0, z: 0} ,
-            angular: { x: 0, y: 0, z: -position.x * 1.0 }})
+            linear: { x: position.y, y: 0, z: 0} ,
+            angular: { x: 0, y: 0, z: (position.y <= -0.5)? position.x : -position.x }})
         // And then we publish it.
         cmdVelPubRef.current.publish(twistMsg);
     }, [position])

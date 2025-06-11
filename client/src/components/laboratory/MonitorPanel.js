@@ -13,6 +13,7 @@ import { usePageStyle } from "../../context/PageStyleProvider";
 import { Canvas } from '@react-three/fiber';
 // Components.
 import GameController from './GameController';
+import Joystick from "./Joystick";
 import MonitorRobot from './MonitorRobot';
 import MonitorTwin from "./MonitorTwin";
 import PanelLabel from "./PanelLabel";
@@ -38,6 +39,8 @@ export default function MonitorPanel(props) {
                 <PanelLabel labels={["Robot View", "Aerial View"]} onClick={(label) => setWhichView(label)}/>
                 {/* The handler for the game controller. */}
                 <GameController/>
+                {/* The handler for the virtual controller. */}
+                <Joystick/>
                 {/* The handler for the video stream. */}
                 <MonitorRobot/>
             </div>
