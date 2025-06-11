@@ -18,7 +18,7 @@ export default function Joystick(props) {
     // Destructure the variables passed in the props.
     const { radius = 38, knobRadius = 30, innerKnobRadius = 24} = props
     // Destructure the context.
-    const {controller, controllerAxes, setControllerAxes} = useLaboratory()
+    const {controller, controllerAxes, setControllerAxes, setJoystickButton} = useLaboratory()
     // Declare the state variables of the component.
     const [isActive, setIsActive] = useState(false)  // Whether or not joystick is being manipulated.
     // Declare the references of the component.
@@ -127,21 +127,28 @@ export default function Joystick(props) {
     // Return the html component.
     return (
         // The container of the whole Joystick component.
-        <div className='absolute bottom-0 left-0 right-0 flex items-center justify-center m-5'>
+        <div className='absolute bottom-0 left-0 right-0 flex flex-row items-center justify-center m-5 space-x-5'>
             {!controller && (
-            // The container of the base of the joystick 
-            <div ref={baseRef} className="relative rounded-full bg-gray-300" style={{ width: radius * 2, height: radius *2 }}>
-                { /* The container of the knob of the joystick */ }
-                <div ref={knobRef} onMouseDown={startHandler} onTouchStart={startHandler} 
-                    className={`absolute rounded-full transition-all ${isActive ? 'scale-150 bg-blue-500' : ' scale-100'}`}
-                    style={{width: knobRadius * 2, height: knobRadius * 2, transform: `translate(${radius - knobRadius}px, ${radius - knobRadius}px)`}}
-                />
-                { /* The container of the inner knob of the joystick */ }
-                <div ref={innerKnobRef} onMouseDown={startHandler} onTouchStart={startHandler} 
-                    className={`absolute rounded-full bg-transparent transition-all ${isActive ? 'border border-white scale-150' : 'border-blue-500 scale-100 border-[3px]'}`}
-                    style={{width: innerKnobRadius * 2, height: innerKnobRadius * 2, willChange: 'transform', transform: `translate(${radius - innerKnobRadius}px, ${radius - innerKnobRadius}px)`}}
-                />
-            </div>
+            <>
+                { /* The container of the base of the joystick */ }
+                <div ref={baseRef} className="relative rounded-full bg-gray-300 border border-black active:shadow-none shadow-2xl transition-shadow duration-200" style={{ width: radius * 2, height: radius *2 }}>
+                    { /* The container of the knob of the joystick */ }
+                    <div ref={knobRef} onMouseDown={startHandler} onTouchStart={startHandler} 
+                        className={`absolute rounded-full transition-all ${isActive ? 'scale-150 bg-blue-500' : ' scale-100'}`}
+                        style={{width: knobRadius * 2, height: knobRadius * 2, transform: `translate(${radius - knobRadius}px, ${radius - knobRadius}px)`}}
+                    />
+                    { /* The container of the inner knob of the joystick */ }
+                    <div ref={innerKnobRef} onMouseDown={startHandler} onTouchStart={startHandler} 
+                        className={`absolute rounded-full bg-transparent transition-all ${isActive ? 'border-[2px] border-yellow-500 scale-150' : 'border-blue-500 scale-100 border-[4px]'}`}
+                        style={{width: innerKnobRadius * 2, height: innerKnobRadius * 2, willChange: 'transform', transform: `translate(${radius - innerKnobRadius}px, ${radius - innerKnobRadius}px)`}}
+                    />
+                </div>
+                { /* The container of the reset button of the joystick */ }
+                <button className='text-5xl font-serialCustom text-blue-500 bg-gray-300 border border-black p-2 rounded-md active:text-yellow-500 hover:bg-blue-500 hover:text-white active:shadow-none shadow-2xl transition-shadow duration-200'
+                    onClick={ () => setJoystickButton(true)}>
+                    Reset
+                </button>
+            </>
             )}
         </div>
     )

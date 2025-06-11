@@ -23,7 +23,7 @@ export default function RosBridge(props) {
     // Destructure the variables passed as argument.
     const {} = props
     // Destructure the context.
-    const { ros, setRos, monitorImgSrc, setMonitorImgSrc, controller, controllerAxes, controllerButtons, jointStatesRef, robotOrientationRef, whichView, setWhichView } = useLaboratory()
+    const { ros, setRos, monitorImgSrc, setMonitorImgSrc, controller, controllerAxes, controllerButtons, jointStatesRef, robotOrientationRef, whichView, setWhichView, joystickButton, setJoystickButton } = useLaboratory()
     // Declare variables.
     const [position, setPosition] = useState({ x: 0, y: 0 })
     // Declare references.
@@ -92,13 +92,15 @@ export default function RosBridge(props) {
     // Use an Effect hook to reset the world when the home button of the controller is pressed.
     useEffect(() => {
         // If the controller, its buttons, and the service client exists.
-        if (controller && controllerButtons && resetWorldServiceClientRef.current) {
-            // We check the status of the home button.
-            if (controllerButtons[16]) {
+        if (resetWorldServiceClientRef.current) {
+            // We check the status of the home button or the reset button of the virtual joystick.
+            if (controllerButtons[16] || joystickButton) {
                 // If pressed, we create the empty request.
                 var request = new ROSLIB.ServiceRequest({})
                 // And we call the service to reset the world.
                 resetWorldServiceClientRef.current.callService(request, function(result) {console.log('World reseted.')})
+                // And we reset the joystick button if pressed.
+                if (joystickButton) setJoystickButton(false)
             }
             // We check the status of the left trigger.
             if (controllerButtons[6]) {
@@ -111,7 +113,7 @@ export default function RosBridge(props) {
                 setWhichView("Aerial View")
             }
         }
-    }, [controller, JSON.stringify(controllerButtons)])
+    }, [controller, JSON.stringify(controllerButtons), joystickButton])
     // useEffect() hook are usually defined last in the component declaration. This one is loaded once upon the component's initialization.
     useEffect(() => {
         // Connect to ROS... or return immediately if it already exists, to avoid issues in dev mode since react renders it twice.

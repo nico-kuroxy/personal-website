@@ -31,12 +31,13 @@ export function LaboratoryProvider(props) {
     const [ controller, setController ] = useState(false) // Which controller is connected to the app.
     const [ controllerButtons, setControllerButtons] = useState([]) // The state of each button of the latest controller connected to the app.
     const [ controllerAxes, setControllerAxes] = useState([]) // The state of each axis of the latest controller connected to the app.
+    const [ joystickButton, setJoystickButton] = useState(false) // Whether or not the joystick button (for the rest of the simulation) has been pressed.
     // Define references.
     const robotOrientationRef = useRef(null) // The reference of the robotOrientation retrieved over the rosbridge.
     const jointStatesRef = useRef({}) // The reference of the jointStates retrieved over the rosbridge.
     // Variables and functions that need to be accessed through this context.
     const value = { controller, setController, controllerButtons, setControllerButtons, controllerAxes, setControllerAxes, ros, setRos, urdfPath, setUrdfPath, robotModel, setRobotModel, jointStatesRef, robotOrientationRef,
-        monitorImgSrc, setMonitorImgSrc, whichView, setWhichView
+        joystickButton, setJoystickButton, monitorImgSrc, setMonitorImgSrc, whichView, setWhichView
      }
     // Return the html.
     return (
