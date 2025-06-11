@@ -70,11 +70,11 @@ export default function Joystick(props) {
         setIsActive(true)
         // Check if the screen was touched.
         if (event.type === 'touchstart') {
-        // Move the joystick to the touched position.
-        handleMove(event.touches[0].clientX, event.touches[0].clientY)
+            // Move the joystick to the touched position.
+            handleMove(event.touches[0].clientX, event.touches[0].clientY)
         } else {
-        // Otherwise, move the joystick to the mouse position.
-        handleMove(event.clientX, event.clientY)
+            // Otherwise, move the joystick to the mouse position.
+            handleMove(event.clientX, event.clientY)
         }
     }
     // Define the function callback triggered when the user moves the joystick.
