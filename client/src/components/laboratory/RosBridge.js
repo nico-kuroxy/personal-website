@@ -87,7 +87,6 @@ export default function RosBridge(props) {
             linear: { x: position.y, y: 0, z: 0} ,
             angular: { x: 0, y: 0, z: ((position.y <= -0.5) && controller) || ((position.y <= 0) && !controller) ? position.x : -position.x }})
         // And then we publish it.
-        console.log(position.y)
         cmdVelPubRef.current.publish(twistMsg);
     }, [position])
     // Use an Effect hook to reset the world when the home button of the controller is pressed.

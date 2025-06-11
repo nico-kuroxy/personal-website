@@ -131,20 +131,20 @@ export default function Joystick(props) {
             {!controller && (
             <>
                 { /* The container of the base of the joystick */ }
-                <div ref={baseRef} className="relative rounded-full bg-gray-300 border border-black active:shadow-none shadow-2xl transition-shadow duration-200" style={{ width: radius * 2, height: radius *2 }}>
+                <div ref={baseRef} className="relative rounded-full bg-gray-300 border border-black active:shadow-none shadow-2xl transition-shadow" style={{ width: radius * 2, height: radius *2 }}>
                     { /* The container of the knob of the joystick */ }
                     <div ref={knobRef} onMouseDown={startHandler} onTouchStart={startHandler} 
-                        className={`absolute rounded-full transition-all ${isActive ? 'scale-150 bg-blue-500' : ' scale-100'}`}
+                        className={`absolute rounded-full ${isActive ? 'scale-150 bg-blue-500' : ' scale-100'}`}
                         style={{width: knobRadius * 2, height: knobRadius * 2, transform: `translate(${radius - knobRadius}px, ${radius - knobRadius}px)`}}
                     />
                     { /* The container of the inner knob of the joystick */ }
                     <div ref={innerKnobRef} onMouseDown={startHandler} onTouchStart={startHandler} 
-                        className={`absolute rounded-full bg-transparent transition-all ${isActive ? 'border-[2px] border-yellow-500 scale-150' : 'border-blue-500 scale-100 border-[4px]'}`}
+                        className={`absolute rounded-full bg-transparent ${isActive ? 'border-[2px] border-yellow-500 scale-150' : 'border-blue-500 scale-100 border-[4px]'}`}
                         style={{width: innerKnobRadius * 2, height: innerKnobRadius * 2, willChange: 'transform', transform: `translate(${radius - innerKnobRadius}px, ${radius - innerKnobRadius}px)`}}
                     />
                 </div>
                 { /* The container of the reset button of the joystick */ }
-                <button className='text-5xl font-serialCustom text-blue-500 bg-gray-300 border border-black p-2 rounded-md active:text-yellow-500 hover:bg-blue-500 hover:text-white active:shadow-none shadow-2xl transition-shadow duration-200'
+                <button className='text-5xl font-serialCustom text-blue-500 bg-gray-300 border border-black p-2 rounded-md active:text-yellow-500 hover:bg-blue-500 hover:text-white active:shadow-none shadow-2xl transition-shadow'
                     onClick={ () => setJoystickButton(true)}>
                     Reset
                 </button>
