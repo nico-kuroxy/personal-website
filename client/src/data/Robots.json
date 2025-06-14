@@ -50,7 +50,7 @@
     "_comment": "Information about the B1A robot"
 },
 {
-    "name": "F1A",
+    "name": "F1T",
     "full_name": "F1 Autonomous",
     "path": "/robots/images/sc-f1a.png",
     "link": "https://solarcleano.com/en/products/autonomous-waterless-solar-panel-cleaning-robot-f1a",
