@@ -6,7 +6,7 @@
     "link": "https://enovarobotics.eu/pguard/",
     "mission": ["Monitoring robot."],
     "features": ["Ultrasonic belt", "360° camera..."],
-    "media": "https://youtu.be/UgNKZzPYy8c?si=mz2OpRqLtgCiUqE7",
+    "media": "https://www.youtube-nocookie.com/embed/VGmwygNWpqw?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1=1&loop=1&playlist=VGmwygNWpqw",
     "_comment": "Information about the PGuard robot"
 },
 {
@@ -16,7 +16,7 @@
     "link": "https://www.delairmarine.com/autonomous-rov-seasam/",
     "mission": ["Underwater exploration drone."],
     "features": ["Accoustic localization, altitude controller..."],
-    "media": "https://youtu.be/pdXTRAeUj60?si=87kQ2sWkXRUgnJBe",
+    "media": "https://www.youtube-nocookie.com/embed/vMKZx3pdCGM?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1=1&loop=1&playlist=vMKZx3pdCGM",
     "_comment": "Information about the S-Drone robot"
 },
 {
@@ -26,7 +26,7 @@
     "link": "https://www.delairmarine.com/rov-gps-seasam-navigator/",
     "mission": ["Surface wifi transmitter and localization."],
     "features": ["Rtk GPS, IMU..."],
-    "media": "https://youtu.be/sc0apVMIgaE?si=vngKKy3E4KhQK5T6",
+    "media": "https://www.youtube-nocookie.com/embed/a-Cp0XO10OE?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1=1&loop=1&playlist=a-Cp0XO10OE",
     "_comment": "Information about the S-Buoy robot"
 },
 {
@@ -36,7 +36,7 @@
     "link": "https://www.universal-robots.com/products/ur5e/",
     "mission": ["Robotic arm with end-effector."],
     "features": ["6dof, force sensor..."],
-    "media": "https://youtu.be/aSIfbMwFgwA?si=4WNTNGF80nOv_fte",
+    "media": "https://www.youtube-nocookie.com/embed/Tfi_JHRGEMA?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1=1&loop=1&playlist=Tfi_JHRGEMA",
     "_comment": "Information about the UR5e robot"
 },
 {
@@ -46,7 +46,7 @@
     "link": "https://solarcleano.com/en/product/solarbridge-autonomous-solar-panel-cleaning-robot-b1a",
     "mission": ["Autonomous cleaning of solar panels."],
     "features": ["RTK gps, holonomous wheels"],
-    "media": "https://youtu.be/IyKyr3DV0HM?si=_P0qIuIZS2vOnno1",
+    "media": "https://www.youtube-nocookie.com/embed/B_JLPLBZym0?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1=1&loop=1&playlist=B_JLPLBZym0",
     "_comment": "Information about the B1A robot"
 },
 {
@@ -56,7 +56,7 @@
     "link": "https://solarcleano.com/en/products/autonomous-waterless-solar-panel-cleaning-robot-f1a",
     "mission": ["Autonomous cleaning of solar panels."],
     "features": ["Depth cameras, custom trained yolo model."],
-    "media": "https://youtu.be/UdjF-E4qP0A?si=0ytZJ_YIyUDwchIq",
+    "media": "https://www.youtube-nocookie.com/embed/S1gQ5kiCJs4?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1=1&loop=1&playlist=S1gQ5kiCJs4",
     "_comment": "Information about the F1A robot"
 }
 ]

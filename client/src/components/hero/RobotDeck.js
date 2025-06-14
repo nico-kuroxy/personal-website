@@ -27,7 +27,7 @@ export default function RobotDeck(props) {
     const { robot } = useHero()
     // Define the const variables of the component.
     const cards = [ // The deck of robot cards.
-        { title: "Media" }, { title: "Features" }, { title: "Mission" }
+        { title: "Mission" }, { title: "Features" }, { title: "Media" }
       ]
     const offsets = [  // The offset between each card.
         { top: "12.5%", left: "7.5%" },
