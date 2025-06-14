@@ -56,7 +56,7 @@ export default function RobotDeck(props) {
         {/* Render the complete deck. */}
             <div className="relative w-full h-[50vh] flex items-center justify-center">
                 {/* Base card at the bottom, never moves */}
-                <RobotCard key={-1} title={"Robot : " + robot?.full_name} content={""} orderIndex={-1} style={{zIndex: -1}} className="bg-yellow-500 text-white"/>
+                <RobotCard key={-1} title={"Robot : " + robot?.full_name} content={""} orderIndex={-1} style={{zIndex: -1}}/>
                 {/* Render the 3 layered cards */}
                 {sortedCards.map((card, i) => {
                 // Apply the offset between each card of the pile.
