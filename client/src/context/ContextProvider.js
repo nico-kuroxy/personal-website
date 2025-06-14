@@ -11,6 +11,7 @@
 // Libraries
 // Components
 // Context
+import { HeroProvider } from './HeroProvider.js';
 import { PageStyleProvider } from './PageStyleProvider.js'
 import { LaboratoryProvider } from './LaboratoryProvider.js';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -21,9 +22,11 @@ import { LaboratoryProvider } from './LaboratoryProvider.js';
 export default function ContextProvider({children}) {
     return(
         <PageStyleProvider>
-            <LaboratoryProvider>
-                {children}
-            </LaboratoryProvider>
+            <HeroProvider>
+                <LaboratoryProvider>
+                    {children}
+                </LaboratoryProvider>
+            </HeroProvider>
         </PageStyleProvider>
     )
 }

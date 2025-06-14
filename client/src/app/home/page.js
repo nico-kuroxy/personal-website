@@ -12,7 +12,7 @@
 import { React, useRef, useEffect } from "react";
 // Components.
 import Hero from "@/src/components/hero/Hero.js";
-import RobotCarousel from "@/src/components/hero/RobotCarousel.js";
+import RobotHero from "@/src/components/hero/RobotHero.js";
 import Footer from "@/src/components/footer/Footer.js";
 // Contexts.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,7 +64,7 @@ const HomePage = () => {
       {/* Second screen */}
       <div ref={targetSecondScreenRef} className="flex flex-col min-h-screen w-full items-center justify-center">
         {/* The carousel with some information about the robots I worked on. */}
-        <RobotCarousel/>
+        <RobotHero/>
       </div>
       { /* Footer of the webpage.*/ }
       <Footer/>

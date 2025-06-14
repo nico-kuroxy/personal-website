@@ -1,0 +1,56 @@
+[
+    {
+    "name": "P-Guard",
+    "full_name": "Pearl Guard",
+    "path": "/robots/images/p-guard.png",
+    "mission": ["Monitoring robot."],
+    "features": ["Ultrasonic belt", "360° camera..."],
+    "media": ["Video"],
+    "_comment": "Information about the PGuard robot"
+},
+{
+    "name": "S-Drone",
+    "full_name": "Seasam Drone",
+    "path": "/robots/images/seasam-drone.png",
+    "mission": ["Underwater exploration drone."],
+    "features": ["Accoustic localization, altitude controller..."],
+    "media": ["Video"],
+    "_comment": "Information about the S-Drone robot"
+},
+{
+    "name": "S-Buoy",
+    "full_name": "Seasam Buoy",
+    "path": "/robots/images/seasam-buoy.png",
+    "mission": ["Surface wifi transmitter and localization."],
+    "features": ["Rtk GPS, IMU..."],
+    "media": ["Video"],
+    "_comment": "Information about the S-Buoy robot"
+},
+{
+    "name": "UR5e",
+    "full_name": "Universal Robot 5e",
+    "path": "/robots/images/ur5e.png",
+    "mission": ["Robotic arm with end-effector."],
+    "features": ["6dof, force sensor..."],
+    "media": ["Video"],
+    "_comment": "Information about the UR5e robot"
+},
+{
+    "name": "B1A",
+    "full_name": "B1 Autonomous",
+    "path": "/robots/images/sc-b1a.png",
+    "mission": ["Autonomous cleaning of solar panels."],
+    "features": ["RTK gps, holonomous wheels"],
+    "media": ["Video"],
+    "_comment": "Information about the B1A robot"
+},
+{
+    "name": "F1A",
+    "full_name": "F1 Autonomous",
+    "path": "/robots/images/sc-f1a.png",
+    "mission": ["Autonomous cleaning of solar panels."],
+    "features": ["Depth cameras, custom trained yolo model."],
+    "media": ["Video"],
+    "_comment": "Information about the F1A robot"
+}
+]
