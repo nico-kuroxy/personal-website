@@ -31,7 +31,15 @@ export default function RobotCard(props) {
             { /* The card title */}
             <h3 className="text-2xl font-semibold font-monoCustom">{title}</h3>
             { /* The content of the card. */ }
-            {(orderIndex===2 && content) && <div className="mt-2">{content.map((item) => {return <p>{item}</p>})}</div>}
+            {(orderIndex===2 && content && title!=="Media") && <div className="mt-2">{content.map((item) => {return <p>{item}</p>})}</div>}
+            { /* The video embeed if we are in the media section.. */ }
+            {(orderIndex===2 && title==="Media") && <iframe
+                className="w-full h-[400px]"
+                src={content}
+                title="Demo video"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+            />}
         </div>
       )
 }

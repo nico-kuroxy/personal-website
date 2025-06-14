@@ -6,7 +6,7 @@
     "link": "https://enovarobotics.eu/pguard/",
     "mission": ["Monitoring robot."],
     "features": ["Ultrasonic belt", "360° camera..."],
-    "media": ["Video"],
+    "media": "https://youtu.be/UgNKZzPYy8c?si=mz2OpRqLtgCiUqE7",
     "_comment": "Information about the PGuard robot"
 },
 {
@@ -16,7 +16,7 @@
     "link": "https://www.delairmarine.com/autonomous-rov-seasam/",
     "mission": ["Underwater exploration drone."],
     "features": ["Accoustic localization, altitude controller..."],
-    "media": ["Video"],
+    "media": "https://youtu.be/pdXTRAeUj60?si=87kQ2sWkXRUgnJBe",
     "_comment": "Information about the S-Drone robot"
 },
 {
@@ -26,7 +26,7 @@
     "link": "https://www.delairmarine.com/rov-gps-seasam-navigator/",
     "mission": ["Surface wifi transmitter and localization."],
     "features": ["Rtk GPS, IMU..."],
-    "media": ["Video"],
+    "media": "https://youtu.be/sc0apVMIgaE?si=vngKKy3E4KhQK5T6",
     "_comment": "Information about the S-Buoy robot"
 },
 {
@@ -36,7 +36,7 @@
     "link": "https://www.universal-robots.com/products/ur5e/",
     "mission": ["Robotic arm with end-effector."],
     "features": ["6dof, force sensor..."],
-    "media": ["Video"],
+    "media": "https://youtu.be/aSIfbMwFgwA?si=4WNTNGF80nOv_fte",
     "_comment": "Information about the UR5e robot"
 },
 {
@@ -46,7 +46,7 @@
     "link": "https://solarcleano.com/en/product/solarbridge-autonomous-solar-panel-cleaning-robot-b1a",
     "mission": ["Autonomous cleaning of solar panels."],
     "features": ["RTK gps, holonomous wheels"],
-    "media": ["Video"],
+    "media": "https://youtu.be/IyKyr3DV0HM?si=_P0qIuIZS2vOnno1",
     "_comment": "Information about the B1A robot"
 },
 {
@@ -56,7 +56,7 @@
     "link": "https://solarcleano.com/en/products/autonomous-waterless-solar-panel-cleaning-robot-f1a",
     "mission": ["Autonomous cleaning of solar panels."],
     "features": ["Depth cameras, custom trained yolo model."],
-    "media": ["Video"],
+    "media": "https://youtu.be/UdjF-E4qP0A?si=0ytZJ_YIyUDwchIq",
     "_comment": "Information about the F1A robot"
 }
 ]

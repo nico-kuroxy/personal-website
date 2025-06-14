@@ -48,7 +48,7 @@ export default function RobotCarousel(props) {
         // The container of the whole RobotCarousel component.
         <div className="flex flex-col w-full h-full items-center justify-center text-center mt-16">
         {/* Title of the section */}
-            <span className='pb-8 w-[30vw] text-6xl'>A collection of the robots I worked with</span>
+            <span className='pb-8 w-[30vw] text-6xl'>A collection of the robots I worked on</span>
             {/* The division of the section. */}
             <div className="relative w-2/3 h-3 mt-2 flex items-center justify-center">
                 {/* Left bar */}
