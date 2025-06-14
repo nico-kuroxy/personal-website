@@ -27,7 +27,7 @@ export default function RobotHero(props) {
         // The container of the whole RobotHero component.
         <div className="flex flex-row min-h-screen w-2/3 items-center justify-center">
             {/* Left half: Carousel */}
-                <div className="flex flex-col -ml-10 w-[40%] items-center justify-center">
+                <div className="flex flex-col -ml-9 w-[40%] items-center justify-center">
                 {/* The carousel with the pictures of the robots I worked on. */}
                 <RobotCarousel/>
             </div>
