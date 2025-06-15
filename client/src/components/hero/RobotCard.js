@@ -29,9 +29,9 @@ export default function RobotCard(props) {
                 + (orderIndex === -1? " hover:bg-orange-400 bg-orange-500 " : orderIndex === 2? " bg-blue-500 text-white " : " text-black bg-white hover:bg-yellow-200 " )}
              onClick={onClick}>
             { /* The card title */}
-            <h3 className="text-2xl font-semibold font-monoCustom">{title}</h3>
+            <h3 className="text-3xl font-semibold font-monoCustom ">{title}</h3>
             { /* The content of the card. */ }
-            {(orderIndex===2 && Array.isArray(content) && title!=="Media") && <div className="mt-2">{content.map((item) => {return <p>{item}</p>})}</div>}
+            {(orderIndex===2 && Array.isArray(content) && title!=="Media") && <ul className="mt-6 space-y-1 list-disc pl-8">{content.map((item, index) => {return <li key={index} className="text-2xl">{item}</li>})}</ul>}
             { /* The video embeed if we are in the media section.. */ }
             {(orderIndex===2 && title==="Media") && <iframe className="w-full h-[400px]" src={content} title="Demo video" allow="autoplay; encrypted-media" allowFullScreen/>}
         </div>

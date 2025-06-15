@@ -27,7 +27,7 @@ export default function RobotDeck(props) {
     const { robot } = useHero()
     // Define the const variables of the component.
     const cards = [ // The deck of robot cards.
-        { title: "Mission" }, { title: "Features" }, { title: "Media" }
+        { title: "Missions" }, { title: "Hardware" }, { title: "Media" }
       ]
     const offsets = [  // The offset between each card.
         { top: "12.5%", left: "7.5%" },
@@ -41,8 +41,8 @@ export default function RobotDeck(props) {
     // Define the react hook to update the content of the displaued card when the deck updates..
     useEffect(() => {
         // Register content.
-        const content = (sortedCards[selectedCardIndex]?.title === "Features") ? robot?.features :
-            (sortedCards[selectedCardIndex]?.title === "Mission") ? robot?.mission :
+        const content = (sortedCards[selectedCardIndex]?.title === "Hardware") ? robot?.hardware :
+            (sortedCards[selectedCardIndex]?.title === "Missions") ? robot?.mission :
                 robot?.media
         // Update content.
         setCardContent(content)
