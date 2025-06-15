@@ -35,6 +35,6 @@ export default function RobotCard(props) {
             { /* The video embeed if we are in the media section.. */ }
             {(orderIndex===2 && title==="Media") && <iframe className="w-full h-[400px]" src={content} title="Demo video" allow="autoplay; encrypted-media" allowFullScreen/>}
         </div>
-      )
+    )
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
