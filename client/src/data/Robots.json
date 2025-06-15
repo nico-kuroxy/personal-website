@@ -1,62 +1,148 @@
 [
     {
-    "name": "P-Guard",
-    "full_name": "Pearl Guard",
-    "path": "/robots/images/p-guard.png",
-    "link": "https://enovarobotics.eu/pguard/",
-    "mission": ["Security patrols.​", "Intrusions and/or anomalies detection via AI.​", "Doubt removals with video verification and remote interpellation.​", "On-demand intervention.", "« Click and Go » function.​", "Real-time remote control of the robot with anti-collision safety.​"],
-    "hardware": ["360° camera for object segmentation and remote monitoring", "Microphone & speaker", "RTK gps for localization", "Safety belt with sonars", "3D lidar for obstacle avoidance", "Wifi & 3G/4G", "4 wheels actuators with encoders for differential-drive motion"],
-    "media": "https://www.youtube-nocookie.com/embed/VGmwygNWpqw?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1=1&loop=1&playlist=VGmwygNWpqw",
-    "_comment": "Information about the PGuard robot"
-},
-{
-    "name": "S-Drone",
-    "full_name": "Seasam Drone",
-    "path": "/robots/images/seasam-drone.png",
-    "link": "https://www.delairmarine.com/autonomous-rov-seasam/",
-    "mission": ["Underwater exploration drone."],
-    "hardware": ["Accoustic emitter/transmitter for underwater localization", "Ping sonar altimeter", "9-axis IMU", "IP67 certification", "7 propellers for 6 degrees of freedom", "Up to 100 meters depth resistance", "Low-light camera", "Robotic gripper"],
-    "media": "https://www.youtube-nocookie.com/embed/vMKZx3pdCGM?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1=1&loop=1&playlist=vMKZx3pdCGM",
-    "_comment": "Information about the S-Drone robot"
-},
-{
-    "name": "S-Navigator",
-    "full_name": "Seasam Navigator",
-    "path": "/robots/images/seasam-buoy.png",
-    "link": "https://www.delairmarine.com/rov-gps-seasam-navigator/",
-    "mission": ["Surface wifi transmitter and localization."],
-    "hardware": ["RTK gps for surface localization", "Ping sonar altimeter", "9-axis IMU", "IP67 certification", "Wi-fi transmitter", "3 propellers for 3 degrees of freedom and holonomous motion", "Tethered communication with the S-Drone"],
-    "media": "https://www.youtube-nocookie.com/embed/a-Cp0XO10OE?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1=1&loop=1&playlist=a-Cp0XO10OE",
-    "_comment": "Information about the S-Buoy robot"
-},
-{
-    "name": "UR5e",
-    "full_name": "Universal Robot 5e",
-    "path": "/robots/images/ur5e.png",
-    "link": "https://www.universal-robots.com/products/ur5e/",
-    "mission": ["Robotic arm with end-effector."],
-    "hardware": ["6 degrees of freedom", "Force & torque sensors", "5kg maximum payload", "850mm reach", "Rotary encoders", "RGB cameras", "Coupled with virtual twins for reinforcement learning processes", "Dual-cobot setup"],
-    "media": "https://www.youtube-nocookie.com/embed/Tfi_JHRGEMA?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1=1&loop=1&playlist=Tfi_JHRGEMA",
-    "_comment": "Information about the UR5e robot"
-},
-{
-    "name": "B1A",
-    "full_name": "B1 Autonomous",
-    "path": "/robots/images/sc-b1a.png",
-    "link": "https://solarcleano.com/en/product/solarbridge-autonomous-solar-panel-cleaning-robot-b1a",
-    "mission": ["Autonomous cleaning of solar panels."],
-    "hardware": ["RTK gps for localization", "Dual-antenna orientation estimation", "3D lidars for panel segmentation and obstacle avoidance", "6 wheels actuators with encoders for holonomous motion", "Sonars, winches encoders and limit switches for brush regulation","4G/Wi-Fi router", "Serial communication with PLC"],
-    "media": "https://www.youtube-nocookie.com/embed/B_JLPLBZym0?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1=1&loop=1&playlist=B_JLPLBZym0",
-    "_comment": "Information about the B1A robot"
-},
-{
-    "name": "F1T",
-    "full_name": "F1 Autonomous",
-    "path": "/robots/images/sc-f1a.png",
-    "link": "https://solarcleano.com/en/products/autonomous-waterless-solar-panel-cleaning-robot-f1a",
-    "mission": ["Autonomous cleaning of solar panels."],
-    "hardware": ["Framos depth cameras for panel segmentation and obstacle avoidance", "6-axis IMU", "Wheel encoders", "Integrated Intel GPU", "Fall prevention belt with sonars", "2 track wheels actuators for differential-drive motion", "4G/Wi-Fi router", "UDP communication with PLC"],
-    "media": "https://www.youtube-nocookie.com/embed/S1gQ5kiCJs4?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1=1&loop=1&playlist=S1gQ5kiCJs4",
-    "_comment": "Information about the F1A robot"
-}
+        "name": "P-Guard",
+        "full_name": "Pearl Guard",
+        "path": "/robots/images/p-guard.png",
+        "link": "https://enovarobotics.eu/pguard/",
+        "mission": [
+            "Security patrols.",
+            "Intrusions and/or anomalies detection via AI.",
+            "Doubt removals with video verification and remote interpellation.",
+            "On-demand intervention.",
+            "« Click and Go » function.",
+            "Real-time remote control of the robot with anti-collision safety."
+        ],
+        "hardware": [
+            "360° camera for object segmentation and remote monitoring",
+            "Microphone & speaker",
+            "RTK GPS for localization",
+            "Safety belt with sonars",
+            "3D LiDAR for obstacle avoidance",
+            "Wi-Fi & 3G/4G",
+            "4 wheels actuators with encoders for differential-drive motion"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/VGmwygNWpqw?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=VGmwygNWpqw",
+        "_comment": "Information about the PGuard robot"
+    },
+    {
+        "name": "S-Drone",
+        "full_name": "Seasam Drone",
+        "path": "/robots/images/seasam-drone.png",
+        "link": "https://www.delairmarine.com/autonomous-rov-seasam/",
+        "mission": [
+            "Underwater exploration/inspection drone.",
+            "Automated scanning of cargo hull and analysis report generation via AI.",
+            "Pipe exploration and leakage detection.",
+            "Seabed scanning and object retrieval.",
+            "Position fixing (altitude, distance...) via numerical controllers.",
+            "Real-time video feedback and remote control in every direction."
+        ],
+        "hardware": [
+            "Acoustic emitter/transmitter for underwater localization",
+            "Ping sonar altimeter",
+            "9-axis IMU",
+            "IP67 certification",
+            "7 propellers for 6 degrees of freedom",
+            "Up to 100 meters depth resistance",
+            "Low-light camera",
+            "Robotic gripper"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/vMKZx3pdCGM?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=vMKZx3pdCGM",
+        "_comment": "Information about the S-Drone robot"
+    },
+    {
+        "name": "S-Navigator",
+        "full_name": "Seasam Navigator",
+        "path": "/robots/images/seasam-buoy.png",
+        "link": "https://www.delairmarine.com/rov-gps-seasam-navigator/",
+        "mission": [
+            "Surface Wi-Fi relay.",
+            "Combines the GPS absolute position and acoustic relative position to locate the underwater robot down to cm-level precision.",
+            "Automated bathymetric survey with complete coverage path-planning algorithms.",
+            "« Click and Go » function.",
+            "Real-time remote control via vector-state feedback controllers."
+        ],
+        "hardware": [
+            "RTK GPS for surface localization",
+            "Ping sonar altimeter",
+            "9-axis IMU",
+            "IP67 certification",
+            "Wi-Fi transmitter",
+            "3 propellers for 3 degrees of freedom and holonomic motion",
+            "Tethered communication with the S-Drone"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/a-Cp0XO10OE?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=a-Cp0XO10OE",
+        "_comment": "Information about the S-Buoy robot"
+    },
+    {
+        "name": "UR5e",
+        "full_name": "Universal Robot 5e",
+        "path": "/robots/images/ur5e.png",
+        "link": "https://www.universal-robots.com/products/ur5e/",
+        "mission": [
+            "Industrial, collaborative robot.",
+            "Used for research on cooking robots and soft manipulation.",
+            "A camera segments vegetables on the cutting plane, the first arm picks it up and holds it, and the second cuts it.",
+            "The motion of the knife is handled by a Q-Learning Policy trained to minimize the force/torque exerted on it."
+        ],
+        "hardware": [
+            "6 degrees of freedom",
+            "Force & torque sensors",
+            "5 kg maximum payload",
+            "850 mm reach",
+            "Rotary encoders",
+            "RGB cameras",
+            "Coupled with virtual twins for reinforcement learning processes",
+            "Dual-cobot setup"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/Tfi_JHRGEMA?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=Tfi_JHRGEMA",
+        "_comment": "Information about the UR5e robot"
+    },
+    {
+        "name": "B1A",
+        "full_name": "B1 Autonomous",
+        "path": "/robots/images/sc-b1a.png",
+        "link": "https://solarcleano.com/en/product/solarbridge-autonomous-solar-panel-cleaning-robot-b1a",
+        "mission": [
+            "Autonomous cleaning of land-based solar panels to maximize the energy production.",
+            "Executes a succession of maneuvers to accomplish a cleaning mission ordered by the operator via the web interface.",
+            "Segmentation of the panels shapes and positions with the LiDARs and RANSAC models.",
+            "Bringing down the brush and self-regulating cleaning pressure to optimize the cleaning."
+        ],
+        "hardware": [
+            "RTK GPS for localization",
+            "Dual-antenna orientation estimation",
+            "3D LiDARs for panel segmentation and obstacle avoidance",
+            "6 wheels actuators with encoders for holonomic motion",
+            "Sonars, winches encoders and limit switches for brush regulation",
+            "4G/Wi-Fi router",
+            "Serial communication with PLC"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/B_JLPLBZym0?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=B_JLPLBZym0",
+        "_comment": "Information about the B1A robot"
+    },
+    {
+        "name": "F1T",
+        "full_name": "F1 Autonomous",
+        "path": "/robots/images/sc-f1a.png",
+        "link": "https://solarcleano.com/en/products/autonomous-waterless-solar-panel-cleaning-robot-f1a",
+        "mission": [
+            "Autonomous cleaning of floating solar panels to maximize the energy production.",
+            "Developed under the scope of the Horizon Europe project 'Talos'.",
+            "Switching behavior automatically depending on the conditions of the photovoltaic plant to clean when / where needed.",
+            "Segmentation of the panels' centroid with the depth cameras and custom YOLO model."
+        ],
+        "hardware": [
+            "Framos depth cameras for panel segmentation and obstacle avoidance",
+            "6-axis IMU",
+            "Wheel encoders",
+            "Integrated Intel GPU",
+            "Fall prevention belt with sonars",
+            "2 tracked wheel actuators for differential-drive motion",
+            "4G/Wi-Fi router",
+            "UDP communication with PLC"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/S1gQ5kiCJs4?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=S1gQ5kiCJs4",
+        "_comment": "Information about the F1A robot"
+    }
 ]
