@@ -14,6 +14,7 @@ import { Canvas } from '@react-three/fiber';
 // Components.
 import GameController from './GameController';
 import Joystick from "./Joystick";
+import MonitorData from './MonitorData';
 import MonitorRobot from './MonitorRobot';
 import MonitorTwin from "./MonitorTwin";
 import PanelLabel from "./PanelLabel";
@@ -46,10 +47,12 @@ export default function MonitorPanel(props) {
             </div>
             {/* Right panel*/}
             <div className="flex flex-col h-full w-2/5 p-3  mr-6">
-                {/* Dynamic reconfigure. */}
+                {/* Plot data. */}
                 <div className="relative h-1/2 pb-6">
                     {/* The name of the monitor. */}
                     <PanelLabel labels={["Plot Data"]}/>
+                    {/* The component for the data plotter. */}
+                    <MonitorData/>
                 </div>
                 {/* Virtual twin of the robot. */}
                 <div className="relative h-1/2 bg-gray-400">
