@@ -28,6 +28,7 @@ export function LaboratoryProvider(props) {
     const [ robotModel, setRobotModel ] = useState(Group | null) // The three 3d model of the chosen robot.
     const [ whichView, setWhichView] = useState('Robot View') // The string litteral of the current view / video stream selected.
     const [ monitorImgSrc, setMonitorImgSrc] = useState('') // The latest image retrieved from the robot's camera.
+    const [ cmdVelMsg, setCmdVelMsg] = useState(null) // The latest image retrieved from the robot's camera.
     const [ controller, setController ] = useState(false) // Which controller is connected to the app.
     const [ controllerButtons, setControllerButtons] = useState([]) // The state of each button of the latest controller connected to the app.
     const [ controllerAxes, setControllerAxes] = useState([]) // The state of each axis of the latest controller connected to the app.
@@ -37,7 +38,7 @@ export function LaboratoryProvider(props) {
     const jointStatesRef = useRef({}) // The reference of the jointStates retrieved over the rosbridge.
     // Variables and functions that need to be accessed through this context.
     const value = { controller, setController, controllerButtons, setControllerButtons, controllerAxes, setControllerAxes, ros, setRos, urdfPath, setUrdfPath, robotModel, setRobotModel, jointStatesRef, robotOrientationRef,
-        joystickButton, setJoystickButton, monitorImgSrc, setMonitorImgSrc, whichView, setWhichView
+        joystickButton, setJoystickButton, monitorImgSrc, setMonitorImgSrc, whichView, setWhichView, cmdVelMsg, setCmdVelMsg
      }
     // Return the html.
     return (

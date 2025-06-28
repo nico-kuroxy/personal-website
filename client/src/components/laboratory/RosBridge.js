@@ -23,7 +23,7 @@ export default function RosBridge(props) {
     // Destructure the variables passed as argument.
     const {} = props
     // Destructure the context.
-    const { ros, setRos, monitorImgSrc, setMonitorImgSrc, controller, controllerAxes, controllerButtons, jointStatesRef, robotOrientationRef, whichView, setWhichView, joystickButton, setJoystickButton } = useLaboratory()
+    const { ros, setRos, monitorImgSrc, setMonitorImgSrc, cmdVelMsg, setCmdVelMsg, controller, controllerAxes, controllerButtons, jointStatesRef, robotOrientationRef, whichView, setWhichView, joystickButton, setJoystickButton } = useLaboratory()
     // Declare variables.
     const [position, setPosition] = useState({ x: 0, y: 0 })
     // Declare references.
@@ -87,7 +87,9 @@ export default function RosBridge(props) {
             linear: { x: position.y, y: 0, z: 0} ,
             angular: { x: 0, y: 0, z: ((position.y <= -0.5) && controller) || ((position.y <= -0.05) && !controller) ? position.x : -position.x }})
         // And then we publish it.
-        cmdVelPubRef.current.publish(twistMsg);
+        cmdVelPubRef.current.publish(twistMsg)
+        // We don't forget to register it.
+        setCmdVelMsg(twistMsg)
     }, [position])
     // Use an Effect hook to reset the world when the home button of the controller is pressed.
     useEffect(() => {

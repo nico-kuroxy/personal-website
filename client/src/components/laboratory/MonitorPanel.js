@@ -50,7 +50,7 @@ export default function MonitorPanel(props) {
                 {/* Plot data. */}
                 <div className="relative h-1/2 pb-6">
                     {/* The name of the monitor. */}
-                    <PanelLabel labels={["Plot Data"]}/>
+                    {/* <PanelLabel labels={["Plot Data"]}/>*/}
                     {/* The component for the data plotter. */}
                     <MonitorData/>
                 </div>
