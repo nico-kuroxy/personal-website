@@ -51,17 +51,8 @@ export default function Header(props) {
                     <i title="Send me a mail!" className="fa-solid fa-paper-plane text-yellow-500 hover:text-yellow-300 shadow-[0_0_5px_rgba(0,0,255,1)] hover:shadow-[0_0_5px_rgba(0,0,0,0.6)] active:shadow-[0_0_5px_rgba(255,255,255,0.6)] p-1 text-xl"></i>
                 </a>
                 {/* Copy the mail address when clicked upon. */}
-                <button title="Click to copy" className="active:[text-shadow:0_0_5px_#ffffff] active:text-yellow-300 hover:text-yellow-300"
-                  onClick={e => {
-                    // Get text content of the clicked container.
-                    const text = e.currentTarget.innerText
-                    // Log.
-                    console.log("Copied text:", text)
-                    // Copy to clipboard
-                    navigator.clipboard.writeText(text)
-                      .then(() => alert('Copied "' + text + '" to clipboard!'))
-                      .catch(() => alert('Failed to copy the mail address!'))
-                  }}>
+                <button className="active:[text-shadow:0_0_5px_#ffffff] active:text-yellow-300 hover:text-yellow-300"
+                    onClick={() => router.push('/home')}>
                     nicolas.erbetti.k@gmail.com
                 </button>
             </div>
@@ -69,7 +60,7 @@ export default function Header(props) {
             <div className="flex ml-4 items-center space-x-2">
                 {/* Redirect toward the front page of the webapp. */}
                 <button className={`hover:text-yellow-300 hover:underline active:[text-shadow:0_0_5px_#ffffff] active:text-yellow-300 ${pathname === "/home" ? 'text-yellow-500 [text-shadow:0_0_5px_#ff073a,0_0_10px_#ff073a]' : ''}`}
-                  onClick={() => router.push('/')}>
+                  onClick={() => router.push('/home')}>
                     home
                 </button>
                 {/* Teaser for some features coming soon (the lab...). */}
