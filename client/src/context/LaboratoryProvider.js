@@ -33,12 +33,16 @@ export function LaboratoryProvider(props) {
     const [ controllerButtons, setControllerButtons] = useState([]) // The state of each button of the latest controller connected to the app.
     const [ controllerAxes, setControllerAxes] = useState([]) // The state of each axis of the latest controller connected to the app.
     const [ joystickButton, setJoystickButton] = useState(false) // Whether or not the joystick button (for the rest of the simulation) has been pressed.
+    const [ whichMsg, setWhichMsg ] = useState("joints") // Which message is being plotted on the graph in monitor data.
+    // Define constant variables.
+    const msgList = ["cmd_vel", "imu", "joints"]  // The list of all available plottable message types.
+
     // Define references.
     const robotOrientationRef = useRef(null) // The reference of the robotOrientation retrieved over the rosbridge.
     const jointStatesRef = useRef({}) // The reference of the jointStates retrieved over the rosbridge.
     // Variables and functions that need to be accessed through this context.
     const value = { controller, setController, controllerButtons, setControllerButtons, controllerAxes, setControllerAxes, ros, setRos, urdfPath, setUrdfPath, robotModel, setRobotModel, jointStatesRef, robotOrientationRef,
-        joystickButton, setJoystickButton, monitorImgSrc, setMonitorImgSrc, whichView, setWhichView, cmdVelMsg, setCmdVelMsg
+        joystickButton, setJoystickButton, monitorImgSrc, setMonitorImgSrc, whichView, setWhichView, cmdVelMsg, setCmdVelMsg, whichMsg, setWhichMsg, msgList
      }
     // Return the html.
     return (

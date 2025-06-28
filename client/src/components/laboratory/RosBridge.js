@@ -159,9 +159,9 @@ export default function RosBridge(props) {
             euler.setFromQuaternion(quaternion, 'ZYX')
             // Save orientation.
             robotOrientationRef.current = {
-              x: euler.x,
-              y: euler.y,
-              z: euler.z
+              roll: euler.x,
+              pitch: euler.y,
+              yaw: euler.z
             }
         })
         // We create the twist publisher.

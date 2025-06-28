@@ -29,7 +29,7 @@ export default function MonitorPanel(props) {
     const {} = props
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
-    const {whichView, setWhichView} = useLaboratory()
+    const {whichView, setWhichView, whichMsg, setWhichMsg, msgList} = useLaboratory()
     // Return the html.
     return (
         // The container of the whole MonitorPanel component, with the slide-in animation.
@@ -48,9 +48,7 @@ export default function MonitorPanel(props) {
             {/* Right panel*/}
             <div className="flex flex-col h-full w-2/5 p-3  mr-6">
                 {/* Plot data. */}
-                <div className="relative h-1/2 pb-6">
-                    {/* The name of the monitor. */}
-                    {/* <PanelLabel labels={["Plot Data"]}/>*/}
+                <div className="relative h-1/2 pb-6 ">
                     {/* The component for the data plotter. */}
                     <MonitorData/>
                 </div>
@@ -58,6 +56,8 @@ export default function MonitorPanel(props) {
                 <div className="relative h-1/2 bg-gray-400">
                     {/* The name of the monitor. */}
                     <PanelLabel labels={["Virtual Twin"]}/>
+                    {/* The name of the focus. */}
+                    <PanelLabel labels={["Focus on: " + whichMsg]} pose="right-4" onClick={() => {setWhichMsg(msgList[(msgList?.indexOf(whichMsg) + 1) % msgList.length])}}/>
                     {/* The canvas for the virtual twin, required to have the useFrame() component being usable. */}
                     <Canvas><MonitorTwin/></Canvas>
                 </div>

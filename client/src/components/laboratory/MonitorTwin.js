@@ -61,8 +61,8 @@ export default function MonitorTwin(props) {
             // Check if the robot has an orientation...
             if (robotOrientationRef.current) {
                 // And update its pose in the 3d canvas based on its odometry...
-                const { x, y, z } = robotOrientationRef.current
-                robotModel.rotation.set(x - Math.PI/2, y, z)
+                const {roll, pitch, yaw } = robotOrientationRef.current
+                robotModel.rotation.set(roll - Math.PI/2, pitch, yaw)
             }
         }
     })
