@@ -53,7 +53,7 @@ export default function Typewriter(props) {
     // Return the html.
     return (
       // Display the animation.
-      <span className=" text-2xl font-monoCustom px-1">
+      <span className=" text-2xl font-monoCustom px-2">
         {/* Display the indexed word of the list up to the subindexed letter. */}
         <span className='mr-3'>{'[>'}</span>{words[index].substring(0, subIndex)}
         {/* Display a vertical bar pulsating to represent the typing. */}

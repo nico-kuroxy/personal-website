@@ -35,8 +35,8 @@ export default function Introduction(props) {
                 {/* What I do. */}
                 <div className="max-w-2xl text-2xl">
                     <p>
-                        <span>I work with</span>                   
-                        <Typewriter words={["AI [=◉︿◉=]", "Machine Learning", "Autonomous Stack", "Mobile Robots", "Robotic Arms", "Space Systems", "Computer Vision", "AUV & ASV", "Web Development"]} speed={100} pause={1250} />
+                        <span>I work on topics such as</span>                   
+                        <Typewriter words={["AI [=◉︿◉=]", "Machine Learning", "Autonomous Stack", "Mobile Robots", "Robotic Arms", "Space Systems", "Computer Vision", "AUV & ASV", "Web Development Tools"]} speed={100} pause={1250} />
                     </p>
                         <p> to provide robust solutions to complex robotic problems.</p>
                     <p>My goal ? Contributing to building a better future for all.</p>
