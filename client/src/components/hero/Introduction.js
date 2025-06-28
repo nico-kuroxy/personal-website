@@ -24,7 +24,7 @@ export default function Introduction(props) {
     // Return the html.
     return (
         // The container of the whole Introduction component.
-        <div className="flex justify-center flex-grow items-center">
+        <div className="flex justify-center flex-grow items-center pl-12">
             <div className="flex flex-col items-start text-left max-w-3xl space-y-2">
                 {/* My name. */}
                 <span className="flex text-4xl">My name is Nicolas Erbetti</span>

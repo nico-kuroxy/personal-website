@@ -35,7 +35,7 @@ export default function Hero(props) {
                     <Introduction/>
                 </div>
                 {/* Cube takes 1/3 and centers its canvas */}
-                <div className="basis-2/5 flex justify-center items-center">
+                <div className="basis-1/2 flex justify-center items-center">
                     {/* Interactible cube with my picture and a little easter egg */}
                     <Cube imageFrontUrl="lightning-in-a-bottle.jpg" imageBackUrl="jinx.jpg" />
                 </div>
