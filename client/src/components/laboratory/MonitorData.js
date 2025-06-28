@@ -147,11 +147,13 @@ export default function MonitorData() {
   
       // Axes
       g.append('g')
-        .attr('transform', `translate(0,${plotHeight})`)
-        .call(d3.axisBottom(zx).ticks(5));
-      g.append('g')
-        .call(d3.axisLeft(zy));
-  
+      .attr('class', 'axis-x')
+      .attr('transform', `translate(0,${plotHeight})`)
+      .call(d3.axisBottom(zx).ticks(5));
+    
+    g.append('g')
+      .attr('class', 'axis-y')
+      .call(d3.axisLeft(zy));
       // Color scale for dynamic keys
       const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
   
@@ -290,11 +292,35 @@ export default function MonitorData() {
       const zoom = d3.zoom()
         .scaleExtent([0.1, 100])
         .on('zoom', event => {
-          if (!event.sourceEvent?.ctrlKey) {
-            zoomTransformRef.current = event.transform;
-            svgRef.current.dispatchEvent(new CustomEvent('redraw-immediate'));
-          }
-        });
+            if (!event.sourceEvent?.ctrlKey) {
+              zoomTransformRef.current = event.transform;
+          
+              const transform = event.transform;
+              const zx = transform.rescaleX(d3.scaleTime()
+                .domain(d3.extent(data, d => d.timestamp))
+                .range([0, plotWidth])
+              );
+          
+              svg.select('g.plot-area').selectAll('path')
+              .data(yKeys, d => d)
+              .join('path')
+              .attr('class', 'data-line')
+              .attr('fill', 'none')
+              .attr('stroke', key => COLORS[key] || colorScale(key))
+              .attr('stroke-width', 2)
+              .attr('d', key => {
+                const line = d3.line()
+                  .defined(d => typeof d[key] === 'number' && !isNaN(d[key]))
+                  .x(d => zx(d.timestamp))
+                  .y(d => zy(d[key]))
+                  .curve(d3.curveMonotoneX);
+                return line(data);
+              });
+
+              svg.select('g.plot-area').select('g.axis-x')
+                .call(d3.axisBottom(zx).ticks(5));
+            }
+          });
   
       svg.call(zoom).call(zoom.transform, zoomTransformRef.current);
   
