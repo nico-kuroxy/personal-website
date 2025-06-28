@@ -30,7 +30,7 @@ export default function Hero(props) {
             {/* Put the cube and the info side by side.. */}
             <div className="flex-row flex justify-center">
                 {/* Personal infos take 2/3 and center in its container. */}
-                <div className="flex-col basis-3/5 flex justify-center items-center">
+                <div className="flex-col basis-2/3 flex justify-center items-center">
                     {/* Some informations about me. */}
                     <Introduction/>
                 </div>
