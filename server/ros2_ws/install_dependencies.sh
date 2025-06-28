@@ -40,9 +40,3 @@ source ~/.bashrc
 
 # To generate a temporary certificate : openssl req -x509 -nodes -days 365 -newkey rsa:2048   -keyout key.pem -out cert.pem   -subj "/CN=192.168.1.16"   -addext "subjectAltName=IP:192.168.1.16"
 # To start a cloudflare ssl tunnel : cloudflared tunnel run rosbridge-tunnel
-
-# Todo :
-# Develop modal
-# develop interaction with the urdf (hightlight relevant components, highlight focused component, hightlight component on hover and allow to click on it)
-# deploy the server on the server at home
-# clean the plot data component
