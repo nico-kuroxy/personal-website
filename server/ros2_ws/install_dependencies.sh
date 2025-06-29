@@ -9,8 +9,17 @@
 # PACKAGES INSTALLATION ########
 ################################
 
+# Setup repositories.
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+sudo apt update && sudo apt install curl -y
+export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}')
+curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo $VERSION_CODENAME)_all.deb" # If using Ubuntu derivates use $UBUNTU_CODENAME
+sudo dpkg -i /tmp/ros2-apt-source.deb
+
 # Update the packages.
 sudo apt update
+sudo apt upgrade
 
 # Install the ROS2 packages.
 sudo apt install -y \
@@ -39,4 +48,6 @@ source ~/.bashrc
 # To start a (dev) secure webserver : ros2 launch rosbridge_server rosbridge_websocket_launch.xml port:=9090 ssl:=true certfile:=/mnt/c/Users/nerbe/Development/kuroxy-personal-website/certificates/cert.pem keyfile:=/mnt/c/Users/nerbe/Development/kuroxy-personal-website/certificates/key.pem authenticate:=false
 
 # To generate a temporary certificate : openssl req -x509 -nodes -days 365 -newkey rsa:2048   -keyout key.pem -out cert.pem   -subj "/CN=192.168.1.16"   -addext "subjectAltName=IP:192.168.1.16"
+# To setup the cloudflare tunnel : 
 # To start a cloudflare ssl tunnel : cloudflared tunnel run rosbridge-tunnel
+# Doc from : https://tcude.net/creating-cloudflare-tunnels-on-ubuntu/ 
