@@ -61,6 +61,8 @@ source ~/.bashrc
 
 # To start the simulation : ros2 launch turtlebot3_gazebo_custom turtlebot3_world.launch.py
 # To start the webserver : ros2 launch rosbridge_server rosbridge_websocket_launch.xml 
+# To start a cloudflare ssl tunnel : cloudflared tunnel run laboratory
+
 # To start a (dev) secure webserver : ros2 launch rosbridge_server rosbridge_websocket_launch.xml port:=9090 ssl:=true certfile:=/mnt/c/Users/nerbe/Development/kuroxy-personal-website/certificates/cert.pem keyfile:=/mnt/c/Users/nerbe/Development/kuroxy-personal-website/certificates/key.pem authenticate:=false
 
 # To generate a temporary certificate : openssl req -x509 -nodes -days 365 -newkey rsa:2048   -keyout key.pem -out cert.pem   -subj "/CN=192.168.1.16"   -addext "subjectAltName=IP:192.168.1.16"
@@ -79,8 +81,6 @@ source ~/.bashrc
 # Finally, set up the DNS in cloudflared:
 # Create a CNAME, put the same tunnel name, and set the target as the name of your credential followed by .cfargotunnel.com). 
 # This will create laboratory.nico-kuroro.xyz as a proxy for the website... 
-
-# To start a cloudflare ssl tunnel : cloudflared tunnel run laboratory
 
 # Don't forget to set the NEXT_PUBLIC_ROS_IP in .env ! "laboratory.nico-kuroro.xyz"
 
