@@ -20,7 +20,7 @@ export default function Scrollbar(props) {
     // Return html.
     return (
         // The main container of the scrollbar.
-        <div className="fixed right-5 top-1/2 flex flex-col gap-4 z-50 justify-center items-center">
+        <div className="fixed right-5 top-1/2 flex flex-col gap-4 z-40 justify-center items-center">
             { /* We iterate over the number of screens. */}
             {[0, 1].map((index) => (
                 // To create one clickable dot for each of them, highlighted if its matches the current screen.

@@ -12,8 +12,12 @@ import { motion } from 'framer-motion';
 import { useLaboratory } from "../../context/LaboratoryProvider";
 import { usePageStyle } from "../../context/PageStyleProvider";
 // Components.
+// Modals.
+import Modal from "../../modals/Modal";
+import ModalLaboratoryHelp from "../../modals/ModalLaboratoryHelp";
 // Utils.
 import { slideUp } from '@/src/utils/animation';
+import { useState } from 'react';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,12 +29,14 @@ export default function ControlPanel(props) {
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     const {controller, ros} = useLaboratory()
+    // Define the component's variable.
+    const [displayModal, setDisplayModal] = useState(false)
     // Return the html.
     return (
         // The container of the whole ControlPanel component, with the slide-in animation.
         <motion.div variants={slideUp} initial="hidden" animate="visible" exit="exit" className="fixed w-full bottom-0 left-1/2 -translate-x-1/2 ">   
             {/* The content itself. */}
-            <footer className="w-3/4 bottom-0 left-1/2 -translate-x-1/2 z-50 flex flex-row justify-between bg-gradient-to-b from-[#00b9ff] to-[#1314EC] text-white text-2xl px-4 py-5 rounded-t-2xl">
+            <footer className="w-3/4 bottom-0 left-1/2 -translate-x-1/2 z-40 flex flex-row justify-between bg-gradient-to-b from-[#00b9ff] to-[#1314EC] text-white text-2xl px-4 py-5 rounded-t-2xl">
                 {/* Buttons on the left side. */}
                 <div className="flex items-center space-x-3">
                     {/* Whether or not the app is connected to ROS. */}
@@ -56,9 +62,17 @@ export default function ControlPanel(props) {
                 {/* Buttons on the right side. */}
                 <div className="flex items-center space-x-2">
                     {/* The button to provide some help. */}
-                    <span>Guide</span>
-                    <i className="fa-solid fa-circle-question"></i>
+                    <button onClick={() => setDisplayModal(true) } className='flex items-center space-x-2'>
+                        <span>Guide</span>
+                        <i className="fa-solid fa-circle-question"></i>
+                    </button>
                 </div>
+                {/* Modal of the edit medtadata button. */}
+                {(displayModal) && (
+                    <Modal name="Welcome to the laboratory help corner !​" handleCloseModal={() => setDisplayModal(false) }>
+                        <ModalLaboratoryHelp handleCloseModal={() => setDisplayModal(false)}/>
+                    </Modal>
+                )}
             </footer>
         </motion.div>
     )

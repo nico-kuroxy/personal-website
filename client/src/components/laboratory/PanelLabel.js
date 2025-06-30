@@ -26,7 +26,7 @@ export default function PanelLabel(props) {
     // Return the html.
     return (
         // The container of the whole PanelLabel component, with the slide-in animation.
-        <div className={"absolute mt-5 z-50 " + pose}>
+        <div className={"absolute mt-5 z-40 " + pose}>
             {labels.map((label, idx) => {
                 return (
                     <button key={idx} className={"border border-black text-black ml-4 p-2 font-monoCustom" 
