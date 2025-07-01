@@ -21,8 +21,6 @@ import Laboratory from "../../components/laboratory/Laboratory.js";
 const Page = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-center bg-no-repeat bg-black glow-bg">
-      { /* Root of the modal. */ }
-      <div id="portal"></div>
       { /* Laboratory component. */ }
       <Laboratory/>
     </div>

@@ -42,8 +42,12 @@ export default function RootLayout({ children }) {
           { /* Header of the webpage.*/ }
           <header><Header/></header>
           <main>
+            { /* Display a loading text on the screen. */ }
             <Suspense fallback={<div>Loading...</div>}/>
+            { /* Children of the layout, ie the element of the page. */ }
             {children}
+            { /* Root of the modal. */ }
+            <div id="portal"></div>
           </main>
         </ContextProvider>
       </body>

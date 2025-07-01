@@ -32,31 +32,34 @@ export default function ModalLaboratoryHelp(props) {
     // Return the jsx html.
     return (
     <>
-      <div class="guide-container p-4 space-y-2 text-base leading-relaxed">
+      <div className="px-4 pb-6 space-y-2 text-base leading-relaxed">
         { /* <!-- Simulation Section --> */}
-        <div class="section py-3">
-          <h2 class="font-monoCustom text-xl font-bold">🖥️ Simulation</h2>
-          <p>To select a world to explore, click on <strong>load world</strong>.</p>
-          <p>To select a robot to operate, click on <strong>load robot</strong>.</p>
-          <p>To connect your joystick, click on <strong>connect joystick</strong>.</p>
-          <p>Once your choice is done, or if you changed anything, click on <strong>apply choice</strong>.</p>
-        </div>
+        <h2 className="pt-5 py-3 font-monoCustom text-xl font-bold">🖥️ Simulation</h2>
+        <ul className="ml-6 list-disc list-inside text-white text-xl space-y-1">
+          <li>The <strong>ROS connection</strong> lightbulb is <span className="text-green-500">green</span> if the rosbridge websocket has connected, <span className="text-red-500">red</span> otherwise.</li>
+          <li>The <strong>Controller connection</strong> lightbulb is <span className="text-green-500">green</span> if a game controller is connected, <span className="text-red-500">red</span> otherwise.</li>
+          <li>You can switch the camera feed by clicking on <strong>"robot view"</strong> and <strong>"aerial view"</strong>.</li>
+          <li>The <strong>"apply choice"</strong> button is still WIP.</li>
+        </ul>
 
         { /* <!-- Operation Section --> */}
-        <div class="section py-3">
-          <h2 class="font-monoCustom text-xl font-bold">🎮 Operation</h2>
-          <p>To operate the robot, play with the joysticks displayed in the main frame.</p>
-          <p>If you connected a controller to your device, you can also use it.</p>
-        </div>
+        <h2 className="pt-5 py-3 font-monoCustom text-xl font-bold">🎮 Operation</h2>
+        <ul className="ml-6 list-disc list-inside text-white text-xl space-y-1">
+          <li>To operate the robot, play with the <strong>joystick displayed</strong> in the main frame.</li>
+          <li>You can reset the position of the robot in the world by pressing <strong>"reset"</strong>.</li>
+          <li>If you connected a controller to your device, you can also use it.</li>
+        </ul>
 
         { /* <!-- Visualization Section --> */}
-        <div class="section py-3">
-          <h2 class="font-monoCustom text-xl font-bold">📈 Visualization</h2>
-          <p>If you click on one of the secondary frames on the right, you can switch the view of the main frame.</p>
-          <p>You can use <strong>orbit control</strong> to rotate around and zoom on the virtual twin.</p>
-          <p>If you click on one component, it will display information relative to it in the virtual twin canvas.</p>
-          <p>You can switch between the <strong>virtual twin view</strong>, the <strong>raw data view</strong>, and the <strong>plot view</strong> with the buttons in the canvas.</p>
-        </div>
+        <h2 className="pt-5 py-3 font-monoCustom text-xl font-bold">📈 Visualization</h2>
+        <ul className="ml-6 list-disc list-inside text-white text-xl space-y-1">
+          <li>You can pan the data graph by left clicking + holding it, pause it, and reset it to the default view.</li>
+          <li>You can rescale the temporal axis by scrolling on the graph.</li>
+          <li>Hovering your mouse over the graph will display the numerical values of each point.</li>
+          <li>You can use <strong>orbit control</strong> to rotate around and zoom on the virtual twin.</li>
+          <li>You can switch the data stream by clicking on <strong>"focus on:"</strong>.</li>
+        </ul>
+
       </div>
     </>
   )

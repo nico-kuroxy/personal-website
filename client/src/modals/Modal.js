@@ -37,18 +37,22 @@ export default function Modal(props) {
   if (!portal) return null;
   // Return the jsx html.
   return ReactDom.createPortal(
-        <div className="modal-container">
+        <div className="flex flex-col modal-container">
+            {/* Button to close the modal. */}
             <button 
                 onClick={handleCloseModal}
                 className="modal-underlay"/>
-            <div className="modal-content">
-            <div>
+            {/* Modal content itself. */}
+            <div className="flex flex-col w-full modal-content">
                 {/* Title of the modal. */}
-                <h2 className='font-monoCustom font-bold text-2xl lg:text-2xl'>{name}</h2>
-                <p> Here, you can play with some robots that are being simulated server-side in Gazebo.  </p>
-                <p> Everything runs on ROS2, open-source packages and custom JS/C++ code. </p>
-            </div>
-            {children}
+                <h2 className='py-3 font-monoCustom font-bold text-4xl lg:text-4xl'>{name}</h2>
+                {/* Subtitle of the modal. */}
+                <div> Here, you can play with some robots that are being simulated in Gazebo on a remote server.  </div>
+                <div> Everything runs on ROS2, open-source packages and custom JS/C++ code. </div>
+                {/* Vertical bar */}
+                <div className="h-1 my-5 bg-yellow-500 w-1/5"></div>
+                {/* Children of the modal. */}
+                {children}
         </div>
     </div>,
     document.getElementById("portal")
