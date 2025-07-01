@@ -6,7 +6,7 @@ Each new commit to the master branch triggers a redeployment on cloudflared's si
 
 ## Todo
 
- - [ ] Develop modal  
+ - [x] Develop modal  
  - [ ] Develop interaction with the urdf (hightlight relevant components   highlight focused component, hightlight component on hover and allow to click on it)  
  - [x] Deploy the server on the server at home  
  - [ ] Clean the plot data component  
