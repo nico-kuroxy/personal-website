@@ -57,7 +57,7 @@ export default function ControlPanel(props) {
                     <span className="w-px h-6 bg-yellow-500"></span>
                     {/* Apply the chosen parameters. */}
                     <i className="fa-solid fa-triangle-exclamation text-orange-400 flicker-icon-glow-red "></i>
-                    <span className="text-orange-400 underline">Apply choices</span>
+                    <span title="WIP" className="text-orange-400 underline">Apply choices</span>
                 </div>
                 {/* Buttons on the right side. */}
                 <div className="flex items-center space-x-2">
