@@ -83,33 +83,48 @@ export default function MonitorData() {
     // Data update loop
     useEffect(() => {
       let frameId;
+      
       const update = () => {
         if (!paused && latestMsgRef.current) {
           const now = Date.now();
-  
+      
           // Flatten message
           const flattened = flattenData(latestMsgRef.current);
           // Extract numeric keys
           const keys = Object.keys(flattened).filter(k => typeof flattened[k] === 'number');
           setYKeys(keys);
-  
+      
           const newPoint = { timestamp: now, ...flattened };
-  
-          setData(prev => [...prev.filter(d => now - d.timestamp <= 60000), newPoint]);
+      
+          setData(prev => {
+            const newData = [...prev.filter(d => now - d.timestamp <= 60000), newPoint];
+            // Keep only the last 6000 data points
+            return newData.slice(-6000);
+          });
         }
         frameId = requestAnimationFrame(update);
       };
-      frameId = requestAnimationFrame(update);
+      
+      if (!paused) {
+        frameId = requestAnimationFrame(update);
+      }
+      
       return () => cancelAnimationFrame(frameId);
     }, [paused]);
-  
+    
     // Draw/update plot when data or dimensions change
     useEffect(() => {
       if (!data.length || !yKeys.length) return;
-  
+    
       const { width, height } = dimensions;
       const plotWidth = width - margin.left - margin.right;
       const plotHeight = height - margin.top - margin.bottom;
+    
+      const slicedData = data.slice(-6000); // Limit to the last 6000 values
+    
+      const xExtent = d3.extent(slicedData, d => d.timestamp);
+      const xScale = d3.scaleTime().domain(xExtent).range([0, plotWidth]);
+    
   
       const svg = d3.select(svgRef.current);
       svg.attr('width', width).attr('height', height);
@@ -122,10 +137,7 @@ export default function MonitorData() {
       const g = svg.append('g')
         .attr('class', 'plot-area')
         .attr('transform', `translate(${margin.left},${margin.top})`);
-  
-      // Scales
-      const xExtent = d3.extent(data, d => d.timestamp);
-      const xScale = d3.scaleTime().domain(xExtent).range([0, plotWidth]);
+
   
       // Gather all y values for current keys
       const yValues = data.flatMap(d => yKeys.map(k => d[k]))
@@ -253,41 +265,48 @@ export default function MonitorData() {
           updateTooltip(mx);
         });
   
-      function updateTooltip(mouseX) {
-        const x0 = zx.invert(mouseX);
-        const bisect = d3.bisector(d => d.timestamp).left;
-        const i = bisect(data, x0, 1);
-        const d0 = data[i - 1];
-        const d1 = data[i];
-        let dClosest = d0;
-        if (d1 && (x0 - d0.timestamp > d1.timestamp - x0)) {
-          dClosest = d1;
-        }
-        if (!dClosest) return;
+        function updateTooltip(mouseX) {
+          const transform = zoomTransformRef.current;
   
-        const xPos = zx(dClosest.timestamp) + margin.left;
-        focusLine.attr('x1', xPos).attr('x2', xPos);
+          // Rescale x-axis with current zoom
+          const xScale = d3.scaleTime()
+            .domain(d3.extent(data, d => d.timestamp))
+            .range([0, plotWidth]);
+          const zx = transform.rescaleX(xScale);
   
-        focusPoints.each(function (key) {
-          const yVal = dClosest[key];
-          const pointGroup = d3.select(this);
-  
-          if (yVal != null && yVal != 0 && !isNaN(yVal)) {
-            pointGroup
-              .style('display', null)
-              .attr('transform', `translate(${xPos},${zy(yVal) + margin.top})`);
-            pointGroup.select('text').text(`${key}: ${yVal.toFixed(3)}`);
-          } else {
-            pointGroup.style('display', 'none');
+          const x0 = zx.invert(mouseX);
+          const bisect = d3.bisector(d => d.timestamp).left;
+          const i = bisect(data, x0, 1);
+          const d0 = data[i - 1];
+          const d1 = data[i];
+          let dClosest = d0;
+          if (d1 && (x0 - d0.timestamp > d1.timestamp - x0)) {
+            dClosest = d1;
           }
-        });
+          if (!dClosest) return;
   
-        timestampText
-          .attr('x', xPos)
-          .attr('y', height - margin.bottom + 30)
-          .text(new Date(dClosest.timestamp).toLocaleTimeString());
-      }
+          const xPos = zx(dClosest.timestamp) + margin.left;
+          focusLine.attr('x1', xPos).attr('x2', xPos);
   
+          focusPoints.each(function (key) {
+            const yVal = dClosest[key];
+            const pointGroup = d3.select(this);
+  
+            if (yVal != null && yVal !== 0 && !isNaN(yVal)) {
+              pointGroup
+                .style('display', null)
+                .attr('transform', `translate(${xPos},${zy(yVal) + margin.top})`);
+              pointGroup.select('text').text(`${key}: ${yVal.toFixed(3)}`);
+            } else {
+              pointGroup.style('display', 'none');
+            }
+          });
+  
+          timestampText
+            .attr('x', xPos)
+            .attr('y', height - margin.bottom + 30)
+            .text(new Date(dClosest.timestamp).toLocaleTimeString());
+        }
       // Zoom behavior
       const zoom = d3.zoom()
         .scaleExtent([0.1, 100])
