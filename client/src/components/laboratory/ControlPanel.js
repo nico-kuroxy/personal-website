@@ -60,16 +60,18 @@ export default function ControlPanel(props) {
                     <span title="WIP" className="text-orange-400 underline">Apply choices</span>
                 </div>
                 {/* Buttons on the right side. */}
-                <div className="flex items-center space-x-2">
+                <div className="flex text-center items-center justify-center space-x-2">
                     {/* The button to provide some help. */}
                     <button onClick={() => setDisplayModal(true) } className='flex items-center space-x-2'>
-                        <span>Guide</span>
-                        <i className="fa-solid fa-circle-question"></i>
+                        <span>Guide </span>
+                        <i className="text-xl fa-solid fa-robot"></i>
                     </button>
                 </div>
-                {/* Modal of the edit medtadata button. */}
+                {/* Modal of the laboratory guide button. */}
                 {(displayModal) && (
-                    <Modal name="Welcome to the laboratory help corner !​" handleCloseModal={() => setDisplayModal(false) }>
+                    <Modal name="Welcome to the laboratory help corner !​"
+                        subtitles={["In this online laboratory, you can play with some robots that are being simulated in Gazebo on a remote server.", " Everything runs on ROS2, open-source packages and custom JS/C++ code."]}
+                        handleCloseModal={() => setDisplayModal(false) }>
                         <ModalLaboratoryHelp handleCloseModal={() => setDisplayModal(false)}/>
                     </Modal>
                 )}

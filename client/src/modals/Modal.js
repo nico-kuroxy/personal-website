@@ -23,7 +23,7 @@ import ReactDom from "react-dom";
 // Function declaration.
 export default function Modal(props) {
   // Destructure the props.
-  const {name, children, handleCloseModal} = props
+  const {name, subtitles, children, handleCloseModal} = props
   // Initialize the variables.
   const [mounted, setMounted] = useState(false);
   // Use an effect hook to make sure that the portal is only created on the client side.
@@ -47,8 +47,12 @@ export default function Modal(props) {
                 {/* Title of the modal. */}
                 <h2 className='py-3 font-monoCustom font-bold text-4xl lg:text-4xl'>{name}</h2>
                 {/* Subtitle of the modal. */}
-                <div> Here, you can play with some robots that are being simulated in Gazebo on a remote server.  </div>
-                <div> Everything runs on ROS2, open-source packages and custom JS/C++ code. </div>
+                {subtitles.map(text => {
+                  console.log(text)
+                  return(<div>{text}</div>)
+                })}
+                <div>   </div>
+                <div> </div>
                 {/* Vertical bar */}
                 <div className="h-1 my-5 bg-yellow-500 w-1/5"></div>
                 {/* Children of the modal. */}
