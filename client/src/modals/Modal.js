@@ -43,15 +43,15 @@ export default function Modal(props) {
                 onClick={handleCloseModal}
                 className="modal-underlay"/>
             {/* Modal content itself. */}
-            <div className="flex flex-col w-full modal-content">
+            <div className="flex flex-col w-full dark:text-white text-blue-900 modal-content dark:bg-blue-600/70 bg-blue-300 dark:border-blue-500 border border-blue-500">
                 {/* Title of the modal. */}
                 <h2 className='py-3 font-monoCustom font-bold text-4xl lg:text-4xl'>{name}</h2>
                 {/* Subtitle of the modal. */}
-                {subtitles.map(text => {
-                  return(<div>{text}</div>)
-                })}
+                {subtitles.map((text, idx) => (
+                  <div key={idx}>{text}</div>
+                ))}
                 {/* Vertical bar */}
-                <div className="h-1 my-5 bg-yellow-500 w-1/5"></div>
+                <div className="h-1 my-5 dark:bg-yellow-500 bg-yellow-300 w-1/5"></div>
                 {/* Children of the modal. */}
                 {children}
         </div>

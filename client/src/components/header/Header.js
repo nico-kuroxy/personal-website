@@ -91,7 +91,7 @@ export default function Header(props) {
                 </a>
                 {/* Toggle and display the dark mode has been selected. It has a fixed width to prevent element displacements. */}
                 <span className="w-px h-6 bg-yellow-500"></span>
-                <button title="WIP" onClick={toggleTheme} className="w-5 flex flex-col items-center relative group hover:text-yellow-300 text-yellow-500 text-2xl">
+                <button onClick={toggleTheme} className="w-5 flex flex-col items-center relative group hover:text-yellow-300 text-yellow-500 text-2xl">
                     {/* Current theme icon */}
                     {theme === 'dark' ? (<i className="fa-regular fa-moon [text-shadow:0_0_5px_#ff073a,0_0_10px_#ff073a]"></i>) : (<i className="fa-regular fa-sun [text-shadow:0_0_5px_#ff073a,0_0_10px_#ff073a]"></i>)}
                 </button>

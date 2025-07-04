@@ -35,7 +35,7 @@ export default function ModalHomepageHelp(props) {
       <div className="px-4 pb-6 space-y-2 text-base leading-relaxed">
         { /* <!-- About me section --> */}
         <h2 className="pt-5 py-3 font-monoCustom text-xl font-bold">👨‍💻 About me</h2>
-        <ul className="ml-6 list-disc list-inside text-white text-xl space-y-1">
+        <ul className="ml-6 list-disc list-inside dark:text-white text-blue-900 text-xl space-y-1">
           <li>The <strong>"contact me"</strong> button opens your mail application with my pre-filled address.</li>
           <li>The <strong>"download CV"</strong> button downloads a PDF of my CV on your device.</li>
           <li>The <strong>"visit the lab"</strong> button routes your browser to my online ROS2 laboratory.</li>
@@ -46,10 +46,10 @@ export default function ModalHomepageHelp(props) {
 
         { /* <!-- Robotic section --> */}
         <h2 className="pt-5 py-3 font-monoCustom text-xl font-bold">🎠 Robot carousel</h2>
-        <ul className="ml-6 list-disc list-inside text-white text-xl space-y-1">
-          <li>The <span className="text-yellow-500">left</span> and <span className="text-yellow-500">right</span> arrow buttons rotate the robot in the carousel.</li>
+        <ul className="ml-6 list-disc list-inside dark:text-white text-blue-900 text-xl space-y-1">
+          <li>The <span className="dark:text-yellow-500 text-yellow-300">left</span> and <span className="dark:text-yellow-500 text-yellow-300">right</span> arrow buttons rotate the robot in the carousel.</li>
           <li>You can also go to a specific robot by clicking on its displayed <strong>picture</strong>.</li>
-          <li>The <span className="text-orange-500">robot card</span> opens a tab with the commercial description of the selected robot.</li>
+          <li>The <span className="dark:text-orange-500 text-orange-300">robot card</span> opens a tab with the commercial description of the selected robot.</li>
           <li>The <strong>media card</strong> contains a youtube video player with a small demo of the robot.</li>
           <li>The <strong>hardware card</strong> contains a short description of the sensors equipping the robot.</li>
           <li>The <strong>missions card</strong> contains a non-exhaustive list of the robot's features.</li>

@@ -130,9 +130,9 @@ body::-webkit-scrollbar {
   margin: 0 auto;
   min-height: 400px;
   border-radius: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: white;
-  background: rgba(24, 64, 173, 0.75);
+  /* border: 1px solid rgba(255, 255, 255, 0.15); */
+  /* color: white; */
+  /* background: rgba(24, 64, 173, 0.75); */
   padding: 2rem;
   display: flex;
   flex-direction: column;

@@ -64,7 +64,7 @@ const HomePage = () => {
       return () => window.removeEventListener("scroll", handleScroll)
     }, [currentScreen]);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-center bg-no-repeat bg-black glow-bg ">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-center bg-no-repeat bg-blue-200 dark:bg-black glow-bg ">
       { /* First screen.*/ }
       <div ref={targetFirstScreenRef} className="flex flex-col justify-center items-center h-screen w-full -mt-10">
         { /* Main content of the webpage.*/ }

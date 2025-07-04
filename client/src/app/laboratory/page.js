@@ -20,7 +20,7 @@ import Laboratory from "../../components/laboratory/Laboratory.js";
 // Webpage's laboratory client html render.
 const Page = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-center bg-no-repeat bg-black glow-bg">
+    <div className="flex items-center justify-center min-h-screen bg-center bg-no-repeat bg-blue-200 dark:bg-black glow-bg">
       { /* Laboratory component. */ }
       <Laboratory/>
     </div>

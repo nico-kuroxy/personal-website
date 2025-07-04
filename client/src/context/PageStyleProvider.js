@@ -22,7 +22,8 @@ export function PageStyleProvider(props) {
     // Destructure the props.
     const { children } = props
     // Use state variables.
-    const [ theme, setTheme ] = useState("dark") // Whether or not the dark mode is enabled.
+    const [ isMounted, setIsMounster ] = useState(false) // Whether or not the component is mounted.
+    const [ theme, setTheme ] = useState("light") // Whether or not the dark mode is enabled.
     const [ language, setLanguage ] = useState("en") // What is the selected language of the page.
     // Function called by the darkmode selection button to switch it.
     const toggleTheme = () => {
@@ -47,8 +48,14 @@ export function PageStyleProvider(props) {
           setTheme(prefersDark ? 'dark' : 'light');
           document.documentElement.classList.toggle('dark', prefersDark);
         }
-      }, []);
-    // Return the jsx html.
+        // Update the isMounted flag.
+        setIsMounster(true);
+      }, [])
+      // Only the render the component when it's mounted, which is important to avoid FOUC and blinking due to mismatching light theme.
+      if (!isMounted) {
+        return null;
+    }
+    // Return the html.
     return (
         <PageStyleProviderContext.Provider value={value}>
             {children}

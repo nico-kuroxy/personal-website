@@ -32,10 +32,10 @@ export default function ModalLaboratoryHelp(props) {
     // Return the jsx html.
     return (
     <>
-      <div className="px-4 pb-6 space-y-2 text-base leading-relaxed">
+      <div className="px-4 pb-6 space-y-2 text-base dark:text-white text-blue-900 leading-relaxed">
         { /* <!-- Simulation Section --> */}
         <h2 className="pt-5 py-3 font-monoCustom text-xl font-bold">🖥️ Simulation</h2>
-        <ul className="ml-6 list-disc list-inside text-white text-xl space-y-1">
+        <ul className="ml-6 list-disc list-inside text-xl space-y-1">
           <li>The <strong>ROS connection</strong> lightbulb is <span className="text-green-500">green</span> if the rosbridge websocket has connected, <span className="text-red-500">red</span> otherwise.</li>
           <li>The <strong>Controller connection</strong> lightbulb is <span className="text-green-500">green</span> if a game controller is connected, <span className="text-red-500">red</span> otherwise.</li>
           <li>You can switch the camera feed by clicking on <strong>"robot view"</strong> and <strong>"aerial view"</strong>.</li>
@@ -44,7 +44,7 @@ export default function ModalLaboratoryHelp(props) {
 
         { /* <!-- Operation Section --> */}
         <h2 className="pt-5 py-3 font-monoCustom text-xl font-bold">🎮 Operation</h2>
-        <ul className="ml-6 list-disc list-inside text-white text-xl space-y-1">
+        <ul className="ml-6 list-disc list-inside text-xl space-y-1">
           <li>To operate the robot, play with the <strong>joystick displayed</strong> in the main frame.</li>
           <li>You can reset the position of the robot in the world by pressing <strong>"reset"</strong>.</li>
           <li>If you connected a controller to your device, you can also use it.</li>
@@ -52,7 +52,7 @@ export default function ModalLaboratoryHelp(props) {
 
         { /* <!-- Visualization Section --> */}
         <h2 className="pt-5 py-3 font-monoCustom text-xl font-bold">📈 Visualization</h2>
-        <ul className="ml-6 list-disc list-inside text-white text-xl space-y-1">
+        <ul className="ml-6 list-disc list-inside text-xl space-y-1">
           <li>You can pan the data graph by left clicking + holding it, pause it, and reset it to the default view.</li>
           <li>You can rescale the temporal axis by scrolling on the graph.</li>
           <li>Hovering your mouse over the graph will display the numerical values of each point.</li>

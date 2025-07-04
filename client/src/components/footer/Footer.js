@@ -43,7 +43,7 @@ export default function Footer(props) {
             {/* Modal of the homepage guide button. */}
             {(displayModal) && (
                 <Modal name="Welcome to the homepage help corner !​"
-                    subtitles={["Here, you can have a brief overview of who I am as well as the robots I worked on.", "This project is still work-in-progress. UI/UX design is not my specialty but as you can (hopefully) see, I am doing my best and having a blast while doing so !"]}
+                    subtitles={["In this webpage, you can have a brief overview of who I am as well as the robots I worked on.", "This project is still work-in-progress. UI/UX design is not my specialty but as you can (hopefully) see, I am doing my best and having a blast while doing so !"]}
                     handleCloseModal={() => setDisplayModal(false) }>
                     <ModalHomepageHelp handleCloseModal={() => setDisplayModal(false)}/>
                 </Modal>

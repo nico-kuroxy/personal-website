@@ -21,14 +21,14 @@ export default function Summary(props) {
      // Return the html.
      return (
         // The container of the whole summary component.
-        <div className="flex flex-row justify-center space-x-6 text-4xl">
+        <div className="flex flex-row justify-center space-x-6 text-4xl dark:text-white text-blue-900 ">
             {/* Number of years of experience. */}
             <span className="px-2 font-bold text-orange-500">3+</span>years of experience
             {/* Number of countries I worked in. */}
-            <span className="w-px bg-yellow-500"></span>
+            <span className="w-0.5 dark:bg-yellow-500 bg-yellow-300 "></span>
             <span className="pr-2 font-bold text-orange-500">3</span> countries worked in
             {/* Number of robot I worked on, goes to the robot carousel section when clicked on. */}
-            <span className="w-px bg-yellow-500"></span>
+            <span className="w-0.5 dark:bg-yellow-500 bg-yellow-300 "></span>
             <button onClick={() => {hasScrolled.current = true; targetSecondScreenRef.current?.scrollIntoView({ behavior: "smooth" }); setTimeout(() => { hasScrolled.current = false }, 100);}}>
                 <span className="pr-2 font-bold text-orange-500">6</span>robots developped
             </button>

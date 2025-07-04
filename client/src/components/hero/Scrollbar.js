@@ -25,7 +25,7 @@ export default function Scrollbar(props) {
             {[0, 1].map((index) => (
                 // To create one clickable dot for each of them, highlighted if its matches the current screen.
                 <div key={index} onClick={() => setCurrentScreen(index)} 
-                    className={`transition-all cursor-pointer rounded-full ${currentScreen === index? "w-4 h-4 bg-white" : "w-2 h-2 bg-gray-500"}`}/>
+                    className={`transition-all cursor-pointer rounded-full ${currentScreen === index? "w-4 h-4 bg-blue-900 dark:bg-white" : "w-2 h-2 bg-gray-500"}`}/>
             ))}
         </div>
     )
