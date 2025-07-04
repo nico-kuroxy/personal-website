@@ -12,8 +12,9 @@ Each new commit to the master branch triggers a redeployment on cloudflared's si
  - [x] Fix the plot data when stopping / panning : data highlighted with the vertical bar does not match the visual plot  
  - [x] Add full zoom
  - [x] Develop guide modal for the homepage.
+ - [x] Develop dark/light mode.
  - [ ] Develop interaction with the urdf (hightlight relevant components highlight focused component, hightlight component on hover and allow to click on it)  
  - [ ] Separate vertical and horizontal zoom.
  - [ ] Replace picture of medalion and fix lighting.
  - [ ] Develop language switch.
- - [ ] Develop dark/light mode.
+
