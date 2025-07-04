@@ -48,11 +48,8 @@ export default function Modal(props) {
                 <h2 className='py-3 font-monoCustom font-bold text-4xl lg:text-4xl'>{name}</h2>
                 {/* Subtitle of the modal. */}
                 {subtitles.map(text => {
-                  console.log(text)
                   return(<div>{text}</div>)
                 })}
-                <div>   </div>
-                <div> </div>
                 {/* Vertical bar */}
                 <div className="h-1 my-5 bg-yellow-500 w-1/5"></div>
                 {/* Children of the modal. */}
