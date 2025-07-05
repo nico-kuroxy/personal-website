@@ -78,34 +78,36 @@ export default function MonitorData(props) {
     }, [whichMsg])
     // Update the content of the graph at each render of the window when the pause button is hit.
     useEffect(() => {
+      // Initialize variable.
       let frameId
+      // Define the loop.
       const update = () => {
+        // If the graph is not paused AND at least one message has been registered.
         if (!paused && latestMsgRef.current) {
+          // We retrieve the time.
           const now = Date.now()
+          // Format the data.
           const flattened = flattenData(latestMsgRef.current)
+          // Retrieve all data field.
           const keys = Object.keys(flattened).filter(k => typeof flattened[k] === 'number')
-          // Force clear existing data if keys don't match
+          // Set the data.
           setData(prev => {
-            if (prev.length > 0 && !prev[0].hasOwnProperty(keys[0])) {
-              return []
-            }
-            return prev
+            const newData = [...prev.filter(d => now - d.timestamp <= 5000), { timestamp: now, ...flattened }]
+            return newData.slice(-5000)
           })
-          const newPoint = { timestamp: now, ...flattened }
-          setData(prev => {
-            const newData = [...prev.filter(d => now - d.timestamp <= 60000), newPoint]
-            return newData.slice(-6000)
-          })
-          // Only update keys if they've changed
+          // Set the key of each data... (ie: linear.x for cmd_vel...).
           setYKeys(prevKeys => {
             return JSON.stringify(prevKeys) === JSON.stringify(keys) ? prevKeys : keys
           })
+        } else {
+          // Even if paused, force a redraw so zoom still works
+          setData(prev => [...prev])
         }
         frameId = requestAnimationFrame(update)
       }
-      if (!paused) {
-        frameId = requestAnimationFrame(update)
-      }
+      // Start the loop.
+      frameId = requestAnimationFrame(update)
+      // Cancel the loop on unmounting of the component.
       return () => cancelAnimationFrame(frameId)
     }, [paused, whichMsg])
     // Update the content of the graph when new data comes in or when we interact with it.
@@ -114,20 +116,19 @@ export default function MonitorData(props) {
       const { width, height } = dimensions
       const plotWidth = width - margin.left - margin.right
       const plotHeight = height - margin.top - margin.bottom
-      const slicedData = data.slice(-6000)
-      const xExtent = d3.extent(slicedData, d => d.timestamp)
+      const xExtent = d3.extent(data, d => d.timestamp)
       const xScale = d3.scaleTime().domain(xExtent).range([0, plotWidth])
       const svg = d3.select(svgRef.current)
       svg.attr('width', width).attr('height', height)
       // Only remove and recreate plot area if it doesn't exist
       let g = svg.select('g.plot-area')
       if (g.empty()) {
-        svg.selectAll('g.plot-area').remove()
-        svg.select('g.tooltip-group').raise()
+        // Don't redundantly remove all plot areas if it was already empty
         g = svg.append('g')
           .attr('class', 'plot-area')
           .attr('transform', `translate(${margin.left},${margin.top})`)
-      }
+        svg.select('g.tooltip-group').raise()
+      }      
       const yValues = data.flatMap(d => yKeys.map(k => d[k])).filter(v => typeof v === 'number' && !isNaN(v))
       let yDomain
       if (zoomTransformRef.current.manualYZoom && initialYDomainRef.current) {
@@ -188,11 +189,24 @@ export default function MonitorData(props) {
           .attr('y2', height - margin.bottom)
           .attr('pointer-events', 'none')
         const focusPoints = tooltipGroup.selectAll('g.point')
-          .data(yKeys)
-          .enter()
-          .append('g')
-          .attr('class', 'point')
-          .attr('pointer-events', 'none')
+        .data(yKeys, d => d)
+        .join(
+          enter => {
+            const g = enter.append('g')
+              .attr('class', 'point')
+              .attr('pointer-events', 'none')
+            g.append('circle')
+              .attr('r', 4)
+              .attr('fill', key => colorScale(key))
+            g.append('text')
+              .attr('x', 8)
+              .attr('dy', '0.35em')
+              .style('font-size', '12px')
+            return g
+          },
+          update => update,
+          exit => exit.remove()
+        )
         focusPoints.append('circle')
           .attr('r', 4)
           .attr('fill', key => colorScale(key))
@@ -314,7 +328,7 @@ export default function MonitorData(props) {
             .range([plotHeight, 0])
           const [x, y] = d3.pointer(event.sourceEvent, svgRef.current)
           const deltaY = event.sourceEvent.deltaY
-          const scaleFactor = deltaY > 0 ? 0.9 : 1.1
+          const scaleFactor = deltaY > 0 ? 0.99 : 1.01
           if (isCtrl) {
             // Vertical zoom only
             const yPos = yScale.invert(y - margin.top)
@@ -347,7 +361,8 @@ export default function MonitorData(props) {
         // that will cause the paths and axes to be updated
         setData(prev => [...prev])
       }
-      svgRef.current.addEventListener('redraw', redraw)
+      svgRef.current?.removeEventListener('redraw', redraw)
+      svgRef.current?.addEventListener('redraw', redraw)      
       if (isMouseOverRef.current && lastMouseXRef.current != null) {
         updateTooltip(lastMouseXRef.current)
       }
