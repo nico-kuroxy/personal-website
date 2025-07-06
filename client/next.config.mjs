@@ -23,6 +23,7 @@ const withNextIntl = createNextIntlPlugin({
 // Define the Next configuration.
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone', // requis pour SSR avec next-on-pages
 }
 // Export the config.
 export default withNextIntl(nextConfig);
