@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next-on-pages",
+    "deploy": "wrangler pages deploy .vercel/output/static --project-name=personal-website",
     "start": "next start",
     "lint": "next lint",
     "postbuild": "next-sitemap"
@@ -36,6 +37,7 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.12",
     "postcss": "^8",
     "tailwindcss": "^3.4.1"
   }
