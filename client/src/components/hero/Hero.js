@@ -10,7 +10,7 @@
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider"
 // Components.
-import Cube from "./Cube"
+import Medalion from "./Medalion"
 import Introduction from "./Introduction"
 import Summary from "./Summary"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -37,7 +37,7 @@ export default function Hero(props) {
                 {/* Cube takes 1/3 and centers its canvas */}
                 <div className="basis-1/2 flex justify-center items-center">
                     {/* Interactible cube with my picture and a little easter egg */}
-                    <Cube imageFrontUrl="/pictures/lightning-in-a-bottle.jpg" imageBackUrl="/pictures/jinx.jpg" />
+                    <Medalion imageFrontUrl="/pictures/lightning-in-a-bottle.jpg" imageBackUrl="/pictures/jinx.jpg" />
                 </div>
             </div>
             {/* The summary with some metrics about my experiences. */}

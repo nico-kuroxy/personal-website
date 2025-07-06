@@ -1,0 +1,11 @@
+{
+    "home": {
+      "title": "Bienvenue chez vous",
+      "description": "Voici la page d'accueil."
+    },
+    "lab": {
+      "title": "Bienvenue au laboratoire",
+      "description": "Explorez les expériences ici."
+    }
+  }
+  

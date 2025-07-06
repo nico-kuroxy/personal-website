@@ -2,7 +2,7 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useRef } from 'react';
 import { OrbitControls, PerspectiveCamera, Edges } from '@react-three/drei';
-import { RoundedBox } from '@react-three/drei';
+import { RoundedBox, Html } from '@react-three/drei';
 import { shaderMaterial } from '@react-three/drei';
 import { extend } from '@react-three/fiber';
 
@@ -49,31 +49,32 @@ const RoundedCornerMaterial = shaderMaterial(
   `
 );
 
-extend({ RoundedCornerMaterial });
+extend({ RoundedCornerMaterial })
 
-function Medallion({ imageFrontUrl, imageBackUrl }) {
-  const medallionRef = useRef();
-  const textureFront = useLoader(THREE.TextureLoader, imageFrontUrl);
-  const textureBack = useLoader(THREE.TextureLoader, imageBackUrl);
-
+function MedallionMesh({ imageFrontUrl, imageBackUrl }) {
+  // Define component's references.
+  const medallionRef = useRef()
+  const textureFront = useLoader(THREE.TextureLoader, imageFrontUrl)
+  const textureBack = useLoader(THREE.TextureLoader, imageBackUrl)
+  // 
   useFrame(({ clock }) => {
-    const t = clock.getElapsedTime();
-    medallionRef.current.rotation.x = Math.sin(t) * 0.05;
-    medallionRef.current.rotation.z = Math.sin(t) * 0.05;
-    medallionRef.current.rotation.y = Math.sin(t) * 0.05 - 0.353;
-  });
+    const t = clock.getElapsedTime()
+    medallionRef.current.rotation.x = Math.sin(t) * 0.05
+    medallionRef.current.rotation.z = Math.sin(t) * 0.05
+    medallionRef.current.rotation.y = Math.sin(t) * 0.05 - 0.353
+  })
 
   // Medallion dimensions
-  const width = 1.5;
-  const height = 1.5;
-  const depth = 0.12; // keep depth slightly larger than radius * 2
+  const width = 1.5
+  const height = 1.5
+  const depth = 0.12 // keep depth slightly larger than radius * 2
 
   // Corner radius smaller than half thickness
-  const radius = 0.05;
+  const radius = 0.05
 
   // Plane size matches medallion face exactly
-  const planeWidth = width;
-  const planeHeight = height;
+  const planeWidth = width
+  const planeHeight = height
 
   return (
     <group ref={medallionRef} scale={3}>
@@ -102,7 +103,7 @@ function Medallion({ imageFrontUrl, imageBackUrl }) {
       <mesh
         position={[0, 0, -depth / 2 - 0.001]}
         rotation={[0, Math.PI, 0]}
-        scale={[-1, 1, 1]} // Flip horizontally
+        scale={[-1, 1, 1]} // flip horizontally
       >
         <planeGeometry args={[planeWidth, planeHeight]} />
         <roundedCornerMaterial
@@ -113,17 +114,17 @@ function Medallion({ imageFrontUrl, imageBackUrl }) {
         />
       </mesh>
     </group>
-  );
+  )
 }
 
-export default function Cube({ imageFrontUrl, imageBackUrl }) {
+export default function Medalion({ imageFrontUrl, imageBackUrl }) {
   return (
     <Canvas style={{ width: '100%', height: '75vh', background: 'transparent' }}>
       <PerspectiveCamera makeDefault position={[0, 0, 8]} />
       <ambientLight intensity={0.76} />
       <directionalLight position={[5, 5, 5]} intensity={0.75} />
-      <Medallion imageFrontUrl={imageFrontUrl} imageBackUrl={imageBackUrl} />
+      <MedallionMesh imageFrontUrl={imageFrontUrl} imageBackUrl={imageBackUrl} />
       <OrbitControls enableZoom={false} enablePan={false} />
     </Canvas>
-  );
+  )
 }
