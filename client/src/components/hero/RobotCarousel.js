@@ -29,7 +29,7 @@ export default function RobotCarousel(props) {
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     const {robot, setRobot} = useHero()
     // Destructure the translations.
-    const t = useTranslations('HomeHero')
+    const t = useTranslations('HomeRobot')
     // Define the react variables.
     const [goToSlide, setGoToSlide] = useState(0)
     const [robots, setRobots] = useState([])

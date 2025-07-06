@@ -19,7 +19,9 @@
     "visit": "Visit the lab",
     "years": "years of experience",
     "countries": ["Projects in", "countries"],
-    "developed": "robots developed",
+    "developed": "robots developed"
+  },
+  "HomeRobot": {
     "collection": "A collection of the robots I worked with",
     "robot": "Robot",
     "media": "Media",
@@ -172,9 +174,6 @@
             "_comment": "Information about the F1A robot"
         }
       ]
-  },
-  "HomeRobot": {
-    "title": "Hello world!"
   },
   "HomeModal": {
     "title": "Hello world!"

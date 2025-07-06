@@ -27,7 +27,7 @@ export default function RobotDeck(props) {
     // Define the references of the component.
     const { robot } = useHero()
     // Destructure the translations.
-    const t = useTranslations('HomeHero')
+    const t = useTranslations('HomeRobot')
     // Define the const variables of the component.
     const cards = [ // The deck of robot cards.
         { title: "Missions" }, { title: "Hardware" }, { title: "Media" }

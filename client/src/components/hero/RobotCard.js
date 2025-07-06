@@ -22,7 +22,7 @@ export default function RobotCard(props) {
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     // Destructure the translations.
-    const t = useTranslations('HomeHero')
+    const t = useTranslations('HomeRobot')
     // Define the react variables.
     // Return the html.
     return (
