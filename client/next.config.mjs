@@ -25,8 +25,8 @@ const withNextIntl = createNextIntlPlugin({
 const nextConfig = {
     // Remove experimental block entirely
     output: 'standalone',
-    distDir: 'client/out'
-}
+    distDir: 'client/.next'
+  }
 // Export the config.
 export default withNextIntl(nextConfig);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
