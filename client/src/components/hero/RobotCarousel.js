@@ -12,11 +12,10 @@ const Carousel = dynamic(() => import('react-spring-3d-carousel'), {
   ssr: false
 });
 import { useEffect, useState } from 'react';
+import { ClipLoader } from "react-spinners";
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider"
 import { useHero } from "../../context/HeroProvider"
-// Data.
-import Robots from "/src/data/Robots.json"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -30,21 +29,36 @@ export default function RobotCarousel(props) {
     const {robot, setRobot} = useHero()
     // Define the react variables.
     const [goToSlide, setGoToSlide] = useState(0)
+    const [robots, setRobots] = useState([])
     // Define the slides of the carousel.
-    const slides = Robots.map((robot, index) => ({
+    const slides = robots?.map((robot, index) => ({
         key: index,
         content: (<img src={robot.path} alt={`Robot ${index}`} onClick={() => { console.log("Clicked slide", index); setGoToSlide(index)}}
                     className="w-[200%] h-full transition-shadow duration-300 ease-in-out shadow-lg hover:shadow-[0_15px_50px_rgba(0,0,0,0.75)] rounded-xl object-contain transition-transform duration-300 hover:scale-105"/>),
     }))
+    // Fetch the robots descriptions from the public folder.
+    useEffect(() => {
+        fetch('/locales/data/Robots.json')
+          .then((res) => res.json())
+          .then((data) => setRobots(data))
+          .catch((err) => console.error('Failed to load Robots.json:', err))
+      }, [])
     // Define the react hook to update the robot when the slide updates..
     useEffect(() => {
         // Update robot.
-        setRobot(Robots[goToSlide])
+        setRobot(robots[goToSlide])
         // Log the result.
-        console.log("New robot selected:", Robots[goToSlide])
-    }, [goToSlide]);
+        console.log("New robot selected:", robots[goToSlide])
+    }, [goToSlide, robots]);
+    // If the robots are not loaded, return a loading spinner.
+    if (!robots.length) { 
+        return (
+        <div className="flex items-center justify-center h-full">
+          <ClipLoader color="#facc15" size={60} />
+        </div>
+    )}
     // Return the html.
-    return (
+    else return (
         // The container of the whole RobotCarousel component.
         <div className="flex flex-col w-full h-full dark:text-white text-blue-900 items-center justify-center text-center mt-16">
         {/* Title of the section */}
@@ -63,11 +77,11 @@ export default function RobotCarousel(props) {
                 {/* Navigation bar of the carousel. */}
                 <div className='flex flex-row items-center justify-center text-5xl space-x-4 mt-2'>
                     {/* Left arrow of the carousel. */}
-                    <button onClick={() => setGoToSlide((goToSlide - 1 + Robots.length)%Robots.length)}><i className="dark:text-yellow-500 hover:text-yellow-300 text-yellow-300 hover:text-yellow-500 fa-regular fa-square-caret-left"/></button>
+                    <button onClick={() => setGoToSlide((goToSlide - 1 + robots.length)%robots.length)}><i className="dark:text-yellow-500 hover:text-yellow-300 text-yellow-300 hover:text-yellow-500 fa-regular fa-square-caret-left"/></button>
                     {/* Name of the robot */}
-                    <span className='w-full text-center font-monoCustom'>{Robots[goToSlide].name}</span>
+                    <span className='w-full text-center font-monoCustom'>{robots[goToSlide].name}</span>
                     {/* Right arrow of the carousel. */}
-                    <button onClick={() => setGoToSlide((goToSlide+1)%Robots.length)}><i className="dark:text-yellow-500 hover:text-yellow-300 text-yellow-300 hover:text-yellow-500 fa-regular fa-square-caret-right"/></button>
+                    <button onClick={() => setGoToSlide((goToSlide+1)%robots.length)}><i className="dark:text-yellow-500 hover:text-yellow-300 text-yellow-300 hover:text-yellow-500 fa-regular fa-square-caret-right"/></button>
                 </div>
             </div>
         </div>

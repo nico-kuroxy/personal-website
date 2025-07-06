@@ -26,7 +26,7 @@ export default function Summary(props) {
             <span className="px-2 font-bold text-orange-500">3+</span>years of experience
             {/* Number of countries I worked in. */}
             <span className="w-0.5 dark:bg-yellow-500 bg-yellow-300 "></span>
-            <span className="pr-2 font-bold text-orange-500">3</span> countries worked in
+            <a href="https://www.google.com/maps/d/u/2/edit?mid=132Xe4WblcLJ8dzpLmvI-SaAGpVG5s9Q&usp=sharing" target="_blank" rel="noopener noreferrer"><span className="pr-2 font-bold text-orange-500">3</span> countries worked in</a>
             {/* Number of robot I worked on, goes to the robot carousel section when clicked on. */}
             <span className="w-0.5 dark:bg-yellow-500 bg-yellow-300 "></span>
             <button onClick={() => {hasScrolled.current = true; targetSecondScreenRef.current?.scrollIntoView({ behavior: "smooth" }); setTimeout(() => { hasScrolled.current = false }, 100);}}>
