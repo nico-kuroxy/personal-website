@@ -1,0 +1,191 @@
+{
+  "Header": {
+    "home": "accueil",
+    "lab": "lab",
+    "pub": "article"
+  },
+  "Footer": {
+    "guide": "guide"
+  },
+  "HomeHero": {
+    "name": "Je m'appelle Nicolas Erbetti",
+    "engineer": "Je suis Ingénieur Roboticien ",
+    "work": "J'utilise une variété d'outils",
+    "words": ["IA [=◉︿◉=]", "Machine Learning", "Stack Autonome", "Robots Mobile ", "Bras Robotisés", "Systèmes Spaciaux", "Vision Embarquée", "AUV & ASV", "Développement Web"],
+    "solution": "pour concevoir des solutions innovantes à des problèmes robotiques complexes.",
+    "goal": "Mon objectif ? Contribuer à construire un futur meilleur pour tous.",
+    "contact": "Contactez-moi",
+    "download": "Téléchargez mon CV",
+    "visit": "Visitez le lab",
+    "years": "années d'expérience",
+    "countries": ["Travaillé dans", "pays"],
+    "developed": "robots développés",
+    "collection": "Une collection de robots auxquels j'ai contribué",
+    "robot": "Robots",
+    "media": "Media",
+    "hardware": "Hardware",
+    "missions": "Mission",
+    "robots": [{
+        "name": "P-Guard",
+        "full_name": "Pearl Guard",
+        "path": "/robots/images/p-guard.png",
+        "link": "https://enovarobotics.eu/pguard/",
+        "mission": [
+            "Patrouilles de sécurité.",
+            "Détections d'anomalies et d'intrusions via IA.",
+            "Vidéo vérification and interpellation à distance.",
+            "Intervention sur demande.",
+            "Fonction « Click and Go ».",
+            "Contrôle à distance du robot en temps réel avec une fonctionnalité anti-collision."
+        ],
+        "hardware": [
+            "Caméra 360° pour segmentation d'objet et surveillance à distance",
+            "Microphone & haut-parleur",
+            "RTK GPS pour la localisation",
+            "Ceinture de sécurité avec des sonars",
+            "Lidars 3D pour l'évitement d'obstacle",
+            "Wi-Fi & 3G/4G",
+            "4 roues motorisées avec des encodeurs pour un mouvement différentiel"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/VGmwygNWpqw?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=VGmwygNWpqw",
+        "_comment": "Information about the PGuard robot"
+    },
+    {
+        "name": "S-Drone",
+        "full_name": "Seasam Drone",
+        "path": "/robots/images/seasam-drone.png",
+        "link": "https://www.delairmarine.com/autonomous-rov-seasam/",
+        "mission": [
+            "Drone d'exploration/inspection sous-marin.",
+            "Scan automatisé des coques de cargo et génération de rapport via IA.",
+            "Exploration de tuyaux et détection de fuites.",
+            "Scan de fonds marins and récupération d'objets.",
+            "Fixation en position (altitude, distance...) via contrôleurs numériques.",
+            "Feedback vidéo en temps réel et contrôle à distance sur 6 degrés de liberté."
+        ],
+        "hardware": [
+            "Émetteur/transmetteur accoustique pour localisation sous-marine",
+            "Altimètre via un sonar à ping",
+            "IMU 9-axes",
+            "Certification IP67",
+            "7 turbines pour 6 degrés de liberté",
+            "Résistance à la pression jusqu'à 100 mètres de profondeur",
+            "Caméra basse-luminosité",
+            "Pince robotisée"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/vMKZx3pdCGM?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=vMKZx3pdCGM",
+        "_comment": "Information about the S-Drone robot"
+    },
+    {
+        "name": "S-Navigator",
+        "full_name": "Seasam Navigator",
+        "path": "/robots/images/seasam-buoy.png",
+        "link": "https://www.delairmarine.com/rov-gps-seasam-navigator/",
+        "mission": [
+            "Relais Wi-Fi en surface.",
+            "Combinaison de la position absolue GPS et de la position relative acoustique pour localiser le robot sous-marin avec une précision centimétrique.",
+            "Cartographie bathymétrique automatisée avec des algorithmes de planification de trajectoire à couverture complète.",
+            "Fonction « Click and Go ».",
+            "Contrôle à distance en temps réel via des contrôleurs à retour d’état."
+        ],
+        "hardware": [
+            "GPS RTK pour la localisation en surface",
+            "Altimètre via un sonar à ping",
+            "IMU 9 axes",
+            "Certification IP67",
+            "Émetteur Wi-Fi",
+            "3 hélturbines offrant 3 degrés de liberté et un mouvement holonomique",
+            "Communication filaire avec le S-Drone"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/a-Cp0XO10OE?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=a-Cp0XO10OE",
+        "_comment": "Information about the S-Buoy robot"
+    },
+    {
+        "name": "UR5e",
+        "full_name": "Universal Robot 5e",
+        "path": "/robots/images/ur5e.png",
+        "link": "https://www.universal-robots.com/products/ur5e/",
+        "mission": [
+            "Robot industriel collaboratif.",
+            "Utilisé pour la recherche sur les robots d'assistance en cuisine et la robotique molle.",
+            "Une caméra segmente les légumes sur le plan de découpe, le premier bras les saisit et les maintient, pendant que le second les découpe.",
+            "Le mouvement du couteau est contrôlé par une politique de Q-Learning entraînée à minimiser les forces/couples exercés."
+        ],
+        "hardware": [
+            "6 degrés de liberté",
+            "Capteurs de force et de couple",
+            "Charge utile maximale de 5 kg",
+            "Portée de 850 mm",
+            "Encodeurs rotatifs",
+            "Caméras RGB",
+            "Couplé à des jumeaux virtuels pour les processus d’apprentissage par renforcement",
+            "Configuration à double cobot"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/Tfi_JHRGEMA?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=Tfi_JHRGEMA",
+        "_comment": "Information about the UR5e robot"
+    },
+    {
+        "name": "B1A",
+        "full_name": "B1 Autonomous",
+        "path": "/robots/images/sc-b1a.png",
+        "link": "https://solarcleano.com/en/product/solarbridge-autonomous-solar-panel-cleaning-robot-b1a",
+        "mission": [
+            "Nettoyage autonome de panneaux solaires terrestres afin de maximiser la production d’énergie.",
+            "Exécute une succession de manœuvres pour accomplir une mission de nettoyage commandée par l’opérateur via l’interface web.",
+            "Segmentation des formes et positions des panneaux à l’aide des LiDARs et de modèles RANSAC.",
+            "Abaissement de la brosse et régulation automatique de la pression de nettoyage pour optimiser l’efficacité."
+        ],
+        "hardware": [
+            "GPS RTK pour la localisation",
+            "Estimation de l’orientation par double antenne",
+            "LiDARs 3D pour la segmentation des panneaux et l’évitement d’obstacles",
+            "6 actionneurs de roues avec encodeurs pour un mouvement holonomique",
+            "Sonars, encodeurs de treuils et capteurs de fin de course pour la régulation de la brosse",
+            "Routeur 4G/Wi-Fi",
+            "Communication série avec l’automate (PLC)"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/B_JLPLBZym0?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=B_JLPLBZym0",
+        "_comment": "Information about the B1A robot"
+    },
+    {
+        "name": "F1T",
+        "full_name": "F1 Autonomous",
+        "path": "/robots/images/sc-f1a.png",
+        "link": "https://solarcleano.com/en/products/autonomous-waterless-solar-panel-cleaning-robot-f1a",
+        "mission": [
+            "Nettoyage autonome de panneaux solaires flottants afin de maximiser la production d’énergie.",
+            "Développé dans le cadre du projet Horizon Europe « Talos ».",
+            "Comportement adaptatif automatisé selon les conditions de la centrale photovoltaïque pour nettoyer quand et où c’est nécessaire.",
+            "Segmentation du centroïde des panneaux à l’aide de caméras de profondeur et d’un modèle YOLO personnalisé."
+        ],
+        "hardware": [
+            "Caméras de profondeur Framos/Intel Realsense pour la segmentation des panneaux et l’évitement d’obstacles",
+            "IMU 6 axes",
+            "Encodeurs de roues",
+            "GPU Intel intégré",
+            "Ceinture anti-chute avec sonars",
+            "2 roues à chenilles pour un mouvement différentiel",
+            "Routeur 4G/Wi-Fi",
+            "Communication UDP avec l’automate (PLC)"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/S1gQ5kiCJs4?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=S1gQ5kiCJs4",
+        "_comment": "Information about the F1A robot"
+    }
+  ]
+  },
+  "HomeRobot": {
+    "title": "Hello world!"
+  },
+  "HomeModal": {
+    "title": "Hello world!"
+  },
+  "LabPanel": {
+    "title": "Hello world!"
+  },
+  "LabControl": {
+    "title": "Hello world!"
+  },
+  "LabModal": {
+    "title": "Hello world!"
+  }
+}

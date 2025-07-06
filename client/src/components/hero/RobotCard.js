@@ -7,6 +7,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries.
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider"
@@ -20,6 +21,8 @@ export default function RobotCard(props) {
     const { title, content, orderIndex, style, onClick } = props
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
+    // Destructure the translations.
+    const t = useTranslations('HomeHero')
     // Define the react variables.
     // Return the html.
     return (

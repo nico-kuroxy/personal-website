@@ -12,6 +12,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries.
+import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 import { isMobile, isTablet } from 'react-device-detect';
 import { useRouter, usePathname } from 'next/navigation';
@@ -26,7 +27,9 @@ export default function Header(props) {
     // Destructure the variables passed as argument.
     const {} = props
     // Destructure the context.
-    const {theme, toggleTheme, language, setLanguage} = usePageStyle()
+    const {theme, toggleTheme, language, setLanguage, updateLanguage} = usePageStyle()
+    // Destructure the translations.
+    const t = useTranslations('Header')
     // Define the router to navigate between pages.
     const router = useRouter()
     // Retrieve the current's page name (updated dynamically).
@@ -61,18 +64,20 @@ export default function Header(props) {
                 {/* Redirect toward the front page of the webapp. */}
                 <button className={`hover:text-yellow-300 hover:underline active:[text-shadow:0_0_5px_#ffffff] active:text-yellow-300 ${pathname === "/home" ? 'text-yellow-500 [text-shadow:0_0_5px_#ff073a,0_0_10px_#ff073a]' : ''}`}
                   onClick={() => router.push('/home')}>
-                    home
+                    <span>{t('home')}</span>
                 </button>
                 {/* Teaser for some features coming soon (the lab...). */}
                 <span className="w-px h-6 bg-yellow-500"></span>
                 <button className={`hover:text-yellow-300 hover:underline active:[text-shadow:0_0_5px_#ffffff] active:text-yellow-300 ${pathname === "/laboratory" ? 'text-yellow-500 [text-shadow:0_0_5px_#ff073a,0_0_10px_#ff073a]' : ''}`}
                   onClick={() => router.push('laboratory')}>
-                    lab
+                    <span>{t('lab')}</span>
                 </button>
                 {/* Redirect toward a list of all the publications I co-wrote, on arXiv. */}
                 <span className="w-px h-6 bg-yellow-500"></span>
                 <a href="https://arxiv.org/abs/2404.02569v2" target="_blank" rel="noopener noreferrer" className="active:[text-shadow:0_0_5px_#ffffff] flex items-center">
-                    <span className="active:[text-shadow:0_0_5px_#ffffff] active:text-yellow-300 hover:text-yellow-300 hover:underline">publication</span> 
+                    <span className="active:[text-shadow:0_0_5px_#ffffff] active:text-yellow-300 hover:text-yellow-300 hover:underline">
+                        <span>{t('pub')}</span>
+                    </span> 
                 </a>
                 {/* Download my resume on the user's system. */}
                 <span className="w-px h-6 bg-yellow-500"></span>
@@ -106,7 +111,7 @@ export default function Header(props) {
                                 absolute left-0 top-full bg-white rounded-md shadow-lg z-10">
                         <ul className="py-1 text-blue-800">
                         {["en", "fr", "jp"].map((lang) => (
-                            <li key={lang} onClick={() => setLanguage(lang)}
+                            <li key={lang} onClick={() => updateLanguage(lang)}
                              className={`text-sm cursor-pointer py-1 hover:bg-yellow-400 hover:text-blue-700 ${
                                 language === lang ? "font-bold bg-yellow-300" : ""}`}>
                                 {lang.toUpperCase()}

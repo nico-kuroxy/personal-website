@@ -6,6 +6,8 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
+// Libraries.
+import { useTranslations } from 'next-intl';
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -18,19 +20,23 @@ export default function Summary(props) {
     const {targetSecondScreenRef, hasScrolled} = props
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
+    // Destructure the translations.
+    const t = useTranslations('HomeHero')
      // Return the html.
      return (
         // The container of the whole summary component.
         <div className="flex flex-row justify-center space-x-6 text-4xl dark:text-white text-blue-900 ">
             {/* Number of years of experience. */}
-            <span className="px-2 font-bold text-orange-500">3+</span>years of experience
+            <span className="px-2 font-bold text-orange-500">3+</span>{t("years")}
             {/* Number of countries I worked in. */}
             <span className="w-0.5 dark:bg-yellow-500 bg-yellow-300 "></span>
-            <a href="https://www.google.com/maps/d/u/2/edit?mid=132Xe4WblcLJ8dzpLmvI-SaAGpVG5s9Q&usp=sharing" target="_blank" rel="noopener noreferrer"><span className="pr-2 font-bold text-orange-500">3</span> countries worked in</a>
+            <a href="https://www.google.com/maps/d/u/2/edit?mid=132Xe4WblcLJ8dzpLmvI-SaAGpVG5s9Q&usp=sharing" target="_blank" rel="noopener noreferrer">
+                {t.raw("countries")[0]}<span className="pr-2 font-bold text-orange-500"> 3</span>{t.raw("countries")[1]}
+            </a>
             {/* Number of robot I worked on, goes to the robot carousel section when clicked on. */}
             <span className="w-0.5 dark:bg-yellow-500 bg-yellow-300 "></span>
             <button onClick={() => {hasScrolled.current = true; targetSecondScreenRef.current?.scrollIntoView({ behavior: "smooth" }); setTimeout(() => { hasScrolled.current = false }, 100);}}>
-                <span className="pr-2 font-bold text-orange-500">6</span>robots developped
+                <span className="pr-2 font-bold text-orange-500">6</span>{t("developed")}
             </button>
         </div>
     )

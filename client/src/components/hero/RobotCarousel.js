@@ -11,11 +11,12 @@ import dynamic from 'next/dynamic';
 const Carousel = dynamic(() => import('react-spring-3d-carousel'), {
   ssr: false
 });
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { ClipLoader } from "react-spinners";
 // Contexts.
-import { usePageStyle } from "../../context/PageStyleProvider"
-import { useHero } from "../../context/HeroProvider"
+import { usePageStyle } from "../../context/PageStyleProvider";
+import { useHero } from "../../context/HeroProvider";
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,6 +28,8 @@ export default function RobotCarousel(props) {
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     const {robot, setRobot} = useHero()
+    // Destructure the translations.
+    const t = useTranslations('HomeHero')
     // Define the react variables.
     const [goToSlide, setGoToSlide] = useState(0)
     const [robots, setRobots] = useState([])
@@ -36,13 +39,13 @@ export default function RobotCarousel(props) {
         content: (<img src={robot.path} alt={`Robot ${index}`} onClick={() => { console.log("Clicked slide", index); setGoToSlide(index)}}
                     className="w-[200%] h-full transition-shadow duration-300 ease-in-out shadow-lg hover:shadow-[0_15px_50px_rgba(0,0,0,0.75)] rounded-xl object-contain transition-transform duration-300 hover:scale-105"/>),
     }))
-    // Fetch the robots descriptions from the public folder.
+    // Load the robots list from the language file upon component mounting.
     useEffect(() => {
-        fetch('/locales/data/Robots.json')
-          .then((res) => res.json())
-          .then((data) => setRobots(data))
-          .catch((err) => console.error('Failed to load Robots.json:', err))
-      }, [])
+        // Read the robots list.
+        const r = t.raw("robots")
+        // Update it.
+        if (Array.isArray(r)) { setRobots(r) }
+    }, [])
     // Define the react hook to update the robot when the slide updates..
     useEffect(() => {
         // Update robot.
@@ -62,7 +65,7 @@ export default function RobotCarousel(props) {
         // The container of the whole RobotCarousel component.
         <div className="flex flex-col w-full h-full dark:text-white text-blue-900 items-center justify-center text-center mt-16">
         {/* Title of the section */}
-            <span className='pb-8 w-[30vw] text-6xl'>A collection of the robots I worked on</span>
+            <span className='pb-8 w-[30vw] text-6xl'>{t("collection")}</span>
             {/* The division of the section. */}
             <div className="relative w-2/3 h-3 mt-2 flex items-center justify-center">
                 {/* Left bar */}

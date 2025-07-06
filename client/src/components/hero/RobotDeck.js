@@ -7,6 +7,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries.
+import { useTranslations } from 'next-intl';
 import { useState, useEffect } from 'react';
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider"
@@ -25,6 +26,8 @@ export default function RobotDeck(props) {
     const [cardContent, setCardContent] = useState("")
     // Define the references of the component.
     const { robot } = useHero()
+    // Destructure the translations.
+    const t = useTranslations('HomeHero')
     // Define the const variables of the component.
     const cards = [ // The deck of robot cards.
         { title: "Missions" }, { title: "Hardware" }, { title: "Media" }
@@ -56,7 +59,7 @@ export default function RobotDeck(props) {
         {/* Render the complete deck. */}
             <div className="relative w-full h-[50vh] flex items-center justify-center">
                 {/* Base card at the bottom, never moves */}
-                <RobotCard key={-1} title={"Robot : " + robot?.full_name} content={""} orderIndex={-1} style={{zIndex: 0}} onClick={() => window.open(robot?.link, '_blank', 'noopener,noreferrer')}/>
+                <RobotCard key={-1} title={t("robot") + " : " + robot?.full_name} content={""} orderIndex={-1} style={{zIndex: 0}} onClick={() => window.open(robot?.link, '_blank', 'noopener,noreferrer')}/>
                 {/* Render the 3 layered cards */}
                 {sortedCards.map((card, i) => {
                 // Apply the offset between each card of the pile.

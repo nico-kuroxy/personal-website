@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 /**********************************************************************************************************************/
 //   author: Nicolas Erbetti
 //   brief: This file defines the layout of the web application, shared across multiple pages.
@@ -7,6 +9,8 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries.
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages } from 'next-intl/server';
 import { React, Suspense } from "react";
 // Styles.
 import "../styles/globals.css";
@@ -26,9 +30,18 @@ export const metadata = {
   description: "Nicolas Erbetti's personal website.",
 };
 // Root layout.
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  // Retrieve locale.
+  let locale, messages
+  try {
+    locale = await getLocale()
+    messages = await getMessages()
+  } catch (error) {
+    console.error('Translation load failed:', error)
+  }
+  // Return html.
   return (
-    <html lang="en">
+    <html lang={locale}>
       { /*Metadata and ressources used by the webpage.*/ }
       <head>
         { /*Import the EB Garamond font.*/ }
@@ -40,16 +53,20 @@ export default function RootLayout({ children }) {
       <body className={`text-white font-serifCustom antialiased`}>
         { /* Provide the whole context variables to the applications.*/ }
         <ContextProvider>
-          { /* Header of the webpage.*/ }
-          <header><Header/></header>
-          <main>
-            { /* Display a loading text on the screen. */ }
-            <Suspense fallback={<div>Loading...</div>}/>
-            { /* Children of the layout, ie the element of the page. */ }
-            {children}
-            { /* Root of the modal. */ }
-            <div id="portal"></div>
-          </main>
+          { /* Wrapper for the language handler. */ }
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            { /* Header of the webpage.*/ }
+            <header><Header/></header>
+            { /* Main content of the page.*/ }
+            <main>
+              { /* Display a loading text on the screen. */ }
+              <Suspense fallback={<div>Loading...</div>}/>
+              { /* Children of the layout, ie the element of the page. */ }
+                {children}
+              { /* Root of the modal. */ }
+              <div id="portal"></div>
+            </main>
+          </NextIntlClientProvider>            
         </ContextProvider>
       </body>
     </html>

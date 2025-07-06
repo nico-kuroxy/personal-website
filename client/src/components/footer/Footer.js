@@ -9,6 +9,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries.
+import { useTranslations } from 'next-intl';
 import { useState } from "react";
 // Contexts.
 import { usePageStyle } from "../../context/PageStyleProvider";
@@ -25,6 +26,8 @@ export default function Footer(props) {
     const {} = props
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
+    // Destructure the translations.
+    const t = useTranslations('Footer')
     // Define the component's variable.
     const [displayModal, setDisplayModal] = useState(false)
      // Return the html.
@@ -35,7 +38,7 @@ export default function Footer(props) {
             <div className="flex items-center justify-center text-center space-x-2">
                 {/* The button to provide some help. */}
                 <button onClick={() => setDisplayModal(true) } className='flex items-center justify-center text-center'>
-                    <span className="text-2xl">Guide</span>
+                    <span className="text-2xl">{t("guide")}</span>
                 </button>
                 {/* Émoji of a cat with a link to a picture of Dali. */}
                 <a href="/pictures/dali.jpg" target="_blank" rel="noopener noreferrer" className='flex items-center justify-center text-center'><i className="text-xl fa-solid fa-cat"></i></a>
