@@ -24,7 +24,7 @@ const withNextIntl = createNextIntlPlugin({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     // Remove experimental block entirely
-    output: 'standalone',
+    output: 'static',
     transpilePackages: ['three']
   };
 // Export the config.
