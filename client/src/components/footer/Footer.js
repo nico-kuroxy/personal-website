@@ -38,7 +38,7 @@ export default function Footer(props) {
                     <span className="text-2xl">Guide</span>
                 </button>
                 {/* Émoji of a cat with a link to a picture of Dali. */}
-                <a href="/dali.jpg" target="_blank" rel="noopener noreferrer" className='flex items-center justify-center text-center'><i className="text-xl fa-solid fa-cat"></i></a>
+                <a href="/pictures/dali.jpg" target="_blank" rel="noopener noreferrer" className='flex items-center justify-center text-center'><i className="text-xl fa-solid fa-cat"></i></a>
             </div>
             {/* Modal of the homepage guide button. */}
             {(displayModal) && (

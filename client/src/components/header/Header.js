@@ -97,10 +97,8 @@ export default function Header(props) {
                 </button>
                 {/* Select and display the selected language. */}
                 <span className="w-px h-6 bg-yellow-500"></span>
-                <div title="WIP" className="flex relative inline-block text-center group">
-                    <i className="fa-solid fa-language text-4xl cursor-pointer 
-                                active:[text-shadow:0_0_5px_#ffffff] 
-                                active:text-yellow-300 group-hover:text-yellow-300"></i>
+                <div className="flex relative inline-block text-center group">
+                <img src={`/locales/logos/${language}.png`} alt={`${language} logo`} className="mt-1 mb-1 w-11 h-7 cursor-pointer rounded-0.5 group-hover:border-yellow-300 transition-all duration-150"/>
                     {/* Dropdown menu - shows on hover (via group-hover) */}
                     <div className="opacity-0 group-hover:opacity-100 
                                 pointer-events-none group-hover:pointer-events-auto
