@@ -22,7 +22,7 @@
     "developed": "robots développés"
   },
   "HomeRobot": {
-    "collection": "Une collection de robots auxquels j'ai contribué",
+    "collection": "Une collection des robots auxquels j'ai contribué",
     "robot": "Robots",
     "media": "Media",
     "hardware": "Hardware",
@@ -176,15 +176,59 @@
   ]
   },
   "HomeModal": {
-    "title": "Hello world!"
+    "welcome": "Bienvenue dans le coin d'aide de la page d'accueil !",
+    "subtitle1": "Sur cette page, vous pouvez avoir un aperçu rapide de qui je suis ainsi que des robots sur lesquels j'ai travaillé.",
+    "subtitle2": "Ce projet est toujours en cours de développement. Le design UI/UX n'est pas ma spécialité mais, comme vous pouvez le constater (jspr), je fais de mon mieux pour construire un truc cool !",
+    "about": "À propos de moi",
+    "contact": "Le bouton 'Contactez-moi' ouvre votre application mail avec mon adresse pré-remplie.",
+    "download": "Le bouton 'Téléchargez mon CV' télécharge un PDF de mon CV sur votre appareil.",
+    "visit": "Le bouton 'Visitez le labo' redirige votre navigateur vers mon laboratoire ROS2 en ligne.",
+    "3d": "Le médaillon 3D est orbitable si vous cliquez avec le bouton gauche de la souris et faites glisser.",
+    "robots": "Cliquer sur le nombre de robots développés vous amène à la section du carrousel de robots de la page.",
+    "scrolldown": "De plus, la page défile automatiquement vers le carrousel de robots lorsque vous utilisez la molette de votre souris.",
+    "carousel": "Carrousel de robots",
+    "arrow": "Les boutons fléchés gauche et droite changent le robot affiché dans le carrousel.",
+    "picture": "Vous pouvez également accéder à un robot spécifique en cliquant sur son image.",
+    "card": "La carte du robot ouvre un onglet avec la description commerciale du robot sélectionné.",
+    "media": "La carte média contient un lecteur vidéo YouTube avec une petite démo du robot.",
+    "hardware": "La carte hardware contient une brève description des capteurs équipant le robot.",
+    "missions": "La carte missions contient une liste non-exhaustive des fonctionnalités du robot.",
+    "shift": "Vous pouvez faire défiler les cartes du en cliquant dessus.",
+    "scrollup": "Enfin, la page défile automatiquement vers la section 'À propos de moi' lorsque vous utilisez la molette de votre souris."
   },
   "LabPanel": {
-    "title": "Hello world!"
+    "robot": "Vue Robot",
+    "aerial": "Vue Aérienne",
+    "reset": "Reset",
+    "start": "Start",
+    "pause": "Pause",
+    "twin": "Jumeau Numérique",
+    "focus": "Focus sur:"
   },
   "LabControl": {
-    "title": "Hello world!"
+    "ros": "ROS connecté",
+    "controller": "Manette connectée",
+    "choice": "Appliquer les choix",
+    "guide": "Guide"
   },
   "LabModal": {
-    "title": "Hello world!"
+    "welcome": "Bienvenue dans le coin d'aide du laboratoire !",
+    "subtitle1": "Dans ce laboratoire en ligne, vous pouvez jouer avec des robots simulés dans Gazebo sur un serveur distant.",
+    "subtitle2": "Tout fonctionne avec ROS2, des paquets open-source et du code home-made en JS/C++.",
+    "simulation": "Simulation",
+    "ros": "L'ampoule de connexion ROS est verte si le websocket rosbridge est connecté, rouge sinon.",
+    "controller": "L'ampoule de connexion du contrôleur est verte si une manette de jeu est connectée, rouge sinon.",
+    "switch": "Vous pouvez changer le flux de caméra en cliquant sur 'vue robot' et 'vue aérienne'.",
+    "choice": "Le bouton 'appliquer le choix' est encore en cours de développement.",
+    "operation": "Opération",
+    "operate": "Pour piloter le robot, utilisez le joystick affiché dans le cadre principal.",
+    "reset": "Vous pouvez réinitialiser la position du robot dans la simulation en appuyant sur 'réinitialiser'.",
+    "connected": "Si vous avez connecté une manette à votre appareil, vous pouvez aussi l’utiliser.",
+    "visualization": "Visualisation",
+    "pan": "Vous pouvez faire défiler le graphique en maintenant un clic gauche dessus, le mettre en pause, et le réinitialiser à la vue par défaut.",
+    "rescale": "Vous pouvez redimensionner l’axe temporel en scrollant sur le graphique.",
+    "hover": "Survoler le graphique avec la souris affichera les valeurs numériques de chaque point.",
+    "orbit": "Vous pouvez utiliser le contrôle orbital pour tourner autour et zoomer sur le jumeau virtuel.",
+    "data": "Vous pouvez changer le type de données en cliquant sur 'focus sur :'."
   }
 }

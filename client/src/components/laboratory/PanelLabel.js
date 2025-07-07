@@ -10,6 +10,7 @@
 // Contexts.
 import { useLaboratory } from "../../context/LaboratoryProvider";
 import { usePageStyle } from "../../context/PageStyleProvider";
+import useSWR from 'swr';
 // Components.
 // Utils.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,10 +20,11 @@ import { usePageStyle } from "../../context/PageStyleProvider";
 // Function declaration.
 export default function PanelLabel(props) {
     // Destructure the variables passed as argument.
-    const { labels, onClick, pose="left-0", clicked=false } = props
+    const { labels, onClick, pose="left-0", key=null } = props
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     const {whichView} = useLaboratory()
+    // Destructure the translations.
     // Return the html.
     return (
         // The container of the whole PanelLabel component, with the slide-in animation.
@@ -30,7 +32,7 @@ export default function PanelLabel(props) {
             {labels.map((label, idx) => {
                 return (
                     <button key={idx} className={"border border-black text-black ml-4 p-2 font-monoCustom" 
-                        + ((whichView === label || clicked)? " font-bold text-white bg-yellow-500 " : " bg-[#ffffff] ")
+                        + ((whichView === label)? " font-bold text-white bg-yellow-500 " : " bg-[#ffffff] ")
                         + ((onClick)? " hover:bg-yellow-300 " : " ")}
                         onClick={ () =>  onClick?.(label)}
                         disabled={!onClick}>

@@ -8,6 +8,7 @@
 //> DEPENDENCIES
 // Libraries
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 // Contexts.
 import { useLaboratory } from "../../context/LaboratoryProvider";
 import { usePageStyle } from "../../context/PageStyleProvider";
@@ -29,6 +30,9 @@ export default function ControlPanel(props) {
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     const {controller, ros} = useLaboratory()
+    // Destructure the translations.
+    const t = useTranslations('LabControl')
+    const t2 = useTranslations('LabModal')
     // Define the component's variable.
     const [displayModal, setDisplayModal] = useState(false)
     // Return the html.
@@ -41,7 +45,7 @@ export default function ControlPanel(props) {
                 <div className="flex items-center space-x-3">
                     {/* Whether or not the app is connected to ROS. */}
                     <i className={"fa-regular fa-lightbulb " + (ros?  " icon-glow-green text-green-200 " : " icon-glow-red text-red-500 ")}></i>
-                    <span>ROS connection</span>
+                    <span>{t("ros")}</span>
                     <span className="w-px h-6 bg-yellow-500"></span>
                     {/* Whether or not a world has been loaded 
                     <i className="fa-regular fa-lightbulb icon-glow-red text-red-500"></i>
@@ -53,24 +57,24 @@ export default function ControlPanel(props) {
                     <span className="w-px h-6 bg-yellow-500"></span> */}
                     {/* Whether or not a controller is connected, with an invisible placeholder to fix the size of the text. */}
                     <i className={"fa-regular fa-lightbulb " + (controller ?  " icon-glow-green text-green-200 " : " icon-glow-red text-red-500 ")}></i>
-                    <span>Controller connection</span>
+                    <span>{t("controller")}</span>
                     <span className="w-px h-6 bg-yellow-500"></span>
                     {/* Apply the chosen parameters. */}
                     <i className="fa-solid fa-triangle-exclamation text-orange-400 flicker-icon-glow-red "></i>
-                    <span title="WIP" className="text-orange-400 underline">Apply choices</span>
+                    <span title="WIP" className="text-orange-400 underline">{t("choice")}</span>
                 </div>
                 {/* Buttons on the right side. */}
                 <div className="flex text-center items-center justify-center space-x-2">
                     {/* The button to provide some help. */}
                     <button onClick={() => setDisplayModal(true) } className='flex items-center space-x-2'>
-                        <span>Guide </span>
+                        <span>{t("guide")} </span>
                         <i className="text-xl fa-solid fa-robot"></i>
                     </button>
                 </div>
                 {/* Modal of the laboratory guide button. */}
                 {(displayModal) && (
-                    <Modal name="Welcome to the laboratory help corner !​"
-                        subtitles={["In this online laboratory, you can play with some robots that are being simulated in Gazebo on a remote server.", " Everything runs on ROS2, open-source packages and custom JS/C++ code."]}
+                    <Modal name={t2('welcome')}
+                        subtitles={[t2('subtitle1'), t2('subtitle2')]}
                         handleCloseModal={() => setDisplayModal(false) }>
                         <ModalLaboratoryHelp handleCloseModal={() => setDisplayModal(false)}/>
                     </Modal>

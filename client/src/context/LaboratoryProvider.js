@@ -10,6 +10,8 @@
 import { useState, useRef, useEffect, useContext, createContext } from 'react'
 import { Group } from 'three';
 // Components
+// Context
+import { usePageStyle } from "./PageStyleProvider";
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -22,6 +24,8 @@ export function useLaboratory() { return useContext(LaboratoryProviderContext) }
 export function LaboratoryProvider(props) {
     // Destructure the props.
     const { children } = props
+    // Destructure the context.
+    const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     // Define state variables.
     const [ ros, setRos ] = useState(false) // The ros handler object.
     const [ urdfPath, setUrdfPath ] = useState("/robots/turtlebot/urdf/turtlebot3_burger_cam.urdf") // The path to the urdf file describing the robot.
@@ -36,7 +40,6 @@ export function LaboratoryProvider(props) {
     const [ whichMsg, setWhichMsg ] = useState("joints") // Which message is being plotted on the graph in monitor data.
     // Define constant variables.
     const msgList = ["cmd_vel", "imu", "joints"]  // The list of all available plottable message types.
-
     // Define references.
     const robotOrientationRef = useRef(null) // The reference of the robotOrientation retrieved over the rosbridge.
     const jointStatesRef = useRef({}) // The reference of the jointStates retrieved over the rosbridge.
@@ -44,6 +47,17 @@ export function LaboratoryProvider(props) {
     const value = { controller, setController, controllerButtons, setControllerButtons, controllerAxes, setControllerAxes, ros, setRos, urdfPath, setUrdfPath, robotModel, setRobotModel, jointStatesRef, robotOrientationRef,
         joystickButton, setJoystickButton, monitorImgSrc, setMonitorImgSrc, whichView, setWhichView, cmdVelMsg, setCmdVelMsg, whichMsg, setWhichMsg, msgList
      }
+    // Update selected view to adapt to the language.
+    useEffect(() => {
+        // Update view.
+        if (language === "fr") {
+            setWhichView("Vue Robot")
+        } else if (language ==="en") {
+            setWhichView("Robot View")
+        } else if (language == "jp") {
+            setWhichView("Robot View")
+        }
+    }, [language])
     // Return the html.
     return (
         <LaboratoryProviderContext.Provider value={value}>

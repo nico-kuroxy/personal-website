@@ -7,6 +7,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries
+import { useTranslations } from 'next-intl';
 import { useEffect, useRef, useState } from 'react';
 // Contexts.
 import { useLaboratory } from "../../context/LaboratoryProvider";
@@ -25,6 +26,8 @@ export default function GameController(props) {
     // Declare component variables.
     const gamepadIndex = useRef(null) // A reference to the index of the last connected gamepad.
     const animationFrameRef = useRef(null) // A reference to the current animation frame of the browser.
+    // Destructure the translations.
+    const t = useTranslations('LabPanel')
     // Create a loop that is updated in synch with the browser's framerate.
     const pollGamepad = () => {
         // Retrieve every connected gamepads.
@@ -89,9 +92,9 @@ export default function GameController(props) {
                   {idx}
                 </span>
                 <span className={`w-36 text-left rounded ${pressed ? 'bg-green-400 text-white' : ''}`}>
-                  {idx===6? 'Robot view' : ''}
-                  {idx===7? 'Aerial view' : ''}
-                  {idx===16? 'Reset' : ''}
+                  {idx===6? t("robot") : ''}
+                  {idx===7? t("aerial") : ''}
+                  {idx===16? t("reset") : ''}
                 </span>
               </div>
             ))}

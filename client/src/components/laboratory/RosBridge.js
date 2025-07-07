@@ -43,7 +43,7 @@ export default function RosBridge(props) {
             cameraSubRef.current = null
         }
         // If we have the robot view, we subscribe to the regular camera.
-        if (whichView === "Robot View") {
+        if (whichView === "Robot View" || whichView === "Vue Robot") {
             // We create the camera image subscriber.
             cameraSubRef.current = new ROSLIB.Topic({
                 ros: rosRef.current, name: 'camera/image_raw/compressed', messageType: 'sensor_msgs/CompressedImage'
@@ -52,7 +52,7 @@ export default function RosBridge(props) {
             cameraSubRef.current.subscribe((message) => {
                 setMonitorImgSrc(`data:image/jpeg;base64,${message.data}`)
             })
-        } else if (whichView === "Aerial View") {
+        } else if (whichView === "Aerial View" || whichView === "Vue Aérienne") {
             // Otherwise, we create the aerial camera image subscriber.
             cameraSubRef.current = new ROSLIB.Topic({
                 ros: rosRef.current, name: 'camera_aerial/image_raw/compressed', messageType: 'sensor_msgs/CompressedImage'

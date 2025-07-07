@@ -8,6 +8,7 @@
 //> DEPENDENCIES
 // Libraries
 // Contexts.
+import { useTranslations } from 'next-intl';
 import { useLaboratory } from "../../context/LaboratoryProvider";
 import { usePageStyle } from "../../context/PageStyleProvider";
 import { Canvas } from '@react-three/fiber';
@@ -30,6 +31,8 @@ export default function MonitorPanel(props) {
     // Destructure the context.
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     const {whichView, setWhichView, whichMsg, setWhichMsg, msgList} = useLaboratory()
+    // Destructure the translations.
+    const t = useTranslations('LabPanel')
     // Return the html.
     return (
         // The container of the whole MonitorPanel component, with the slide-in animation.
@@ -37,7 +40,7 @@ export default function MonitorPanel(props) {
             {/* Left panel*/}
             <div className="relative bg-gray-500 w-3/5 m-3 ml-6">
                 {/* The name of the robot monitor. */}
-                <PanelLabel labels={["Robot View", "Aerial View"]} onClick={(label) => setWhichView(label)}/>
+                <PanelLabel labels={[t("robot"), t("aerial")]} onClick={(label) => setWhichView(label)}/>
                 {/* The handler for the game controller. */}
                 <GameController/>
                 {/* The handler for the virtual controller. */}
@@ -55,9 +58,9 @@ export default function MonitorPanel(props) {
                 {/* Virtual twin of the robot. */}
                 <div className="relative h-1/2 bg-gray-400">
                     {/* The name of the monitor. */}
-                    <PanelLabel labels={["Virtual Twin"]}/>
+                    <PanelLabel labels={[t("twin")]}/>
                     {/* The name of the focus. */}
-                    <PanelLabel labels={["Focus on: " + whichMsg]} pose="right-4" onClick={() => {setWhichMsg(msgList[(msgList?.indexOf(whichMsg) + 1) % msgList.length])}}/>
+                    <PanelLabel labels={[t("focus") + " " + whichMsg]} pose="right-4" onClick={() => {setWhichMsg(msgList[(msgList?.indexOf(whichMsg) + 1) % msgList.length])}}/>
                     {/* The canvas for the virtual twin, required to have the useFrame() component being usable. */}
                     <Canvas><MonitorTwin/></Canvas>
                 </div>

@@ -176,15 +176,59 @@
       ]
   },
   "HomeModal": {
-    "title": "Hello world!"
+    "welcome": "Welcome to the homepage help corner !​",
+    "subtitle1": "In this webpage, you can have a brief overview of who I am as well as the robots I worked on.",
+    "subtitle2": "This project is still work-in-progress. UI/UX design is not my specialty but as you can (hopefully) see, I am doing my best and having a blast while doing so !",
+    "about": "About me",
+    "contact": "The 'contact me' button opens your mail application with my pre-filled address.",
+    "download": "The 'download CV' button downloads a PDF of my CV on your device.",
+    "visit": "The 'visit the lab' button routes your browser to my online ROS2 laboratory.",
+    "3d": "The 3D medalion is orbitable if you left-lick and drag on it.",
+    "robots": "Clicking on the number of developped robot will transfer you to the robot carousel section of the page.",
+    "scrolldown": "Furthermore, the page automatically scrolls down to the robot carousel when you use your mouse wheel.",
+    "carousel": "Robot carousel",
+    "arrow": "The left and right arrow buttons rotate the robot in the carousel.",
+    "picture": "You can also go to a specific robot by clicking on its displayed picture.",
+    "card": "The robot card opens a tab with the commercial description of the selected robot.",
+    "media": "The media card contains a youtube video player with a small demo of the robot.",
+    "hardware": "The hardware card contains a short description of the sensors equipping the robot.",
+    "missions": "The missions card contains a non-exhaustive list of the robot's features.",
+    "shift": "You can shift cards by clicking on it.",
+    "scrollup": "Finally, the page automatically scrolls up to the about me section when you use your mouse wheel."
   },
   "LabPanel": {
-    "title": "Hello world!"
+    "robot": "Robot View",
+    "aerial": "Aerial View",
+    "reset": "Reset",
+    "start": "Start",
+    "pause": "Pause",
+    "twin": "Virtual Twin",
+    "focus": "Focus on:"
   },
   "LabControl": {
-    "title": "Hello world!"
+    "ros": "ROS connected",
+    "controller": "Controller connected",
+    "choice": "Apply choices",
+    "guide": "Guide"
   },
   "LabModal": {
-    "title": "Hello world!"
+    "welcome": "Welcome to the laboratory help corner !",
+    "subtitle1": "In this online laboratory, you can play with some robots that are being simulated in Gazebo on a remote server.",
+    "subtitle2": "Everything runs on ROS2, open-source packages and custom JS/C++ code.",
+    "simulation": "Simulation",
+    "ros": "The ROS connection lightbulb is green if the rosbridge websocket has connected, red otherwise.",
+    "controller": "The Controller connection lightbulb is green if a game controller is connected, red otherwise.",
+    "switch": "You can switch the camera feed by clicking on 'robot view' and 'aerial view'.",
+    "choice": "The 'apply choice' button is still WIP.",
+    "operation": "Operation",
+    "operate": "To operate the robot, play with the joystick displayed in the main frame.",
+    "reset": "You can reset the position of the robot in the world by pressing 'reset'.",
+    "connected": "If you connected a controller to your device, you can also use it.",
+    "visualization": "Visualization",
+    "pan": "You can pan the data graph by left clicking + holding it, pause it, and reset it to the default view.",
+    "rescale": "You can rescale the temporal axis by scrolling on the graph.",
+    "hover": "Hovering your mouse over the graph will display the numerical values of each point.",
+    "orbit": "You can use orbit control to rotate around and zoom on the virtual twin.",
+    "data": "You can switch the data stream by clicking on 'focus on:'."
   }
 }

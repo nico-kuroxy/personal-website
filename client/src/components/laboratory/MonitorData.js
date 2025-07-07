@@ -9,6 +9,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries
+import { useTranslations } from 'next-intl';
 import {useEffect, useState, useRef, useCallback} from 'react';
 import * as d3 from 'd3';
 // Contexts.
@@ -27,6 +28,8 @@ export default function MonitorData(props) {
     const {} = props
     // Destructure the context.
     const { cmdVelMsg, robotOrientationRef, jointStatesRef, whichMsg } = useLaboratory()
+    // Destructure the translations.
+    const t = useTranslations('LabPanel')
     // Define the component's usestate variables.
     const [data, setData] = useState([])
     const [yKeys, setYKeys] = useState([])
@@ -388,9 +391,9 @@ export default function MonitorData(props) {
       // The container of the whole component.
       <div ref={containerRef} className="relative w-full h-full">
         {/* The button to start and stop the plotting. */}
-        <PanelLabel labels={[(paused ? 'Start' : 'Pause')]} pose="right-4" clicked={paused} onClick={() => setPaused(p => !p)}/>
+        <PanelLabel labels={[(paused ? t("start") :  t("pause"))]} pose="right-4" clicked={paused} onClick={() => setPaused(p => !p)}/>
         {/* The button to reset the view of the graph. */}
-        <PanelLabel labels={["Reset"]} pose="right-24" onClick={resetZoom}/>
+        <PanelLabel labels={[t("reset")]} pose="right-24" onClick={resetZoom}/>
         {/* The container of the graph itself. */}
         <svg ref={svgRef} className="w-full h-full select-none cursor-crosshair bg-gray-400"></svg>
       </div>

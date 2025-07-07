@@ -28,6 +28,7 @@ export default function Footer(props) {
     const {theme, toggleTheme, language, setLanguage} = usePageStyle()
     // Destructure the translations.
     const t = useTranslations('Footer')
+    const t2 = useTranslations('HomeModal')
     // Define the component's variable.
     const [displayModal, setDisplayModal] = useState(false)
      // Return the html.
@@ -45,8 +46,8 @@ export default function Footer(props) {
             </div>
             {/* Modal of the homepage guide button. */}
             {(displayModal) && (
-                <Modal name="Welcome to the homepage help corner !​"
-                    subtitles={["In this webpage, you can have a brief overview of who I am as well as the robots I worked on.", "This project is still work-in-progress. UI/UX design is not my specialty but as you can (hopefully) see, I am doing my best and having a blast while doing so !"]}
+                <Modal name={t2("welcome")}
+                    subtitles={[t2("subtitle1"), t2("subtitle2")]}
                     handleCloseModal={() => setDisplayModal(false) }>
                     <ModalHomepageHelp handleCloseModal={() => setDisplayModal(false)}/>
                 </Modal>

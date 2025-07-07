@@ -7,6 +7,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //> DEPENDENCIES
 // Libraries
+import { useTranslations } from 'next-intl';
 import { useState, useRef, useEffect } from 'react';
 // Components
 // Context
@@ -25,6 +26,8 @@ export default function Joystick(props) {
     const baseRef = useRef(null)  // The reference to the base of the joystick.
     const knobRef = useRef(null)  // The reference to the knob of the joystick.
     const innerKnobRef = useRef(null)  // The reference to the inner circle of the knob of the joystick.
+    // Destructure the translations.
+    const t = useTranslations('LabPanel')
     // Declare the function to reset the joystick.
     const resetJoystick = () => {
         // Disable the joystick.
@@ -146,7 +149,7 @@ export default function Joystick(props) {
                 { /* The container of the reset button of the joystick */ }
                 <button className='text-5xl font-serialCustom text-blue-500 bg-gray-300 border border-black p-2 rounded-md active:text-yellow-500 hover:bg-blue-500 hover:text-white active:shadow-none shadow-2xl transition-shadow'
                     onClick={ () => setJoystickButton(true)}>
-                    Reset
+                    {t("reset")}
                 </button>
             </>
             )}
