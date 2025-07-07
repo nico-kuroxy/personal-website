@@ -24,6 +24,7 @@ const withNextIntl = createNextIntlPlugin({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone', // requis pour SSR avec next-on-pages
+  outputDir: '.vercel/output/static', // Specify the correct output directory
 }
 // Export the config.
 export default withNextIntl(nextConfig);
