@@ -12,10 +12,10 @@ export const runtime = 'edge';
 // Libraries.
 import { React, useRef, useEffect, useState } from "react";
 // Components.
-import Hero from "@/src/components/hero/Hero.js";
-import RobotHero from "@/src/components/hero/RobotHero.js";
-import Scrollbar from "@/src/components/hero/Scrollbar.js";
-import Footer from "@/src/components/footer/Footer.js";
+import Hero from "../../components/hero/Hero.js";
+import RobotHero from "../../components/hero/RobotHero.js";
+import Scrollbar from "../../components/hero/Scrollbar.js";
+import Footer from "../../components/footer/Footer.js";
 // Contexts.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
