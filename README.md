@@ -14,8 +14,9 @@ Each new commit to the master branch triggers a redeployment on cloudflared's si
  - [x] Develop guide modal for the homepage.
  - [x] Develop dark/light mode.
  - [x] Investigate why the switch to the homepage sometimes takes forever...
+ - [x] Develop language switch.
+ - [ ] Add JP language support.
  - [ ] Develop interaction with the urdf (hightlight relevant components highlight focused component, hightlight component on hover and allow to click on it)  
  - [ ] Separate vertical and horizontal zoom.
  - [ ] Replace picture of medalion and fix lighting.
- - [ ] Develop language switch.
 
