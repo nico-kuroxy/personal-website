@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import 'roslib/build/roslib'; // Required syntax to work in production.
-import { useLaboratory } from '@/src/context/LaboratoryProvider';
+import { useLaboratory } from '../../context/LaboratoryProvider';
 
 const CameraViewer = () => {
   const [imageSrc, setImageSrc] = useState('');

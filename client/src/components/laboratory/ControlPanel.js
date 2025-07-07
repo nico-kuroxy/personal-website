@@ -16,7 +16,7 @@ import { usePageStyle } from "../../context/PageStyleProvider";
 import Modal from "../../modals/Modal";
 import ModalLaboratoryHelp from "../../modals/ModalLaboratoryHelp";
 // Utils.
-import { slideUp } from '@/src/utils/animation';
+import { slideUp } from '../../utils/animation';
 import { useState } from 'react';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
