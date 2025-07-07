@@ -12,6 +12,7 @@ export const dynamic = "force-dynamic";
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { React, Suspense } from "react";
+import { notFound } from 'next/navigation';
 // Styles.
 import "../styles/globals.css";
 // Components.
