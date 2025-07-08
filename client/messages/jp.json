@@ -5,10 +5,10 @@
     "pub": "論文"
   },
   "Footer": {
-    "guide": "guide"
+    "guide": "ガイド"
   },
   "HomeHero": {
-    "name": "ニコラス・エルベティと申します",
+    "name": "ニコラ・エルベティと申します",
     "engineer": "ロボット工学者です ",
     "work": "I work on topics such as",
     "words": ["AI [=◉︿◉=]", "Machine Learning", "Autonomous Stack", "Mobile Robots", "Robotic Arms", "Space Systems", "Computer Vision", "AUV & ASV", "Web Development Tools"],
@@ -23,7 +23,7 @@
   },
   "HomeRobot": {
     "collection": "A collection of the robots I worked with",
-    "robot": "Robot",
+    "robot": "ロボット",
     "media": "Media",
     "hardware": "Hardware",
     "missions": "Mission",
@@ -170,7 +170,7 @@
                 "4G/Wi-Fi router",
                 "UDP communication with PLC"
             ],
-            "media": "https://youtube.com/shorts/SbbTlvaCs5s?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=S1gQ5kiCJs4",
+            "media": "https://www.youtube-nocookie.com/embed/DcMedZNy1YQ?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=DcMedZNy1YQ",
             "_comment": "Information about the F1A robot"
         }
       ]
@@ -197,19 +197,19 @@
     "scrollup": "Enfin, la page défile automatiquement vers la section 'À propos de moi' lorsque vous utilisez la molette de votre souris."
   },
   "LabPanel": {
-    "robot": "Robot View",
-    "aerial": "Aerial View",
-    "reset": "Reset",
-    "start": "Start",
-    "pause": "Pause",
-    "twin": "Virtual Twin",
-    "focus": "Focus on"
+    "robot": "ロボットビュー",
+    "aerial": "空中ビュー",
+    "reset": "リセット",
+    "start": "スタート",
+    "pause": "休止",
+    "twin": "デジタルツイン",
+    "focus": "フォーカス:"
   },
   "LabControl": {
-    "ros": "ROS connection",
-    "controller": "Controller connection",
-    "choice": "Apply choices",
-    "guide": "Guide"
+    "ros": "ROS 接続",
+    "controller": "コントローラー接続",
+    "choice": "選択を適用",
+    "guide": "ガイド"
   },
   "LabModal": {
     "welcome": "Welcome to the laboratory help corner !",

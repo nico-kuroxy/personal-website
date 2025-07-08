@@ -5,7 +5,7 @@
     "pub": "article"
   },
   "Footer": {
-    "guide": "guide"
+    "guide": "Guide"
   },
   "HomeHero": {
     "name": "Je m'appelle Nicolas Erbetti",
@@ -170,7 +170,7 @@
             "Routeur 4G/Wi-Fi",
             "Communication UDP avec l’automate (PLC)"
         ],
-        "media": "https://youtube.com/shorts/SbbTlvaCs5s?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=S1gQ5kiCJs4",
+        "media": "https://www.youtube-nocookie.com/embed/DcMedZNy1YQ?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=DcMedZNy1YQ",
         "_comment": "Information about the F1A robot"
     }
   ]

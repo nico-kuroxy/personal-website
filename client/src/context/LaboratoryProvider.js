@@ -55,7 +55,7 @@ export function LaboratoryProvider(props) {
         } else if (language ==="en") {
             setWhichView("Robot View")
         } else if (language == "jp") {
-            setWhichView("Robot View")
+            setWhichView("ロボットビュー")
         }
     }, [language])
     // Return the html.

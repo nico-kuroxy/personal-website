@@ -390,10 +390,12 @@ export default function MonitorData(props) {
     return (
       // The container of the whole component.
       <div ref={containerRef} className="relative w-full h-full">
-        {/* The button to start and stop the plotting. */}
-        <PanelLabel labels={[(paused ? t("start") :  t("pause"))]} pose="right-4" clicked={paused} onClick={() => setPaused(p => !p)}/>
-        {/* The button to reset the view of the graph. */}
-        <PanelLabel labels={[t("reset")]} pose="right-24" onClick={resetZoom}/>
+        <div className='flex flex-row space-x-2'>
+          {/* The button to start and stop the plotting. */}
+          <PanelLabel labels={[(paused ? t("start") :  t("pause"))]} pose="right-4" clicked={paused} onClick={() => setPaused(p => !p)}/>
+          {/* The button to reset the view of the graph. */}
+          <PanelLabel labels={[t("reset")]} pose="right-24" onClick={resetZoom}/>
+        </div>
         {/* The container of the graph itself. */}
         <svg ref={svgRef} className="w-full h-full select-none cursor-crosshair bg-gray-400"></svg>
       </div>
