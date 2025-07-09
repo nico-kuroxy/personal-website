@@ -27,6 +27,7 @@ export default function MonitorData(props) {
     // Destructure the variables passed as argument.
     const {} = props
     // Destructure the context.
+    const { language } = usePageStyle()
     const { cmdVelMsg, robotOrientationRef, jointStatesRef, whichMsg } = useLaboratory()
     // Destructure the translations.
     const t = useTranslations('LabPanel')
@@ -391,10 +392,10 @@ export default function MonitorData(props) {
       // The container of the whole component.
       <div ref={containerRef} className="relative w-full h-full">
         <div className='flex flex-row space-x-2'>
-          {/* The button to start and stop the plotting. */}
-          <PanelLabel labels={[(paused ? t("start") :  t("pause"))]} pose="right-4" clicked={paused} onClick={() => setPaused(p => !p)}/>
           {/* The button to reset the view of the graph. */}
-          <PanelLabel labels={[t("reset")]} pose="right-24" onClick={resetZoom}/>
+          <PanelLabel labels={[t("reset")]} pose="right-4" onClick={resetZoom}/>
+          {/* The button to start and stop the plotting. */}
+          <PanelLabel labels={[(paused ? t("start") :  t("pause"))]} pose={language === "jp"? "right-28" : "right-24"} clicked={paused} onClick={() => setPaused(p => !p)}/>
         </div>
         {/* The container of the graph itself. */}
         <svg ref={svgRef} className="w-full h-full select-none cursor-crosshair bg-gray-400"></svg>
