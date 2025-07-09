@@ -9,17 +9,17 @@
   },
   "HomeHero": {
     "name": "ニコラ・エルベティと申します",
-    "engineer": "ロボット工学者です ",
-    "work": "I work on topics such as",
-    "words": ["AI [=◉︿◉=]", "Machine Learning", "Autonomous Stack", "Mobile Robots", "Robotic Arms", "Space Systems", "Computer Vision", "AUV & ASV", "Web Development Tools"],
-    "solution": "to provide robust solutions to complex robotic problems.",
-    "goal": "My goal ? Contributing to building a better future for all.",
-    "contact": "Contact me",
-    "download": "Download my CV",
-    "visit": "Visit the lab",
-    "years": "years of experience",
-    "countries": ["Projects in", "countries"],
-    "developed": "robots developed"
+    "engineer": "ロボット工学者です \u00A0\u00A0\u00A0\u00A0\u00A0",
+    "work": "色々な専門で働いて,",
+    "words": ["AI [=◉︿◉=]", "Machine Learning", "Autonomous Stack", "Mobile Robots", "Robotic Arms", "Space Systems", "Computer Vision", "AUV & ASV", "Web Development"],
+    "solution": "大変なロボティックス問題を解決するために。",
+    "goal": "私の目的は、世界のために良い未来を作ることです。",
+    "contact": "連絡する",
+    "download": "履歴書DL",
+    "visit": "ラボを見る",
+    "years": "年間の経験",
+    "countries": ["", "カ国でのプロジェクト"],
+    "developed": "台のロボットを開発"
   },
   "HomeRobot": {
     "collection": "A collection of the robots I worked with",
