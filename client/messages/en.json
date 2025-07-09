@@ -9,7 +9,7 @@
   },
   "HomeHero": {
     "name": "My name is Nicolas Erbetti",
-    "engineer": "I am a Robotics Engineer ",
+    "engineer": "I am a Robotics Engineer\u00A0",
     "work": "I work on topics such as",
     "words": ["AI [=◉︿◉=]", "Machine Learning", "Autonomous Stack", "Mobile Robots", "Robotic Arms", "Space Systems", "Computer Vision", "AUV & ASV", "Web Development Tools"],
     "solution": "to provide robust solutions to complex robotic problems.",

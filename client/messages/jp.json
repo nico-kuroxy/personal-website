@@ -9,7 +9,7 @@
   },
   "HomeHero": {
     "name": "ニコラ・エルベティと申します",
-    "engineer": "ロボット工学者です \u00A0\u00A0\u00A0\u00A0\u00A0",
+    "engineer": "ロボット工学者です\u00A0\u00A0\u00A0",
     "work": "色々な専門で働いて,",
     "words": ["AI [=◉︿◉=]", "Machine Learning", "Autonomous Stack", "Mobile Robots", "Robotic Arms", "Space Systems", "Computer Vision", "AUV & ASV", "Web Development"],
     "solution": "大変なロボティックス問題を解決するために。",
