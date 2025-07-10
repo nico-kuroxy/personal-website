@@ -30,7 +30,7 @@ export default function RobotDeck(props) {
     const t = useTranslations('HomeRobot')
     // Define the const variables of the component.
     const cards = [ // The deck of robot cards.
-        { title: "Missions" }, { title: "Hardware" }, { title: "Media" }
+        { title: "missions" }, { title: "hardware" }, { title: "media" }
       ]
     const offsets = [  // The offset between each card.
         { top: "12.5%", left: "7.5%" },
@@ -44,8 +44,8 @@ export default function RobotDeck(props) {
     // Define the react hook to update the content of the displaued card when the deck updates..
     useEffect(() => {
         // Register content.
-        const content = (sortedCards[selectedCardIndex]?.title === "Hardware") ? robot?.hardware :
-            (sortedCards[selectedCardIndex]?.title === "Missions") ? robot?.mission :
+        const content = (sortedCards[selectedCardIndex]?.title === "hardware") ? robot?.hardware :
+            (sortedCards[selectedCardIndex]?.title === "missions") ? robot?.mission :
                 robot?.media
         // Update content.
         setCardContent(content)
@@ -67,7 +67,7 @@ export default function RobotDeck(props) {
                 // Return the html of the component.
                 return (
                     // The render of each card of the stack.
-                    <RobotCard key={card.title} title={card.title} content={cardContent} orderIndex={card.order} style={style}
+                    <RobotCard key={card.title} title={t(card.title)} content={cardContent} orderIndex={card.order} style={style}
                     onClick={() => { if (i !== selectedCardIndex) setSelectedCardIndex(i); console.log("Clicked on", card.title) }} 
                     />
                 )

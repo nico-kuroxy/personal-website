@@ -34,9 +34,9 @@ export default function RobotCard(props) {
             { /* The card title */}
             <h3 className="text-3xl font-semibold font-monoCustom ">{title}</h3>
             { /* The content of the card. */ }
-            {(orderIndex===2 && Array.isArray(content) && title!=="Media") && <ul className="mt-6 space-y-1 list-disc pl-8">{content.map((item, index) => {return <li key={index} className="text-2xl">{item}</li>})}</ul>}
+            {(orderIndex===2 && Array.isArray(content) && title!=="Media" && title!=="Media") && <ul className="mt-6 space-y-1 list-disc pl-8">{content.map((item, index) => {return <li key={index} className="text-2xl">{item}</li>})}</ul>}
             { /* The video embeed if we are in the media section.. */ }
-            {(orderIndex===2 && title==="Media") && <iframe className="w-full h-[400px]" src={content} title="Demo video" allow="autoplay; encrypted-media" allowFullScreen/>}
+            {(orderIndex===2 && (title==="Media" || title==="メディア")) && <iframe className="w-full h-[400px]" src={content} title="Demo video" allow="autoplay; encrypted-media" allowFullScreen/>}
         </div>
     )
 }

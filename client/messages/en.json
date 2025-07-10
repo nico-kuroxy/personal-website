@@ -104,7 +104,7 @@
         },
         {
             "name": "UR5e",
-            "full_name": "Universal Robot 5e",
+            "full_name": "Universal Robot",
             "path": "/robots/images/ur5e.png",
             "link": "https://www.universal-robots.com/products/ur5e/",
             "mission": [

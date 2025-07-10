@@ -22,158 +22,159 @@
     "developed": "台のロボットを開発"
   },
   "HomeRobot": {
-    "collection": "A collection of the robots I worked with",
+    "collection": "働いてたロボットのコレクション",
     "robot": "ロボット",
-    "media": "Media",
-    "hardware": "Hardware",
-    "missions": "Mission",
-    "robots": [{
-            "name": "P-Guard",
-            "full_name": "Pearl Guard",
-            "path": "/robots/images/p-guard.png",
-            "link": "https://enovarobotics.eu/pguard/",
-            "mission": [
-                "Security patrols.",
-                "Intrusions and/or anomalies detection via AI.",
-                "Doubt removals with video verification and remote interpellation.",
-                "On-demand intervention.",
-                "« Click and Go » function.",
-                "Real-time remote control of the robot with anti-collision safety."
-            ],
-            "hardware": [
-                "360° camera for object segmentation and remote monitoring",
-                "Microphone & speaker",
-                "RTK GPS for localization",
-                "Safety belt with sonars",
-                "3D LiDAR for obstacle avoidance",
-                "Wi-Fi & 3G/4G",
-                "4 wheels actuators with encoders for differential-drive motion"
-            ],
-            "media": "https://www.youtube-nocookie.com/embed/VGmwygNWpqw?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=VGmwygNWpqw",
-            "_comment": "Information about the PGuard robot"
-        },
-        {
-            "name": "S-Drone",
-            "full_name": "Seasam Drone",
-            "path": "/robots/images/seasam-drone.png",
-            "link": "https://www.delairmarine.com/autonomous-rov-seasam/",
-            "mission": [
-                "Underwater exploration/inspection drone.",
-                "Automated scanning of cargo hull and analysis report generation via AI.",
-                "Pipe exploration and leakage detection.",
-                "Seabed scanning and object retrieval.",
-                "Position fixing (altitude, distance...) via numerical controllers.",
-                "Real-time video feedback and remote control in every direction."
-            ],
-            "hardware": [
-                "Acoustic emitter/transmitter for underwater localization",
-                "Ping sonar altimeter",
-                "9-axis IMU",
-                "IP67 certification",
-                "7 propellers for 6 degrees of freedom",
-                "Up to 100 meters depth resistance",
-                "Low-light camera",
-                "Robotic gripper"
-            ],
-            "media": "https://www.youtube-nocookie.com/embed/vMKZx3pdCGM?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=vMKZx3pdCGM",
-            "_comment": "Information about the S-Drone robot"
-        },
-        {
-            "name": "S-Navigator",
-            "full_name": "Seasam Navigator",
-            "path": "/robots/images/seasam-buoy.png",
-            "link": "https://www.delairmarine.com/rov-gps-seasam-navigator/",
-            "mission": [
-                "Surface Wi-Fi relay.",
-                "Combines the GPS absolute position and acoustic relative position to locate the underwater robot down to cm-level precision.",
-                "Automated bathymetric survey with complete coverage path-planning algorithms.",
-                "« Click and Go » function.",
-                "Real-time remote control via vector-state feedback controllers."
-            ],
-            "hardware": [
-                "RTK GPS for surface localization",
-                "Ping sonar altimeter",
-                "9-axis IMU",
-                "IP67 certification",
-                "Wi-Fi transmitter",
-                "3 propellers for 3 degrees of freedom and holonomic motion",
-                "Tethered communication with the S-Drone"
-            ],
-            "media": "https://www.youtube-nocookie.com/embed/a-Cp0XO10OE?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=a-Cp0XO10OE",
-            "_comment": "Information about the S-Buoy robot"
-        },
-        {
-            "name": "UR5e",
-            "full_name": "Universal Robot 5e",
-            "path": "/robots/images/ur5e.png",
-            "link": "https://www.universal-robots.com/products/ur5e/",
-            "mission": [
-                "Industrial, collaborative robot.",
-                "Used for research on cooking robots and soft manipulation.",
-                "A camera segments vegetables on the cutting plane, the first arm picks it up and holds it, and the second cuts it.",
-                "The motion of the knife is handled by a Q-Learning Policy trained to minimize the force/torque exerted on it."
-            ],
-            "hardware": [
-                "6 degrees of freedom",
-                "Force & torque sensors",
-                "5 kg maximum payload",
-                "850 mm reach",
-                "Rotary encoders",
-                "RGB cameras",
-                "Coupled with virtual twins for reinforcement learning processes",
-                "Dual-cobot setup"
-            ],
-            "media": "https://www.youtube-nocookie.com/embed/Tfi_JHRGEMA?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=Tfi_JHRGEMA",
-            "_comment": "Information about the UR5e robot"
-        },
-        {
-            "name": "B1A",
-            "full_name": "B1 Autonomous",
-            "path": "/robots/images/sc-b1a.png",
-            "link": "https://solarcleano.com/en/product/solarbridge-autonomous-solar-panel-cleaning-robot-b1a",
-            "mission": [
-                "Autonomous cleaning of land-based solar panels to maximize the energy production.",
-                "Executes a succession of maneuvers to accomplish a cleaning mission ordered by the operator via the web interface.",
-                "Segmentation of the panels shapes and positions with the LiDARs and RANSAC models.",
-                "Bringing down the brush and self-regulating cleaning pressure to optimize the cleaning."
-            ],
-            "hardware": [
-                "RTK GPS for localization",
-                "Dual-antenna orientation estimation",
-                "3D LiDARs for panel segmentation and obstacle avoidance",
-                "6 wheels actuators with encoders for holonomic motion",
-                "Sonars, winches encoders and limit switches for brush regulation",
-                "4G/Wi-Fi router",
-                "Serial communication with PLC"
-            ],
-            "media": "https://www.youtube-nocookie.com/embed/B_JLPLBZym0?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=B_JLPLBZym0",
-            "_comment": "Information about the B1A robot"
-        },
-        {
-            "name": "F1T",
-            "full_name": "F1 Talos",
-            "path": "/robots/images/sc-f1a.png",
-            "link": "https://talosproject.eu/news/talos-2nd-general-assembly-successfully-held-in-luxembourg/",
-            "mission": [
-                "Autonomous cleaning of floating solar panels to maximize the energy production.",
-                "Developed under the scope of the Horizon Europe project 'Talos'.",
-                "Switching behavior automatically depending on the conditions of the photovoltaic plant to clean when / where needed.",
-                "Segmentation of the panels' centroid with the depth cameras and custom YOLO model."
-            ],
-            "hardware": [
-                "Framos depth cameras for panel segmentation and obstacle avoidance",
-                "6-axis IMU",
-                "Wheel encoders",
-                "Integrated Intel GPU",
-                "Fall prevention belt with sonars",
-                "2 tracked wheel actuators for differential-drive motion",
-                "4G/Wi-Fi router",
-                "UDP communication with PLC"
-            ],
-            "media": "https://www.youtube-nocookie.com/embed/DcMedZNy1YQ?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=DcMedZNy1YQ",
-            "_comment": "Information about the F1A robot"
-        }
-      ]
+    "media": "メディア",
+    "hardware": "ハードウェア",
+    "missions": "ミッション",
+    "robots": [
+      {
+        "name": "P-Guard",
+        "full_name": "Pearl Guard",
+        "path": "/robots/images/p-guard.png",
+        "link": "https://enovarobotics.eu/pguard/",
+        "mission": [
+          "警備パトロール",
+          "AIによる侵入・異常検出",
+          "映像確認と遠隔呼びかけによる疑いの解消",
+          "要請による出動",
+          "「Click & Go」機能",
+          "衝突防止付きのリアルタイム遠隔操作"
+        ],
+        "hardware": [
+          "360°カメラ（物体識別と遠隔監視用）",
+          "マイクとスピーカー",
+          "RTK GPS（位置特定用）",
+          "ソナー付き安全ベルト",
+          "3D LiDAR（障害物回避用）",
+          "Wi-Fiと3G/4G通信",
+          "エンコーダー付き4輪駆動（差動走行）"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/VGmwygNWpqw?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=VGmwygNWpqw",
+        "_comment": "Information about the PGuard robot"
+      },
+      {
+        "name": "S-Drone",
+        "full_name": "Seasam Drone",
+        "path": "/robots/images/seasam-drone.png",
+        "link": "https://www.delairmarine.com/autonomous-rov-seasam/",
+        "mission": [
+          "水中探査・点検ドローン",
+          "船体スキャンとAIによるレポート作成",
+          "パイプ内探査と漏れ検出",
+          "海底スキャンと物体回収",
+          "数値制御による高度・距離の測定",
+          "全方向の映像配信と遠隔操作"
+        ],
+        "hardware": [
+          "音波発信機・受信機（水中位置特定用）",
+          "ソナー式高度計",
+          "9軸IMU（慣性測定装置）",
+          "IP67防水防塵認証",
+          "推進器7基（6自由度移動）",
+          "最大100mの耐水性",
+          "暗所用カメラ",
+          "ロボットアーム"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/vMKZx3pdCGM?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=vMKZx3pdCGM",
+        "_comment": "Information about the S-Drone robot"
+      },
+      {
+        "name": "S-Navigator",
+        "full_name": "Seasam Navigator",
+        "path": "/robots/images/seasam-buoy.png",
+        "link": "https://www.delairmarine.com/rov-gps-seasam-navigator/",
+        "mission": [
+          "水上Wi-Fi中継",
+          "GPSと音波測位の統合による高精度位置特定",
+          "自動の測深調査（経路計画アルゴリズム使用）",
+          "「Click ＆ Go」機能",
+          "状態フィードバック制御によるリアルタイム操作"
+        ],
+        "hardware": [
+          "RTK GPS（水上位置特定用）",
+          "ソナー式高度計",
+          "9軸IMU",
+          "IP67防水防塵認証",
+          "Wi-Fi送信機",
+          "3基の推進器（3自由度＋全方向移動）",
+          "シーサム・ドローンとの有線通信"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/a-Cp0XO10OE?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=a-Cp0XO10OE",
+        "_comment": "Information about the S-Buoy robot"
+      },
+      {
+        "name": "UR5e",
+        "full_name": "Universal Robot",
+        "path": "/robots/images/ur5e.png",
+        "link": "https://www.universal-robots.com/products/ur5e/",
+        "mission": [
+          "産業用・協働ロボット",
+          "調理ロボットや柔らかい物体の操作研究用",
+          "カメラで野菜を認識 → 腕で把持 → 別の腕で切断",
+          "ナイフの動作はQ学習で学習し、力・トルクを最小化"
+        ],
+        "hardware": [
+          "6自由度アーム",
+          "力・トルクセンサー",
+          "最大5kgの積載能力",
+          "到達距離850mm",
+          "ロータリーエンコーダー",
+          "RGBカメラ",
+          "仮想ツインと連携した強化学習対応",
+          "デュアルコボット構成"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/Tfi_JHRGEMA?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=Tfi_JHRGEMA",
+        "_comment": "Information about the UR5e robot"
+      },
+      {
+        "name": "B1A",
+        "full_name": "B1 Autonomous",
+        "path": "/robots/images/sc-b1a.png",
+        "link": "https://solarcleano.com/en/product/solarbridge-autonomous-solar-panel-cleaning-robot-b1a",
+        "mission": [
+          "地上型太陽光パネルの自動清掃で発電効率向上",
+          "オペレーター指示による自動清掃動作の実行",
+          "LiDARとRANSACでパネル形状と位置を認識",
+          "ブラシ圧の自動調整による最適清掃"
+        ],
+        "hardware": [
+          "RTK GPS（位置特定）",
+          "デュアルアンテナ（向き推定）",
+          "3D LiDAR（パネル識別・障害物回避）",
+          "6輪アクチュエーター（全方向移動）",
+          "ソナー・ウィンチ用エンコーダー・リミットスイッチ",
+          "4G/Wi-Fiルーター",
+          "PLCとのシリアル通信"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/B_JLPLBZym0?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=B_JLPLBZym0",
+        "_comment": "Information about the B1A robot"
+      },
+      {
+        "name": "F1T",
+        "full_name": "F1 Talos",
+        "path": "/robots/images/sc-f1a.png",
+        "link": "https://talosproject.eu/news/talos-2nd-general-assembly-successfully-held-in-luxembourg/",
+        "mission": [
+          "浮体型太陽光パネルの自動清掃で発電効率向上",
+          "Horizon Europeプロジェクト「Talos」開発",
+          "発電所の状態に応じた動作自動切替",
+          "深度カメラとYOLOでパネル中心を認識"
+        ],
+        "hardware": [
+          "Framos深度カメラ（パネル認識・障害物回避）",
+          "6軸IMU",
+          "ホイール用エンコーダー",
+          "内蔵Intel GPU",
+          "転倒防止ベルト（ソナー付き）",
+          "クローラー2基（差動走行）",
+          "4G/Wi-Fiルーター",
+          "PLCとのUDP通信"
+        ],
+        "media": "https://www.youtube-nocookie.com/embed/DcMedZNy1YQ?autoplay=1&mute=1&disablekb=1&modestbranding=1&playsinline=1&loop=1&playlist=DcMedZNy1YQ",
+        "_comment": "Information about the F1A robot"
+      }
+    ]
   },
   "HomeModal": {
     "welcome": "Bienvenue dans le coin d'aide de la page d'accueil !",
