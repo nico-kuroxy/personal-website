@@ -1,0 +1,3 @@
+[submodule "server/ros2_lab_ws"]
+	path = server/ros2_lab_ws
+	url = https://github.com/nico-kuroxy/ros2_lab_ws
