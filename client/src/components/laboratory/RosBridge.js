@@ -46,7 +46,7 @@ export default function RosBridge(props) {
         if (whichView === "Robot View" || whichView === "Vue Robot" || whichView === "ロボットビュー") {
             // We create the camera image subscriber.
             cameraSubRef.current = new ROSLIB.Topic({
-                ros: rosRef.current, name: '/lab/apriltag_segmentation/apriltag_frame', messageType: 'sensor_msgs/CompressedImage'
+                ros: rosRef.current, name: '/lab/robot_segmentation/segmented_frame/compressed', messageType: 'sensor_msgs/CompressedImage'
             })
             // And we subscribe to it.
             cameraSubRef.current.subscribe((message) => {
@@ -55,7 +55,7 @@ export default function RosBridge(props) {
         } else if (whichView === "Aerial View" || whichView === "Vue Aérienne" || whichView === "空中ビュー") {
             // Otherwise, we create the aerial camera image subscriber.
             cameraSubRef.current = new ROSLIB.Topic({
-                ros: rosRef.current, name: '/camera_aerial/image_raw/compressed', messageType: 'sensor_msgs/CompressedImage'
+                ros: rosRef.current, name: '/TB3_1/camera_aerial/image_raw/compressed', messageType: 'sensor_msgs/CompressedImage'
             })
             // And we subscribe to it.
             cameraSubRef.current.subscribe((message) => {
@@ -135,7 +135,7 @@ export default function RosBridge(props) {
         subscribeToImageTopic(whichView)
         // We create the joint subscriber.
         const jointSub = new ROSLIB.Topic({
-            ros: rosRef.current, name: '/joint_states', messageType: 'sensor_msgs/JointState'
+            ros: rosRef.current, name: '/TB3_1/joint_states', messageType: 'sensor_msgs/JointState'
         })
         // And we subscribe to it.
         jointSub.subscribe((message) => {
@@ -143,7 +143,7 @@ export default function RosBridge(props) {
         })
         // We create the imu subscriber.
         const odomSub = new ROSLIB.Topic({
-            ros: rosRef.current, name: '/odom', messageType: 'nav_msgs/msg/Odometry'
+            ros: rosRef.current, name: '/TB3_1/odom', messageType: 'nav_msgs/msg/Odometry'
         })
         // And we subscribe to it.
         odomSub.subscribe((message) => {
@@ -166,7 +166,7 @@ export default function RosBridge(props) {
         })
         // We create the twist publisher.
         cmdVelPubRef.current = new ROSLIB.Topic({
-            ros: rosRef.current, name: '/cmd_vel', messageType: 'geometry_msgs/Twist'
+            ros: rosRef.current, name: '/TB3_1/cmd_vel', messageType: 'geometry_msgs/Twist'
         })
         // We create the reset world service.
         resetWorldServiceClientRef.current = new ROSLIB.Service({
