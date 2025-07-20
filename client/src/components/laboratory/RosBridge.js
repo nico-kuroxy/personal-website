@@ -46,7 +46,7 @@ export default function RosBridge(props) {
         if (whichView === "Robot View" || whichView === "Vue Robot" || whichView === "ロボットビュー") {
             // We create the camera image subscriber.
             cameraSubRef.current = new ROSLIB.Topic({
-                ros: rosRef.current, name: '/lab/robot_segmentation/segmented_frame/compressed', messageType: 'sensor_msgs/CompressedImage'
+                ros: rosRef.current, name: '/lab/apriltag_segmentation/apriltag_frame/compressed', messageType: 'sensor_msgs/CompressedImage'
             })
             // And we subscribe to it.
             cameraSubRef.current.subscribe((message) => {
